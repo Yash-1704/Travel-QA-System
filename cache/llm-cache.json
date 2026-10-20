@@ -8,5 +8,105 @@
       "total": 19
     },
     "createdAt": "2026-10-20T04:33:08.554Z"
+  },
+  "68c08f4bf19e35c98ed746a834c04fdf9feb9567db7e477c6129646a2cc28c3d": {
+    "text": "The cancellation fee for a SkyNova Air Economy Saver ticket cancelled more than 72 hours before the flight is USD 45. [OKF:cancellation-skynova-economy.md]",
+    "latencyMs": 317,
+    "tokens": {
+      "prompt": 1319,
+      "completion": 41,
+      "total": 1360
+    },
+    "createdAt": "2026-10-20T04:58:23.602Z"
+  },
+  "b2892afe71925881805b6994b9d154c0dd4b0324ff9864804bffd9e27488f83c": {
+    "text": "No, Indian passport holders do not require a visa to enter Thaloria for tourism or short visits. Entry is visa-free, with a maximum stay of 30 days per visit. [OKF:visa-country-a-thaloria.md]",
+    "latencyMs": 365,
+    "tokens": {
+      "prompt": 1044,
+      "completion": 50,
+      "total": 1094
+    },
+    "createdAt": "2026-10-20T04:58:33.652Z"
+  },
+  "43e080621204895d47fd2ee41c9d8e1781ad1c80c481f90d513e32cd5648ce84": {
+    "text": "Flight SN-101 on 14 March 2026 was delayed by 4 hours and 20 minutes due to crew unavailability at Delhi. The operating crew had exceeded their maximum duty hours on an inbound flight from Dubai and could not legally operate the outbound service. [RAG:notice-0001]",
+    "latencyMs": 395,
+    "tokens": {
+      "prompt": 424,
+      "completion": 71,
+      "total": 495
+    },
+    "createdAt": "2026-10-20T04:58:43.688Z"
+  },
+  "6b53affd770d18edf0389b6e2e3cbfa8d414eca0e0bea181b2cad1326b548a0f": {
+    "text": "Based on the evidence provided, the SkyNova Air Delhi to Bangkok flight (SN-202) is **not** running normally on Tuesdays starting from **1 August 2026**.\n\nAccording to the operational notice, effective 1 August 2026, SkyNova Air will suspend its SN-202 service on Tuesdays and Thursdays for a period of 8 weeks due to low seasonal demand. Passengers on these dates will be rerouted via an ArcticJet codeshare or offered a full refund.\n\n[RAG:notice-0019]",
+    "latencyMs": 433,
+    "tokens": {
+      "prompt": 460,
+      "completion": 122,
+      "total": 582
+    },
+    "createdAt": "2026-10-20T04:58:53.726Z"
+  },
+  "38f82ed0b5106c6283d658f5243fba6052448b40ece9c4dbd94b3efa666904d1": {
+    "text": "Yes, you are entitled to compensation.\n\nAccording to the incident report, Flight SN-101 on 2026-06-17 was delayed by 8 hours and 20 minutes due to an unscheduled engine maintenance requirement, which is classified as a delay entirely within SkyNova Air's operational responsibility [RAG:notice-0009].\n\nUnder SkyNova Air's delay compensation policy, a delay of more than 6 hours caused by an airline fault entitles the passenger to USD 150 in cash compensation plus a meal [OKF:delay-compensation.md]. Since your delay was 8 hours and 20 minutes, you qualify for this tier. Additionally, because the delay exceeded 5 hours, you also have the option to cancel with a full refund [OKF:delay-compensation.md].\n\nTo claim this compensation, you must contact SkyNova Air's customer support within 90 days of the flight, providing your booking reference, flight number, and date of travel [OKF:delay-compensation.md].",
+    "latencyMs": 858,
+    "tokens": {
+      "prompt": 1028,
+      "completion": 221,
+      "total": 1249
+    },
+    "createdAt": "2026-10-20T04:59:04.152Z"
+  },
+  "bfeba2d037665c10575879173f0bedae2986160c8288a747568fb7e9f2529ee8": {
+    "text": "The application fee for a Standard Visitor Visa to Britannica is USD 115 (non-refundable) [OKF:visa-country-d-britannica.md].",
+    "latencyMs": 390,
+    "tokens": {
+      "prompt": 1179,
+      "completion": 37,
+      "total": 1216
+    },
+    "createdAt": "2026-10-20T04:59:13.690Z"
+  },
+  "206f289d9820e5c16c658617f30e04f01c0e44a08522d2b63fc0a1712b6589ff": {
+    "text": "No, you cannot bring a pet snake on board under standard passenger procedures. The policy explicitly states that exotic, unusual, or non-standard animals, including reptiles, are not covered and cannot be transported. Passengers wishing to travel with such animals must contact the airline's special cargo and live animal team directly, as approval is not guaranteed and may require special arrangements. [OKF:pets-policy.md]",
+    "latencyMs": 527,
+    "tokens": {
+      "prompt": 1476,
+      "completion": 82,
+      "total": 1558
+    },
+    "createdAt": "2026-10-20T04:59:23.827Z"
+  },
+  "912f6003d030e5586f28342715136424394dfa30c4576c2b07dc2166882bd02b": {
+    "text": "Based on the evidence provided, here is what you should do:\n\n1.  **Determine the cause of the delay:** Compensation is only payable if the delay was caused by factors within the airline's control (such as crew unavailability, technical faults, or operational issues). Delays caused by extraordinary circumstances (severe weather, air traffic control restrictions, security threats, natural disasters) do not qualify for financial compensation, though you are still entitled to care and assistance [OKF:delay-compensation.md].\n2.  **Check your specific entitlements:** Your rights depend on the airline and the duration of the delay. For example:\n    *   **SkyNova Air:** If the delay was over 3 hours, you are entitled to meals and refreshments. If it was over 5 hours, you have the option to cancel with a full refund. If it was an airline fault, specific cash or voucher compensation applies based on the delay length (e.g., USD 50 meal voucher for 2-4 hours) [OKF:delay-compensation.md].\n    *   **ArcticJet:** If the delay was over 3 hours, you are entitled to meals and refreshments. If it was over 5 hours, you are entitled to hotel accommodation and meals, and have the option to cancel with a full refund. If it was an airline fault, specific compensation applies (e.g., USD 75 travel voucher for 3-6 hours) [OKF:delay-compensation.md].\n    *   **VistaAir:** If the delay was over 3 hours, you are entitled to meals and refreshments. If it was over 4 hours, you are entitled to hotel accommodation and meals. If it was over 5 hours, you have the option to cancel with a full refund. If it was an airline fault, specific compensation applies (e.g., USD 100 travel voucher for 3-5",
+    "latencyMs": 1475,
+    "tokens": {
+      "prompt": 1016,
+      "completion": 400,
+      "total": 1416
+    },
+    "createdAt": "2026-10-20T04:59:34.775Z"
+  },
+  "70395d1353a639c18f2703ae2f89c5e3432ad8f086f7e3ec3255d680b61a1616": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 207,
+    "tokens": {
+      "prompt": 774,
+      "completion": 4,
+      "total": 778
+    },
+    "createdAt": "2026-10-20T04:59:43.510Z"
+  },
+  "feefdb5026d799e7c840b4d9ba0c59d9c61a7b2a88029fa066fe74efabe7e7ba": {
+    "text": "The processing time for a SkyNova Air refund depends on the reason for the cancellation:\n\n*   **Passenger-initiated cancellation:** For Economy Saver and Economy Flex fares, the remaining balance is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].\n*   **Airline-initiated cancellation:** If SkyNova Air cancels the flight, the full refund is processed within **7 business days** [OKF:cancellation-skynova-economy.md].\n\nNote: While a general policy document states that standard refunds are processed within 21 business days [OKF:refund-policy-general.md], the specific SkyNova Air economy fare policy specifies shorter timelines of 14 or 7 business days depending on the cancellation type [OKF:cancellation-skynova-economy.md].",
+    "latencyMs": 586,
+    "tokens": {
+      "prompt": 1515,
+      "completion": 169,
+      "total": 1684
+    },
+    "createdAt": "2026-10-20T04:59:53.891Z"
   }
 }

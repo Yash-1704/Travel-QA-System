@@ -1,10 +1,6 @@
 import React from 'react';
+import Chat from './pages/Chat.jsx';
 
 export default function App() {
-  return (
-    <div className="container">
-      <h1>Travel QA Support</h1>
-      <p>Classify-Then-Retrieve QA System</p>
-    </div>
-  );
+  return <Chat />;
 }
