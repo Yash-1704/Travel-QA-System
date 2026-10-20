@@ -1,0 +1,1034 @@
+[
+  {
+    "id": "q-001",
+    "category": "okf_only",
+    "question": "What is the cancellation fee for a SkyNova Air Economy Saver ticket if I cancel more than 72 hours before my flight?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "The cancellation fee is USD 45. The remaining balance of the base fare is refunded to your original payment method within 14 business days.",
+    "key_facts": [
+      "USD 45",
+      "14 business days"
+    ],
+    "split": "dev",
+    "source_file": "cancellation-skynova-economy.md"
+  },
+  {
+    "id": "q-002",
+    "category": "okf_only",
+    "question": "How many kilograms of checked baggage can I bring on ArcticJet Business class?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "ArcticJet Business class passengers are entitled to 2 checked bags, each with a maximum weight of 32 kg, giving a total free checked allowance of 64 kg.",
+    "key_facts": [
+      "2 checked bags",
+      "32 kg",
+      "64 kg"
+    ],
+    "split": "dev",
+    "source_file": "baggage-arcticjet-all.md"
+  },
+  {
+    "id": "q-003",
+    "category": "okf_only",
+    "question": "Do Indian passport holders need a visa to visit Thaloria?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "No. Indian passport holders do not require a visa to enter Thaloria. Entry is visa-free for up to 30 days. The passport must be valid for at least 6 months.",
+    "key_facts": [
+      "visa-free",
+      "30 days",
+      "6 months"
+    ],
+    "split": "dev",
+    "source_file": "visa-country-a-thaloria.md"
+  },
+  {
+    "id": "q-004",
+    "category": "okf_only",
+    "question": "What happens to airport taxes if I cancel a SkyNova Economy Saver ticket within 24 hours of departure?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "Airport taxes and statutory fees are refunded within 14 business days, even though the base fare and fuel surcharge are fully forfeited when cancelling within 24 hours of departure.",
+    "key_facts": [
+      "Airport taxes",
+      "14 business days",
+      "fully forfeited"
+    ],
+    "split": "dev",
+    "source_file": "cancellation-skynova-economy.md"
+  },
+  {
+    "id": "q-005",
+    "category": "okf_only",
+    "question": "What is the cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "The cancellation fee is USD 120. The remaining balance of the base fare and fuel surcharge is refunded to the original payment method within 14 business days.",
+    "key_facts": [
+      "USD 120",
+      "14 business days"
+    ],
+    "split": "test",
+    "source_file": "cancellation-arcticjet-economy.md"
+  },
+  {
+    "id": "q-006",
+    "category": "okf_only",
+    "question": "How much does it cost to cancel a VistaAir Business Sapphire ticket more than 48 hours before departure?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "Cancelling a VistaAir Business Sapphire ticket more than 48 hours before departure is fully refundable with no cancellation fee. The full amount paid, including base fare, fuel surcharge, and taxes, is refunded within 14 business days.",
+    "key_facts": [
+      "no cancellation fee",
+      "fully refundable",
+      "14 business days"
+    ],
+    "split": "test",
+    "source_file": "cancellation-vistaair-business.md"
+  },
+  {
+    "id": "q-007",
+    "category": "okf_only",
+    "question": "What is the checked baggage allowance for SkyNova Economy Flex passengers?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "SkyNova Economy Flex passengers are entitled to 1 checked bag with a maximum weight of 25 kg. The overweight fee is USD 8 per kg for bags exceeding 25 kg.",
+    "key_facts": [
+      "25 kg",
+      "USD 8 per kg"
+    ],
+    "split": "test",
+    "source_file": "baggage-skynova-economy.md"
+  },
+  {
+    "id": "q-008",
+    "category": "okf_only",
+    "question": "What visa do Indian passport holders need to visit Emiria?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "Indian passport holders can obtain a Visa on Arrival when entering Emiria. The fee is USD 35 for a 14-day visa. Passport validity of at least 6 months is required, along with a return ticket and proof of accommodation.",
+    "key_facts": [
+      "Visa on Arrival",
+      "USD 35",
+      "14-day"
+    ],
+    "split": "test",
+    "source_file": "visa-country-b-emiria.md"
+  },
+  {
+    "id": "q-009",
+    "category": "okf_only",
+    "question": "How do I earn SkyNova Miles on an Economy Flex ticket?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "SkyNova Economy Flex passengers earn 8 miles per USD spent on the base fare. Miles are credited to the account after the qualifying flight is completed.",
+    "key_facts": [
+      "8 miles per USD",
+      "base fare"
+    ],
+    "split": "test",
+    "source_file": "loyalty-skynova.md"
+  },
+  {
+    "id": "q-010",
+    "category": "okf_only",
+    "question": "What is the cabin baggage allowance on VistaAir Business Sapphire?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "VistaAir Business Sapphire passengers may bring 2 cabin bags, each with a maximum weight of 8 kg (total 16 kg), plus 1 personal item with no weight restriction.",
+    "key_facts": [
+      "2 cabin bags",
+      "8 kg",
+      "16 kg"
+    ],
+    "split": "test",
+    "source_file": "baggage-vistaair-business.md"
+  },
+  {
+    "id": "q-011",
+    "category": "okf_only",
+    "question": "How long does an Indian passport holder need the passport to be valid to enter Nipponara on an e-Visa?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "The passport must be valid for at least 6 months beyond the intended departure date from Nipponara. This is required in addition to holding a valid e-Visa.",
+    "key_facts": [
+      "6 months",
+      "departure date from Nipponara"
+    ],
+    "split": "test",
+    "source_file": "visa-country-c-nipponara.md"
+  },
+  {
+    "id": "q-012",
+    "category": "okf_only",
+    "question": "What is the minimum number of SkyNova Miles required to get a discount on a booking?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "The minimum redemption is 500 SkyNova Miles, which gives a USD 5 discount on the base fare.",
+    "key_facts": [
+      "500 SkyNova Miles",
+      "USD 5"
+    ],
+    "split": "test",
+    "source_file": "loyalty-skynova.md"
+  },
+  {
+    "id": "q-013",
+    "category": "rag_only",
+    "question": "Why was flight SN-101 on 14 March 2026 delayed?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Flight SN-101 on 14 March 2026 was delayed by 4 hours and 20 minutes due to crew unavailability at Delhi. The operating crew had exceeded their maximum duty hours on an inbound flight from Dubai and could not legally operate the outbound service.",
+    "key_facts": [
+      "crew unavailability",
+      "4 hours and 20 minutes",
+      "duty hours"
+    ],
+    "split": "dev",
+    "source_chunk": "notice-0001"
+  },
+  {
+    "id": "q-014",
+    "category": "rag_only",
+    "question": "What caused the delay on AJ-512 on 22 May 2026?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Flight AJ-512 on 22 May 2026 arrived at Tokyo Narita 6 hours and 50 minutes behind schedule due to a technical fault in the aircraft's auxiliary power unit (APU) discovered during pre-flight checks at Delhi. A replacement aircraft had to be repositioned from Mumbai.",
+    "key_facts": [
+      "auxiliary power unit",
+      "APU",
+      "6 hours and 50 minutes"
+    ],
+    "split": "dev",
+    "source_chunk": "notice-0002"
+  },
+  {
+    "id": "q-015",
+    "category": "rag_only",
+    "question": "Were there any baggage incidents on the ArcticJet Mumbai to London route recently?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Yes. During the week of 1 to 7 June 2026, four separate reports of damaged baggage were received from passengers on the AJ-411 Mumbai–London Heathrow route. Hard-shell suitcases showed cracking consistent with being crushed in the hold. Ground handling at London Heathrow was identified as the likely cause.",
+    "key_facts": [
+      "four separate reports",
+      "London Heathrow",
+      "cracking"
+    ],
+    "split": "dev",
+    "source_chunk": "notice-0012"
+  },
+  {
+    "id": "q-016",
+    "category": "rag_only",
+    "question": "Is the SkyNova Air Delhi to Bangkok flight running normally on Tuesdays?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "No. Effective 1 August 2026, SkyNova Air suspended the SN-202 Delhi–Bangkok service on Tuesdays and Thursdays for 8 weeks due to low seasonal demand. Passengers on affected bookings are being rerouted or offered a full refund.",
+    "key_facts": [
+      "suspended",
+      "Tuesdays and Thursdays",
+      "8 weeks"
+    ],
+    "split": "dev",
+    "source_chunk": "notice-0019"
+  },
+  {
+    "id": "q-017",
+    "category": "rag_only",
+    "question": "What happened to flight SN-202 on 28 February 2026 regarding baggage?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Three passengers on flight SN-202 (Delhi–Bangkok) on 28 February 2026 reported missing checked baggage. The bags were accidentally loaded onto flight SN-101 (Delhi–Dubai) due to a baggage tag misread at Delhi. The bags were retrieved from Dubai and forwarded to Bangkok, arriving 28 hours after the passengers.",
+    "key_facts": [
+      "Three passengers",
+      "SN-101",
+      "28 hours"
+    ],
+    "split": "test",
+    "source_chunk": "notice-0011"
+  },
+  {
+    "id": "q-018",
+    "category": "rag_only",
+    "question": "Why was flight VA-801 delayed on 8 July 2026?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Flight VA-801 on 8 July 2026 departed Delhi 3 hours and 15 minutes late due to a late inbound aircraft from London Heathrow. The inbound aircraft had experienced air traffic control holding delays over European airspace, which are classified as extraordinary circumstances beyond VistaAir's control.",
+    "key_facts": [
+      "3 hours and 15 minutes",
+      "late inbound aircraft",
+      "air traffic control"
+    ],
+    "split": "test",
+    "source_chunk": "notice-0003"
+  },
+  {
+    "id": "q-019",
+    "category": "rag_only",
+    "question": "Did the ArcticJet flight from Mumbai to Singapore have any technical issues in December 2025?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Yes. Flight AJ-613 on 11 December 2025 arrived at Singapore Changi 4 hours and 5 minutes late due to a software fault in the aircraft's flight management system (FMS) discovered during final checks. The system had to be rebooted and recertified by the on-ground engineering team.",
+    "key_facts": [
+      "flight management system",
+      "FMS",
+      "4 hours and 5 minutes"
+    ],
+    "split": "test",
+    "source_chunk": "notice-0008"
+  },
+  {
+    "id": "q-020",
+    "category": "rag_only",
+    "question": "Has VistaAir changed terminal at Delhi airport recently?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Yes. Due to runway resurfacing works at Delhi's Terminal 3, VistaAir flights VA-801 and VA-703 operated from Terminal 2 between 10 June 2026 and 31 July 2026. Normal terminal operations resumed on 1 August 2026.",
+    "key_facts": [
+      "Terminal 2",
+      "10 June 2026",
+      "31 July 2026"
+    ],
+    "split": "test",
+    "source_chunk": "notice-0021"
+  },
+  {
+    "id": "q-021",
+    "category": "rag_only",
+    "question": "Was there a theft reported from checked baggage on a VistaAir Delhi to Tokyo flight?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Yes. On flight VA-703 on 19 March 2026, a passenger reported that camera equipment worth approximately USD 2,400 was stolen from checked baggage. The bag showed signs of forced opening at the zip. The incident was reported to Delhi airport security and Tokyo Narita lost property, and VistaAir opened a formal investigation.",
+    "key_facts": [
+      "USD 2,400",
+      "camera equipment",
+      "forced opening"
+    ],
+    "split": "test",
+    "source_chunk": "notice-0013"
+  },
+  {
+    "id": "q-022",
+    "category": "rag_only",
+    "question": "What caused the 8-hour delay on SkyNova flight SN-101 in June 2026?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Flight SN-101 on 17 June 2026 was delayed by 8 hours and 20 minutes due to an unscheduled engine maintenance requirement. The captain noticed an oil leak from the left engine during the pre-flight walk-around. The aircraft was grounded for a full engine inspection and seal replacement, and no substitute aircraft was available at Delhi.",
+    "key_facts": [
+      "oil leak",
+      "engine inspection",
+      "8 hours and 20 minutes"
+    ],
+    "split": "test",
+    "source_chunk": "notice-0009"
+  },
+  {
+    "id": "q-023",
+    "category": "rag_only",
+    "question": "Has ArcticJet changed the departure time of its Mumbai to London flight?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Yes. From 15 September 2026, ArcticJet adjusted the AJ-411 Mumbai–London Heathrow schedule. The departure time from Mumbai shifted from 02:30 to 05:00 local time to accommodate new slot allocations at London Heathrow. Affected passengers received updated e-tickets by email.",
+    "key_facts": [
+      "05:00",
+      "02:30",
+      "15 September 2026"
+    ],
+    "split": "test",
+    "source_chunk": "notice-0020"
+  },
+  {
+    "id": "q-024",
+    "category": "rag_only",
+    "question": "Was SkyNova's Mumbai to Dubai flight ever delayed because of baggage handling problems?",
+    "expected_outcome": "RAG_ONLY",
+    "correct_answer": "Yes. On 10 May 2026, a baggage handling conveyor belt failure at Mumbai Terminal 2 during check-in for flight SN-303 caused an 85-minute departure delay. Seven bags missed the flight entirely and were sent on the next morning's SN-303 service.",
+    "key_facts": [
+      "conveyor belt failure",
+      "85-minute",
+      "Seven bags missed"
+    ],
+    "split": "test",
+    "source_chunk": "notice-0014"
+  },
+  {
+    "id": "q-025",
+    "category": "hybrid",
+    "question": "My flight SN-101 was delayed by more than 4 hours on 17 June 2026 due to an engine issue. Am I entitled to any compensation from SkyNova Air?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Yes. Flight SN-101 on 17 June 2026 was delayed by 8 hours and 20 minutes due to an oil leak in the left engine — a technical issue within SkyNova Air's operational responsibility. Under SkyNova Air's delay compensation policy, delays of more than 6 hours caused by airline fault entitle passengers to USD 150 cash compensation plus a meal. You can submit a compensation claim within 90 days of the flight.",
+    "key_facts": [
+      "USD 150 cash",
+      "8 hours and 20 minutes",
+      "airline fault",
+      "90 days"
+    ],
+    "split": "dev",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0009"
+  },
+  {
+    "id": "q-026",
+    "category": "hybrid",
+    "question": "ArcticJet flight AJ-512 was delayed by nearly 7 hours on 22 May 2026. What compensation am I entitled to?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight AJ-512 on 22 May 2026 was delayed by 6 hours and 50 minutes due to an APU technical fault, which is within ArcticJet's operational responsibility. Under ArcticJet's delay compensation policy, delays of more than 6 hours caused by airline fault entitle passengers to USD 200 cash compensation. You may submit a claim within 90 days.",
+    "key_facts": [
+      "USD 200 cash",
+      "6 hours and 50 minutes",
+      "airline fault"
+    ],
+    "split": "dev",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0002"
+  },
+  {
+    "id": "q-027",
+    "category": "hybrid",
+    "question": "Was the delay on VA-801 on 8 July 2026 the airline's fault, and am I entitled to compensation?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight VA-801 on 8 July 2026 was delayed by 3 hours and 15 minutes due to air traffic control holding delays over European airspace for the inbound aircraft. This is classified as extraordinary circumstances beyond VistaAir's control. Because the delay was not caused by the airline, VistaAir's compensation policy does not apply and financial compensation is not payable. Meal and refreshments should have been provided at the airport as the delay exceeded 3 hours.",
+    "key_facts": [
+      "extraordinary circumstances",
+      "not payable",
+      "Meal and refreshments"
+    ],
+    "split": "dev",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0003"
+  },
+  {
+    "id": "q-028",
+    "category": "hybrid",
+    "question": "SkyNova flight SN-303 was delayed 3 hours and 45 minutes on 19 January 2026 due to crew issues. What are my compensation options?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight SN-303 on 19 January 2026 was delayed by 3 hours and 45 minutes due to crew scheduling issues at Mumbai, which is classified as an airline operational issue within SkyNova Air's control. Under SkyNova Air's delay compensation policy, delays of 2 to 4 hours caused by airline fault entitle passengers to a USD 50 meal voucher. You can submit a claim within 90 days of the flight.",
+    "key_facts": [
+      "USD 50 meal voucher",
+      "3 hours and 45 minutes",
+      "airline fault"
+    ],
+    "split": "dev",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0006"
+  },
+  {
+    "id": "q-029",
+    "category": "hybrid",
+    "question": "The SkyNova flight SN-202 on 3 November 2025 was delayed over 5 hours due to a technical fault. Can I claim compensation?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight SN-202 on 3 November 2025 was delayed by 5 hours and 10 minutes due to a hydraulic system fault, which was the airline's operational responsibility. Under SkyNova Air's delay compensation policy, delays of more than 4 hours up to 6 hours caused by airline fault entitle passengers to a USD 100 meal voucher plus a USD 50 travel credit voucher. Since the delay exceeded 5 hours, you also had the option to cancel with a full refund at the time.",
+    "key_facts": [
+      "USD 100 meal voucher",
+      "USD 50 travel credit voucher",
+      "5 hours and 10 minutes"
+    ],
+    "split": "test",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0004"
+  },
+  {
+    "id": "q-030",
+    "category": "hybrid",
+    "question": "ArcticJet AJ-613 arrived 4 hours late in Singapore in December 2025 due to a software fault. What compensation is available?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight AJ-613 on 11 December 2025 was delayed by 4 hours and 5 minutes due to a software fault in the flight management system, which is within ArcticJet's maintenance responsibility. Under ArcticJet's delay compensation policy, delays of 3 to 6 hours caused by airline fault entitle passengers to a USD 75 travel voucher. You may submit a claim within 90 days.",
+    "key_facts": [
+      "USD 75 travel voucher",
+      "4 hours and 5 minutes",
+      "airline fault"
+    ],
+    "split": "test",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0008"
+  },
+  {
+    "id": "q-031",
+    "category": "hybrid",
+    "question": "VistaAir VA-902 on 23 August 2026 left Mumbai 3.5 hours late because of a catering issue. Does that count as the airline's fault? What do I get?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight VA-902 on 23 August 2026 was delayed 3 hours and 30 minutes due to a catering supply delay, which VistaAir has classified as an operational issue within its vendor management responsibility — meaning it is the airline's fault. Under VistaAir's delay compensation policy, delays of 3 to 5 hours caused by airline fault entitle passengers to a USD 100 travel voucher. Meal and refreshments should have been provided at the airport.",
+    "key_facts": [
+      "USD 100 travel voucher",
+      "airline's fault",
+      "3 hours and 30 minutes"
+    ],
+    "split": "test",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0010"
+  },
+  {
+    "id": "q-032",
+    "category": "hybrid",
+    "question": "ArcticJet AJ-411 was delayed 7.5 hours on 10 September 2026 after a bird strike inspection. Am I entitled to compensation?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight AJ-411 on 10 September 2026 arrived at London Heathrow 7 hours and 30 minutes late following a bird strike and mandatory airframe inspection. While the bird strike itself was outside ArcticJet's control, the extended duration of the inspection exceeded what was reasonably expected, and ArcticJet has accepted partial liability. Based on the airline's acceptance of responsibility and the delay exceeding 6 hours, passengers are entitled to USD 200 cash compensation under ArcticJet's delay compensation policy.",
+    "key_facts": [
+      "USD 200 cash",
+      "7 hours and 30 minutes",
+      "partial liability"
+    ],
+    "split": "test",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0005"
+  },
+  {
+    "id": "q-033",
+    "category": "hybrid",
+    "question": "What compensation does VistaAir owe me if my VA-703 flight was delayed nearly 3 hours due to weather on 5 April 2026?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight VA-703 on 5 April 2026 was delayed 2 hours and 50 minutes due to severe thunderstorm activity and an air traffic control ground stop at Delhi. This is classified as extraordinary circumstances beyond VistaAir's control. Because the delay did not reach 3 hours and was caused by weather outside the airline's control, no financial compensation is payable under VistaAir's delay compensation policy.",
+    "key_facts": [
+      "extraordinary circumstances",
+      "no financial compensation",
+      "2 hours and 50 minutes"
+    ],
+    "split": "test",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0007"
+  },
+  {
+    "id": "q-034",
+    "category": "hybrid",
+    "question": "SkyNova flight SN-101 was delayed 8 hours on June 17 2026. Can I also get a refund instead of compensation?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Yes. Flight SN-101 on 17 June 2026 was delayed 8 hours and 20 minutes due to an engine fault within SkyNova Air's control. Because the delay exceeded 5 hours, SkyNova Air's policy gives you the option to cancel the flight and receive a full refund. Alternatively, you can keep the booking and claim USD 150 cash compensation for a delay over 6 hours caused by airline fault. You do not receive both the refund and the cash compensation.",
+    "key_facts": [
+      "full refund",
+      "USD 150 cash",
+      "cancel the flight"
+    ],
+    "split": "test",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0009"
+  },
+  {
+    "id": "q-035",
+    "category": "hybrid",
+    "question": "SkyNova SN-303 was delayed because of a baggage belt failure at Mumbai on May 10 2026. What should affected passengers receive?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "Flight SN-303 on 10 May 2026 was delayed 85 minutes due to a conveyor belt failure at Mumbai Terminal 2, which is an operational issue within SkyNova Air's control. Since the delay was under 2 hours, SkyNova Air's delay compensation policy does not trigger a meal voucher or cash compensation at that duration. However, seven passengers whose bags missed the flight should receive their bags on the next SN-303 service.",
+    "key_facts": [
+      "85 minutes",
+      "under 2 hours",
+      "does not trigger"
+    ],
+    "split": "test",
+    "source_file": "delay-compensation.md",
+    "source_chunk": "notice-0014"
+  },
+  {
+    "id": "q-036",
+    "category": "hybrid",
+    "question": "ArcticJet flight AJ-613 had a baggage theft incident in October 2025. What does ArcticJet cover in such cases?",
+    "expected_outcome": "HYBRID",
+    "correct_answer": "In the October 2025 incident on AJ-613, a passenger reported a stolen laptop and hard drives. ArcticJet's liability claims team compensated the passenger USD 350 under the lost articles policy. Electronics checked without special handling were not covered at full replacement value. The specific compensation for any future claim depends on the items involved and whether special handling was declared.",
+    "key_facts": [
+      "USD 350",
+      "lost articles policy",
+      "special handling"
+    ],
+    "split": "test",
+    "source_file": "baggage-arcticjet-all.md",
+    "source_chunk": "notice-0015"
+  },
+  {
+    "id": "q-037",
+    "category": "human_fallback_stale",
+    "question": "How much does it cost to apply for a visa to visit Britannica as an Indian passport holder?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "Britannica visa fee is USD 115 (non-refundable)",
+    "key_facts": [
+      "USD 115"
+    ],
+    "split": "dev",
+    "fallback_reason": "The only OKF file covering Britannica visa fees (visa-country-d-britannica.md) is marked outdated and past its stale_after date. The fee in the file (USD 115) is known to be incorrect; the current fee is USD 180. Answering from this file would give wrong information.",
+    "source_file": "visa-country-d-britannica.md"
+  },
+  {
+    "id": "q-038",
+    "category": "human_fallback_stale",
+    "question": "How long does a refund from an airline-initiated cancellation take to process?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "airline-initiated cancellation refunds within 10 business days",
+    "key_facts": [
+      "10 business days"
+    ],
+    "split": "dev",
+    "fallback_reason": "The refund-policy-general.md file is past its stale_after date and status is outdated. It states 10 business days for airline-initiated refunds, but the current correct answer is 7 business days (per individual airline cancellation policies). Answering from the stale file gives the wrong timeline.",
+    "source_file": "refund-policy-general.md"
+  },
+  {
+    "id": "q-039",
+    "category": "human_fallback_stale",
+    "question": "What documents do I need to apply for a Britannica Standard Visitor Visa?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "documents: valid passport (min 6 months), completed online application form, bank statements for last 6 months, proof of accommodation, return or onward travel ticket, proof of employment or study",
+    "key_facts": [
+      "bank statements",
+      "proof of accommodation",
+      "return or onward"
+    ],
+    "split": "dev",
+    "fallback_reason": "The only relevant OKF file is visa-country-d-britannica.md which is past stale_after (status: outdated). Although the document list may still be partially accurate, the file is stale and should not be used to answer authoritatively. Escalate.",
+    "source_file": "visa-country-d-britannica.md"
+  },
+  {
+    "id": "q-040",
+    "category": "human_fallback_stale",
+    "question": "How many business days does a standard fare refund take?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "standard refunds take 21 business days",
+    "key_facts": [
+      "21 business days"
+    ],
+    "split": "dev",
+    "fallback_reason": "refund-policy-general.md is stale (past stale_after, status: outdated) and states 21 business days, which is incorrect. Current policy in individual cancellation files is 14 business days. Answering from the stale file gives the wrong answer.",
+    "source_file": "refund-policy-general.md"
+  },
+  {
+    "id": "q-041",
+    "category": "human_fallback_stale",
+    "question": "What is the processing time for a Britannica Standard Visitor Visa?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "processing time 15 to 20 business days",
+    "key_facts": [
+      "15 to 20 business days"
+    ],
+    "split": "test",
+    "fallback_reason": "visa-country-d-britannica.md is the only source for Britannica visa processing times but the file is stale (status: outdated, past stale_after). The content may be out of date. Escalate rather than answer from stale file.",
+    "source_file": "visa-country-d-britannica.md"
+  },
+  {
+    "id": "q-042",
+    "category": "human_fallback_stale",
+    "question": "Can I get priority visa processing for Britannica?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "yes, priority processing (8 business days) for an additional fee",
+    "key_facts": [
+      "priority",
+      "8 business days"
+    ],
+    "split": "test",
+    "fallback_reason": "The only Britannica visa source is stale. Escalate.",
+    "source_file": "visa-country-d-britannica.md"
+  },
+  {
+    "id": "q-043",
+    "category": "human_fallback_stale",
+    "question": "How do I request a refund for a flight that was cancelled by the airline?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "submit through the airline's official website or customer support line; requests via third-party agents must be forwarded by the agent",
+    "key_facts": [
+      "official website",
+      "customer support"
+    ],
+    "split": "test",
+    "fallback_reason": "refund-policy-general.md (stale) covers refund request process. The individual airline cancellation files only cover timelines, not the full process. No fresh authoritative source covers the process in detail. Escalate.",
+    "source_file": "refund-policy-general.md"
+  },
+  {
+    "id": "q-044",
+    "category": "human_fallback_stale",
+    "question": "Does Britannica allow multiple-entry Standard Visitor Visas?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "yes, multiple entry, valid up to 6 months",
+    "key_facts": [
+      "multiple entry"
+    ],
+    "split": "test",
+    "fallback_reason": "Only available source (visa-country-d-britannica.md) is stale. Escalate.",
+    "source_file": "visa-country-d-britannica.md"
+  },
+  {
+    "id": "q-045",
+    "category": "human_fallback_stale",
+    "question": "What bank statement period does Britannica require for a visa application?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "bank statements for the last 6 months",
+    "key_facts": [
+      "last 6 months"
+    ],
+    "split": "test",
+    "fallback_reason": "Only available source (visa-country-d-britannica.md) is stale. Escalate.",
+    "source_file": "visa-country-d-britannica.md"
+  },
+  {
+    "id": "q-046",
+    "category": "human_fallback_stale",
+    "question": "Does a refund to a credit card take longer than a bank transfer refund?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "no; card and bank-transfer refunds both take 21 business days",
+    "key_facts": [
+      "21 business days"
+    ],
+    "split": "test",
+    "fallback_reason": "Only detailed source is refund-policy-general.md which is stale. Individual cancellation files don't distinguish payment methods. Escalate.",
+    "source_file": "refund-policy-general.md"
+  },
+  {
+    "id": "q-047",
+    "category": "human_fallback_stale",
+    "question": "Is there a validity period on Britannica's Standard Visitor Visa and can I stay the full 6 months?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "valid up to 6 months, max stay per visit up to 6 months",
+    "key_facts": [
+      "6 months"
+    ],
+    "split": "test",
+    "fallback_reason": "Source is stale Britannica visa file. Escalate.",
+    "source_file": "visa-country-d-britannica.md"
+  },
+  {
+    "id": "q-048",
+    "category": "human_fallback_stale",
+    "question": "How would I receive a refund from ArcticJet if I paid by cash at the airport?",
+    "expected_outcome": "OKF_ONLY",
+    "correct_answer": "cash payments are refunded by cheque mailed to the address on file within 21 business days",
+    "key_facts": [
+      "cheque",
+      "21 business days"
+    ],
+    "split": "test",
+    "fallback_reason": "refund-policy-general.md covers cash refund method (cheque by mail) but is stale. Individual ArcticJet cancellation file does not specify payment-method-specific processes. Escalate.",
+    "source_file": "refund-policy-general.md"
+  },
+  {
+    "id": "q-049",
+    "category": "human_fallback_no_evidence",
+    "question": "Was there a delay on ArcticJet flight AJ-511 from Bangkok to Singapore last month?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "Flight AJ-511 and the Bangkok-Singapore route do not exist in any OKF file or RAG chunk. No evidence available."
+  },
+  {
+    "id": "q-050",
+    "category": "human_fallback_no_evidence",
+    "question": "Has there been any baggage incident on the VistaAir Mumbai to New York route in the past week?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "No recent baggage incident reports exist in the RAG data for VA-902 BOM-JFK. The service suspension notice (notice-0024) is about schedule, not baggage. No relevant evidence."
+  },
+  {
+    "id": "q-051",
+    "category": "human_fallback_no_evidence",
+    "question": "What was the reason for the delay on SkyNova flight SN-505 on 3 September 2026?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "Flight SN-505 does not exist in the fictional universe. No RAG chunk or OKF file contains any reference to it."
+  },
+  {
+    "id": "q-052",
+    "category": "human_fallback_no_evidence",
+    "question": "Are there any current advisories about the VistaAir Delhi to Tokyo route?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "The only VA-703 advisory in RAG data (notice-0023) is about ArcticJet AJ-512, not VistaAir. The terminal advisory (notice-0021) expired on 1 August 2026. No current advisory for VA-703 exists in the data."
+  },
+  {
+    "id": "q-053",
+    "category": "human_fallback_no_evidence",
+    "question": "Was there a strike at Mumbai airport affecting ArcticJet flights last week?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "No strike event at Mumbai airport exists in any RAG chunk. No relevant evidence."
+  },
+  {
+    "id": "q-054",
+    "category": "human_fallback_no_evidence",
+    "question": "Why was flight VA-802 delayed on October 10 2026?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "VA-802 is not a route in the fictional universe. No evidence exists in OKF or RAG data."
+  },
+  {
+    "id": "q-055",
+    "category": "human_fallback_no_evidence",
+    "question": "Has there been a recent ArcticJet announcement about new routes to South America?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "No RAG chunk contains new route announcements for ArcticJet to South America. The expo notice (notice-0030) mentions future plans were discussed but no binding announcements. No relevant evidence."
+  },
+  {
+    "id": "q-056",
+    "category": "human_fallback_no_evidence",
+    "question": "Were there any incidents involving ArcticJet flights at Singapore Changi airport this year?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "No incident at Singapore Changi involving ArcticJet exists in RAG data. Notice-0008 is a delay on arrival but not an incident at the airport. No relevant evidence."
+  },
+  {
+    "id": "q-057",
+    "category": "human_fallback_no_evidence",
+    "question": "What is the current status of the SkyNova Air frequent flyer partnership with hotels?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "loyalty-skynova.md mentions partner earning exists but says rates are published on the website and may change. No RAG chunk covers current hotel partnerships. No specific evidence available."
+  },
+  {
+    "id": "q-058",
+    "category": "human_fallback_no_evidence",
+    "question": "Was there a runway closure at London Heathrow that affected ArcticJet this summer?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "No RAG chunk describes a Heathrow runway closure this summer. Notice-0005 and notice-0012 cover unrelated AJ-411 events. No relevant evidence."
+  },
+  {
+    "id": "q-059",
+    "category": "human_fallback_no_evidence",
+    "question": "What is the current availability of seats on the SkyNova Air Delhi to Dubai route this weekend?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "Seat availability is real-time inventory data that does not exist in any OKF file or RAG chunk. No evidence."
+  },
+  {
+    "id": "q-060",
+    "category": "human_fallback_no_evidence",
+    "question": "Did VistaAir introduce a new loyalty programme recently?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "No OKF file or RAG chunk covers a VistaAir loyalty programme. The loyalty file in OKF covers only SkyNova Miles. No evidence."
+  },
+  {
+    "id": "q-061",
+    "category": "human_fallback_ambiguous",
+    "question": "Can I bring my pet snake on board?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "pets-policy.md explicitly states that exotic and unusual animals, including reptiles, are not covered by the standard policy and require case-by-case review by the airline's special cargo team. The question cannot be answered with a yes or no from policy alone."
+  },
+  {
+    "id": "q-062",
+    "category": "human_fallback_ambiguous",
+    "question": "What is the cheapest way to fly from India to London?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "This is a booking advice question requiring real-time fare comparison. No OKF file covers pricing or booking strategy. No RAG chunk contains fare data. Out of scope."
+  },
+  {
+    "id": "q-063",
+    "category": "human_fallback_ambiguous",
+    "question": "My flight was delayed. What should I do?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "The question is ambiguous — it does not specify the airline, flight number, delay duration, or cause. The correct answer depends on these details. Without them, the system cannot match to a specific delay log or determine compensation eligibility."
+  },
+  {
+    "id": "q-064",
+    "category": "human_fallback_ambiguous",
+    "question": "Is it safe to travel to Zorovia right now?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "Safety advisories are not covered by any OKF policy file or RAG chunk. visa-country-e-zorovia.md only covers visa restrictions, not travel safety. Out of scope."
+  },
+  {
+    "id": "q-065",
+    "category": "human_fallback_ambiguous",
+    "question": "What is the best airline for a family travelling to Nipponara?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "Opinion/recommendation question requiring subjective judgment. No OKF or RAG source can answer what is 'best'. Out of scope."
+  },
+  {
+    "id": "q-066",
+    "category": "human_fallback_ambiguous",
+    "question": "Can I take my guitar on the flight?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "Musical instruments are mentioned in passing in baggage-skynova-economy.md (referred to as 'refer to special items policy') but no detailed musical instrument policy exists in any OKF file. Cannot give a definitive answer."
+  },
+  {
+    "id": "q-067",
+    "category": "human_fallback_ambiguous",
+    "question": "I have a medical condition. Can I still fly?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "Medical fitness to fly is not covered in any OKF file or RAG chunk. Requires medical and airline-specific advice. Out of scope."
+  },
+  {
+    "id": "q-068",
+    "category": "human_fallback_ambiguous",
+    "question": "My bag was delayed. How much will I be reimbursed?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "The question does not specify the airline, route, or delay duration. Baggage delay compensation rules differ by airline and are not fully covered in OKF files. Ambiguous — cannot determine which rule applies."
+  },
+  {
+    "id": "q-069",
+    "category": "human_fallback_ambiguous",
+    "question": "Do I need travel insurance for my trip?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "Travel insurance is not covered in any OKF file or RAG chunk. This is a personal financial decision out of scope for this support system."
+  },
+  {
+    "id": "q-070",
+    "category": "human_fallback_ambiguous",
+    "question": "Is there any problem with flights today?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "Real-time operational status is not available in OKF or RAG data. The RAG chunks cover specific past events, not current flight status. Out of scope."
+  },
+  {
+    "id": "q-071",
+    "category": "human_fallback_ambiguous",
+    "question": "Why does ArcticJet charge so much for baggage?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "Opinion/complaint question not answerable from policy data. No OKF file or RAG chunk explains airline pricing rationale."
+  },
+  {
+    "id": "q-072",
+    "category": "human_fallback_ambiguous",
+    "question": "I want to change my seat to an aisle seat on my ArcticJet flight. How do I do that?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "Seat selection process is not covered in any OKF file or RAG chunk. This is a booking management task outside the current knowledge base."
+  },
+  {
+    "id": "q-073",
+    "category": "human_fallback_conflict",
+    "question": "How long does a SkyNova Air refund take to process?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "CONFLICT: cancellation-skynova-economy.md states refunds take 14 business days. refund-policy-general.md (stale) states 21 business days. The two sources give different timelines for the same question. The conflict cannot be resolved automatically; escalate."
+  },
+  {
+    "id": "q-074",
+    "category": "human_fallback_conflict",
+    "question": "How long does an ArcticJet refund take after an airline-initiated cancellation?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "CONFLICT: cancellation-arcticjet-economy.md states airline-initiated cancellation refunds take 7 business days. refund-policy-general.md (stale) states 10 business days. Two sources disagree. Escalate."
+  },
+  {
+    "id": "q-075",
+    "category": "human_fallback_conflict",
+    "question": "What is the standard refund processing time after a passenger cancels a flight?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "CONFLICT: Individual airline cancellation files consistently state 14 business days. refund-policy-general.md (stale) states 21 business days. Direct conflict between sources."
+  },
+  {
+    "id": "q-076",
+    "category": "human_fallback_conflict",
+    "question": "How quickly will I get my money back if I cancel a VistaAir flight?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "dev",
+    "fallback_reason": "CONFLICT: cancellation-vistaair-economy.md states 14 business days (economy) or 30 days within 24 hours. cancellation-vistaair-business.md states 14 business days. refund-policy-general.md (stale) states 21 business days standard. Conflicting timelines."
+  },
+  {
+    "id": "q-077",
+    "category": "human_fallback_conflict",
+    "question": "If SkyNova Air cancels my flight, how long before I receive my full refund?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "CONFLICT: cancellation-skynova-economy.md states 7 business days for airline-initiated cancellation refunds. refund-policy-general.md (stale) states 10 business days. Direct conflict on airline-initiated refund timeline."
+  },
+  {
+    "id": "q-078",
+    "category": "human_fallback_conflict",
+    "question": "What is the refund timeline for VistaAir if the airline cancels the flight?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "CONFLICT: cancellation-vistaair-economy.md states 7 business days for airline-initiated cancellation. refund-policy-general.md (stale) states 10 business days. Direct conflict."
+  },
+  {
+    "id": "q-079",
+    "category": "human_fallback_conflict",
+    "question": "What general refund timeline applies across all airlines for a standard passenger cancellation?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "CONFLICT: Individual airline files say 14 business days for a standard cancellation. refund-policy-general.md says 21 business days. Conflict between sources. Escalate."
+  },
+  {
+    "id": "q-080",
+    "category": "human_fallback_conflict",
+    "question": "How long does it take to get a refund after cancelling an ArcticJet economy ticket?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "CONFLICT: cancellation-arcticjet-economy.md states 14 business days. refund-policy-general.md (stale) states 21 business days. Conflict."
+  },
+  {
+    "id": "q-081",
+    "category": "human_fallback_conflict",
+    "question": "Does VistaAir offer a faster refund option if I cancelled a Business Sapphire ticket?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "CONFLICT: cancellation-vistaair-business.md states 14 business days. refund-policy-general.md (stale) states 21 business days. No specific faster-option text in the Business Sapphire file. Conflict on baseline timeline."
+  },
+  {
+    "id": "q-082",
+    "category": "human_fallback_conflict",
+    "question": "Are refunds to credit cards handled differently from refunds to bank accounts?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "CONFLICT: refund-policy-general.md (stale) claims same timeline for cards and bank transfers (21 business days). Individual cancellation files only quote one timeline (14 business days) without distinguishing payment method. Sources conflict or are insufficient."
+  },
+  {
+    "id": "q-083",
+    "category": "human_fallback_conflict",
+    "question": "What is the standard number of business days for any airline to refund a cancelled ticket?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "CONFLICT: Individual airline files state 14 business days. General refund policy (stale) states 21 business days. The 'standard' across airlines is directly contradicted by sources."
+  },
+  {
+    "id": "q-084",
+    "category": "human_fallback_conflict",
+    "question": "If I paid by cash for a SkyNova Air ticket and cancel it, what is the refund process and how long does it take?",
+    "expected_outcome": "ESCALATE",
+    "correct_answer": null,
+    "key_facts": [],
+    "split": "test",
+    "fallback_reason": "CONFLICT: cancellation-skynova-economy.md states 14 business days but does not specify the process for cash payments. refund-policy-general.md (stale) specifies cash refunds are issued by cheque in 21 business days. Sources conflict on timeline and the only source describing the cash process is stale."
+  }
+]

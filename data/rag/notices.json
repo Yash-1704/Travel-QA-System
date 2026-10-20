@@ -1,0 +1,332 @@
+[
+  {
+    "id": "notice-0001",
+    "text": "Flight SN-101 on 2026-03-14 was delayed by 4 hours and 20 minutes due to crew unavailability at Delhi. The operating crew exceeded their maximum duty hours on an inbound flight from Dubai and could not legally operate the outbound service. Affected passengers were provided meal vouchers at the airport. The delay was caused by an operational issue within SkyNova Air's control.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1773446400,
+      "flight_no": "SN-101",
+      "route": "DEL-DXB",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0002",
+    "text": "Flight AJ-512 on 2026-05-22 arrived at Tokyo Narita 6 hours and 50 minutes behind schedule. The delay originated from a technical fault in the aircraft's auxiliary power unit (APU) discovered during pre-flight checks at Delhi. A replacement aircraft was sourced but required repositioning from Mumbai, adding to the total delay duration. The cause was a technical issue within ArcticJet's control.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1779408000,
+      "flight_no": "AJ-512",
+      "route": "DEL-NRT",
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0003",
+    "text": "Flight VA-801 on 2026-07-08 departed Delhi 3 hours and 15 minutes late due to a late inbound aircraft from London Heathrow. The inbound aircraft (VA-802) had experienced air traffic control holding delays over European airspace, which are classified as extraordinary circumstances beyond VistaAir's control. Passengers were informed at the gate.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1783468800,
+      "flight_no": "VA-801",
+      "route": "DEL-LHR",
+      "airline": "VistaAir"
+    }
+  },
+  {
+    "id": "notice-0004",
+    "text": "Flight SN-202 on 2025-11-03 was delayed by 5 hours and 10 minutes due to a technical fault identified in the aircraft's hydraulic system during the scheduled pre-departure check at Delhi. A certified engineer was called in to inspect and certify the system. No replacement aircraft was available at short notice. The delay was the airline's operational responsibility.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1762128000,
+      "flight_no": "SN-202",
+      "route": "DEL-BKK",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0005",
+    "text": "Flight AJ-411 on 2026-09-10 arrived at London Heathrow 7 hours and 30 minutes late. The flight was grounded at Mumbai for an extended period after a bird strike on approach was reported by the incoming crew. A mandatory airframe inspection was carried out by engineering. The inspection itself was required by regulatory safety rules but the bird strike event was outside ArcticJet's control. However, the extended time to complete the inspection exceeded what was reasonably expected and ArcticJet has accepted partial liability.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1788998400,
+      "flight_no": "AJ-411",
+      "route": "BOM-LHR",
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0006",
+    "text": "Flight SN-303 on 2026-01-19 was delayed by 3 hours and 45 minutes due to crew scheduling issues at Mumbai. A first officer who was originally rostered for the flight was reassigned to cover an emergency on another route. A replacement first officer had to be called in from standby. The delay is classified as an airline operational issue within SkyNova Air's control.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1768780800,
+      "flight_no": "SN-303",
+      "route": "BOM-DXB",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0007",
+    "text": "Flight VA-703 on 2026-04-05 was delayed by 2 hours and 50 minutes due to severe thunderstorm activity over Delhi's Indira Gandhi International Airport. Air traffic control issued a ground stop for all departing traffic for 2 hours. The delay is classified as extraordinary circumstances and falls outside VistaAir's operational control.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1775347200,
+      "flight_no": "VA-703",
+      "route": "DEL-NRT",
+      "airline": "VistaAir"
+    }
+  },
+  {
+    "id": "notice-0008",
+    "text": "Flight AJ-613 on 2025-12-11 arrived at Singapore Changi 4 hours and 5 minutes late. The delay was caused by a software fault in the aircraft's flight management system (FMS) that was discovered during final checks. The system had to be rebooted and recertified by the on-ground engineering team before the aircraft could depart. The fault was a technical issue within ArcticJet's maintenance responsibility.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1765411200,
+      "flight_no": "AJ-613",
+      "route": "BOM-SIN",
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0009",
+    "text": "Flight SN-101 on 2026-06-17 was delayed by 8 hours and 20 minutes due to an unscheduled engine maintenance requirement. During the pre-flight walk-around, the captain noticed an oil leak from the left engine. The aircraft was grounded for a full engine inspection and seal replacement. A substitute aircraft was not available at Delhi. The delay was entirely within SkyNova Air's operational responsibility.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1781654400,
+      "flight_no": "SN-101",
+      "route": "DEL-DXB",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0010",
+    "text": "Flight VA-902 on 2026-08-23 departed Mumbai 3 hours and 30 minutes behind schedule due to a catering supply delay. The contracted catering firm delivered the in-flight meals 2 hours late, and VistaAir held the flight to ensure full catering was on board. The catering delay is classified as an operational issue within VistaAir's vendor management responsibility.",
+    "metadata": {
+      "source_type": "delay_log",
+      "timestamp": 1787443200,
+      "flight_no": "VA-902",
+      "route": "BOM-JFK",
+      "airline": "VistaAir"
+    }
+  },
+  {
+    "id": "notice-0011",
+    "text": "Incident report — Flight SN-202 on 2026-02-28. Three passengers on the Delhi–Bangkok route reported missing checked baggage on arrival at Bangkok Suvarnabhumi. Investigation revealed the bags were loaded onto flight SN-101 (Delhi–Dubai) in error due to a baggage tag misread at the Delhi handling facility. Bags were retrieved from Dubai and forwarded to Bangkok on the next available SkyNova Air service, arriving 28 hours after the passenger.",
+    "metadata": {
+      "source_type": "incident_report",
+      "timestamp": 1772236800,
+      "flight_no": "SN-202",
+      "route": "DEL-BKK",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0012",
+    "text": "Incident report — AJ-411 route, week of 2026-06-01 to 2026-06-07. Four separate reports of damaged baggage were received from passengers on the Mumbai–London Heathrow route. In each case, hard-shell suitcases showed cracking consistent with being crushed in the baggage hold. Ground handling at London Heathrow was identified as the likely cause following CCTV review. ArcticJet filed a formal complaint with the London Heathrow ground handling operator.",
+    "metadata": {
+      "source_type": "incident_report",
+      "timestamp": 1780272000,
+      "flight_no": "AJ-411",
+      "route": "BOM-LHR",
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0013",
+    "text": "Incident report — Flight VA-703 on 2026-03-19. A passenger's camera equipment worth approximately USD 2,400 was reported stolen from checked baggage on the Delhi–Tokyo route. The bag showed signs of forced opening at the zip. The incident was reported to Delhi airport security and Tokyo Narita lost property. VistaAir security team opened a formal investigation. The bag had passed through three handling facilities.",
+    "metadata": {
+      "source_type": "incident_report",
+      "timestamp": 1773878400,
+      "flight_no": "VA-703",
+      "route": "DEL-NRT",
+      "airline": "VistaAir"
+    }
+  },
+  {
+    "id": "notice-0014",
+    "text": "Incident report — SkyNova Air ground operations, Mumbai, 2026-05-10. Baggage handling conveyor belt at Terminal 2 experienced a mechanical failure during check-in processing for flight SN-303 (Mumbai–Dubai). Approximately 40 bags were delayed in loading, causing an 85-minute departure delay. Seven bags missed the flight entirely and were sent on the next morning's SN-303 service. Affected passengers were contacted by SMS.",
+    "metadata": {
+      "source_type": "incident_report",
+      "timestamp": 1778371200,
+      "flight_no": "SN-303",
+      "route": "BOM-DXB",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0015",
+    "text": "Incident report — AJ-613 route, 2025-10-22. A passenger reported that a laptop and two external hard drives were missing from a checked bag after the Mumbai–Singapore flight. The bag arrived with a broken lock. ArcticJet's liability claims team assessed the claim and agreed to compensate the passenger USD 350 under the lost articles policy. Full replacement value of USD 980 was not covered as the items were electronics declared without special handling.",
+    "metadata": {
+      "source_type": "incident_report",
+      "timestamp": 1761091200,
+      "flight_no": "AJ-613",
+      "route": "BOM-SIN",
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0016",
+    "text": "Incident report — Flight SN-101, 2026-08-05. During the pre-boarding process at Delhi, ground staff identified a discrepancy between the manifest and the number of bags checked in. An additional unattributed bag was found in the baggage area. Departure was held for 30 minutes while security conducted a bag-match exercise. The bag was subsequently matched to a passenger who had checked in the wrong bag by mistake. The flight departed 30 minutes late.",
+    "metadata": {
+      "source_type": "incident_report",
+      "timestamp": 1785888000,
+      "flight_no": "SN-101",
+      "route": "DEL-DXB",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0017",
+    "text": "Incident report — VA-801, 2026-09-02. Passenger complaint filed regarding oversized baggage surcharge applied at check-in for the Delhi–London route. Passenger claims they were told at time of booking that the bag was within allowance but was charged USD 55 oversize fee at the airport. Investigation ongoing. Passenger has been offered a goodwill credit of USD 55 pending review of booking logs.",
+    "metadata": {
+      "source_type": "incident_report",
+      "timestamp": 1788307200,
+      "flight_no": "VA-801",
+      "route": "DEL-LHR",
+      "airline": "VistaAir"
+    }
+  },
+  {
+    "id": "notice-0018",
+    "text": "Incident report — AJ-512, 2026-04-14. A passenger's wheelchair was damaged in the hold during the Delhi–Tokyo route. The footrest was broken and the armrest was bent. ArcticJet's ground team at Tokyo Narita arranged a temporary wheelchair and the damaged chair was sent for repair at ArcticJet's expense. Full repair cost of USD 480 reimbursed within 10 days.",
+    "metadata": {
+      "source_type": "incident_report",
+      "timestamp": 1776124800,
+      "flight_no": "AJ-512",
+      "route": "DEL-NRT",
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0019",
+    "text": "Advisory — SkyNova Air operational notice SN-ADV-2026-07. Effective 1 August 2026, SkyNova Air will suspend its SN-202 service (Delhi–Bangkok) on Tuesdays and Thursdays for a period of 8 weeks due to low seasonal demand. Passengers holding bookings on the affected dates will be rerouted via an ArcticJet codeshare at no extra cost, or offered a full refund. Affected customers will be contacted directly.",
+    "metadata": {
+      "source_type": "advisory",
+      "timestamp": 1753401600,
+      "flight_no": "SN-202",
+      "route": "DEL-BKK",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0020",
+    "text": "Advisory — ArcticJet operational notice AJ-ADV-2026-09. ArcticJet will adjust its AJ-411 (Mumbai–London Heathrow) schedule from 15 September 2026. The departure time from Mumbai will shift from 02:30 to 05:00 local time to accommodate new slot allocations at London Heathrow. Return service AJ-412 will depart Heathrow 1 hour earlier. Affected passengers will receive updated e-tickets by email.",
+    "metadata": {
+      "source_type": "advisory",
+      "timestamp": 1757808000,
+      "flight_no": "AJ-411",
+      "route": "BOM-LHR",
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0021",
+    "text": "Advisory — VistaAir operational notice VA-ADV-2026-06. Due to ongoing runway resurfacing works at Delhi's Terminal 3, VistaAir flights VA-801 and VA-703 will operate from Terminal 2 between 10 June 2026 and 31 July 2026. Passengers are advised to allow additional time for check-in and security. Terminal 2 is accessible from the main metro link. Normal terminal operations resume 1 August 2026.",
+    "metadata": {
+      "source_type": "advisory",
+      "timestamp": 1749600000,
+      "flight_no": "VA-801",
+      "route": "DEL-LHR",
+      "airline": "VistaAir"
+    }
+  },
+  {
+    "id": "notice-0022",
+    "text": "Advisory — SkyNova Air ground notice SN-ADV-2026-03. Bangkok Suvarnabhumi Airport (BKK) will conduct night maintenance works on Taxiway Alpha between 1 March 2026 and 30 April 2026. This may cause ground delays of up to 20 minutes for arriving flights between 23:00 and 05:00 local Bangkok time. SkyNova Air has requested slot adjustments to minimise impact on flight SN-202.",
+    "metadata": {
+      "source_type": "advisory",
+      "timestamp": 1740873600,
+      "flight_no": "SN-202",
+      "route": "DEL-BKK",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0023",
+    "text": "Advisory — ArcticJet safety notice AJ-ADV-2026-05. ArcticJet will conduct mandatory safety briefings for all passengers on the AJ-512 (Delhi–Tokyo) route beginning 1 May 2026, in compliance with updated Nipponara Civil Aviation Authority requirements for overwater flight segments. Briefings will be conducted in English and Nipponaran. Passengers must pay attention to the full safety demonstration.",
+    "metadata": {
+      "source_type": "advisory",
+      "timestamp": 1746144000,
+      "flight_no": "AJ-512",
+      "route": "DEL-NRT",
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0024",
+    "text": "Operational notice — VistaAir VA-ADV-2026-10. VistaAir has temporarily suspended its VA-902 (Mumbai–New York JFK) service from 1 October 2026 to 31 October 2026 due to scheduled airframe maintenance on the long-haul fleet. Passengers with bookings during this period will be rerouted via partner airline connections or offered a full refund. Customers are advised to check their email for rebooking options.",
+    "metadata": {
+      "source_type": "operational_notice",
+      "timestamp": 1759363200,
+      "flight_no": "VA-902",
+      "route": "BOM-JFK",
+      "airline": "VistaAir"
+    }
+  },
+  {
+    "id": "notice-0025",
+    "text": "Operational notice — SkyNova Air SN-ADV-2025-11. SkyNova Air will introduce new in-flight Wi-Fi on SN-101 (Delhi–Dubai) and SN-303 (Mumbai–Dubai) routes from 1 December 2025. Basic browsing will be complimentary for all passengers. Streaming packages will be available for purchase on board. This notice is for passenger information only and does not affect fare or baggage conditions.",
+    "metadata": {
+      "source_type": "operational_notice",
+      "timestamp": 1764460800,
+      "flight_no": "SN-101",
+      "route": "DEL-DXB",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0026",
+    "text": "Customer review summary — SkyNova Air, Q2 2026. Overall passenger satisfaction score for the SN-101 Delhi–Dubai route was 3.8 out of 5. Common praise themes: punctuality on non-disrupted days and friendly cabin crew. Common complaints: limited legroom in Economy Saver seats, long queue times at Delhi check-in counter, and inconsistent enforcement of cabin baggage size rules.",
+    "metadata": {
+      "source_type": "customer_review",
+      "timestamp": 1751500800,
+      "flight_no": "SN-101",
+      "route": "DEL-DXB",
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0027",
+    "text": "The quarterly engineering maintenance log for fleet rotation was submitted on schedule. All airframe checks passed within tolerance. Crew certification renewals are proceeding as planned. No actionable items for passenger operations this cycle.",
+    "metadata": {
+      "source_type": "operational_notice",
+      "timestamp": 1743897600,
+      "flight_no": null,
+      "route": null,
+      "airline": "ArcticJet"
+    }
+  },
+  {
+    "id": "notice-0028",
+    "text": "General inflight service update: From March 2026, VistaAir will refresh the in-flight menu on all routes. New regional cuisine options will be added alongside the existing continental menu. Vegetarian, vegan, and gluten-free meals will continue to be available on request at booking. This is a service announcement and does not affect fares, refund terms, or baggage policies.",
+    "metadata": {
+      "source_type": "operational_notice",
+      "timestamp": 1740528000,
+      "flight_no": null,
+      "route": null,
+      "airline": "VistaAir"
+    }
+  },
+  {
+    "id": "notice-0029",
+    "text": "Staff scheduling memo — internal. Crew roster updates for November cycles submitted to operations. No extraordinary changes this period. Training roster adjustments noted for simulator slots. This document is for internal operations reference only.",
+    "metadata": {
+      "source_type": "operational_notice",
+      "timestamp": 1761696000,
+      "flight_no": null,
+      "route": null,
+      "airline": "SkyNova Air"
+    }
+  },
+  {
+    "id": "notice-0030",
+    "text": "ArcticJet participated in the Norravia Aviation Expo 2026 in September. Representatives discussed future fleet expansion plans and new route possibilities. No binding announcements were made regarding new routes or fare changes. The event was a promotional appearance and does not constitute an operational or policy update.",
+    "metadata": {
+      "source_type": "operational_notice",
+      "timestamp": 1757289600,
+      "flight_no": null,
+      "route": null,
+      "airline": "ArcticJet"
+    }
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "customers": [
+    {
+      "customerId": "cust-001",
+      "name": "Arjun Sharma",
+      "email": "arjun.sharma@email.com"
+    },
+    {
+      "customerId": "cust-002",
+      "name": "Priya Mehta",
+      "email": "priya.mehta@email.com"
+    },
+    {
+      "customerId": "cust-003",
+      "name": "Rahul Nair",
+      "email": "rahul.nair@email.com"
+    }
+  ],
+  "bookings": [
+    {
+      "bookingId": "BK-10001",
+      "customerId": "cust-001",
+      "flightNo": "SN-101",
+      "route": "DEL-DXB",
+      "airline": "SkyNova Air",
+      "fareClass": "Economy Saver",
+      "date": "2026-06-17",
+      "status": "completed"
+    },
+    {
+      "bookingId": "BK-10002",
+      "customerId": "cust-001",
+      "flightNo": "SN-303",
+      "route": "BOM-DXB",
+      "airline": "SkyNova Air",
+      "fareClass": "Economy Flex",
+      "date": "2026-01-19",
+      "status": "completed"
+    },
+    {
+      "bookingId": "BK-10003",
+      "customerId": "cust-002",
+      "flightNo": "AJ-512",
+      "route": "DEL-NRT",
+      "airline": "ArcticJet",
+      "fareClass": "Economy",
+      "date": "2026-05-22",
+      "status": "completed"
+    },
+    {
+      "bookingId": "BK-10004",
+      "customerId": "cust-002",
+      "flightNo": "AJ-411",
+      "route": "BOM-LHR",
+      "airline": "ArcticJet",
+      "fareClass": "Business",
+      "date": "2026-09-10",
+      "status": "completed"
+    },
+    {
+      "bookingId": "BK-10005",
+      "customerId": "cust-003",
+      "flightNo": "VA-801",
+      "route": "DEL-LHR",
+      "airline": "VistaAir",
+      "fareClass": "Economy",
+      "date": "2026-07-08",
+      "status": "completed"
+    },
+    {
+      "bookingId": "BK-10006",
+      "customerId": "cust-003",
+      "flightNo": "VA-902",
+      "route": "BOM-JFK",
+      "airline": "VistaAir",
+      "fareClass": "Business Sapphire",
+      "date": "2026-08-23",
+      "status": "completed"
+    }
+  ]
+}

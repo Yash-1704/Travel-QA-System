@@ -1,0 +1,25 @@
+services:
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: travel-qa-chroma
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=false
+    volumes:
+      - chroma-data:/chroma/chroma
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    container_name: travel-qa-mongo
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  chroma-data:
+  mongo-data:

@@ -1,0 +1,7 @@
+.env
+node_modules
+chroma-data
+mongo-data
+client/dist
+cache/usage.json
+AGENTS.md
