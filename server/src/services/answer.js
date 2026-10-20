@@ -25,6 +25,16 @@ function normalizeReply(raw) {
     .toUpperCase();
 }
 
+export function interpretAnswerReply(raw) {
+  const normalized = normalizeReply(raw);
+
+  if (normalized === 'INSUFFICIENT' || normalized === 'CONFLICT') {
+    return { outcome: 'ESCALATED', escalationReason: normalized, answer: null };
+  }
+
+  return { outcome: 'ANSWERED', escalationReason: null, answer: raw.trim() };
+}
+
 /**
  * Parse [OKF:filename] and [RAG:notice-id] citation tags from the answer text.
  * Keep only ids that appear in retrievedItems (OKF id = filename, RAG id = notice id).
@@ -119,24 +129,7 @@ export async function answerV1(question, opts = {}) {
   const llmResult = await callLLM({ prompt, maxTokens: 400, bypassCache });
   const llmMs = Date.now() - llmStart;
 
-  const normalized = normalizeReply(llmResult.text);
-
-  let outcome;
-  let answer;
-  let escalationReason = null;
-
-  if (normalized === 'INSUFFICIENT') {
-    outcome = 'ESCALATED';
-    escalationReason = 'INSUFFICIENT';
-    answer = null;
-  } else if (normalized === 'CONFLICT') {
-    outcome = 'ESCALATED';
-    escalationReason = 'CONFLICT';
-    answer = null;
-  } else {
-    outcome = 'ANSWERED';
-    answer = llmResult.text.trim();
-  }
+  const { outcome, escalationReason, answer } = interpretAnswerReply(llmResult.text);
 
   const { citations, droppedCitations } = parseCitations(
     answer || '',

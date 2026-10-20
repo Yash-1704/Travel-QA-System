@@ -108,5 +108,65 @@
       "total": 1684
     },
     "createdAt": "2026-10-20T04:59:53.891Z"
+  },
+  "77ec4e701dda098252e8982bc804375505a0cd4d43dd45f69cced6e2e7c5f40f": {
+    "text": "You would pay a flat cancellation fee of USD 45. [OKF:cancellation-skynova-economy.md]",
+    "latencyMs": 292,
+    "tokens": {
+      "prompt": 1238,
+      "completion": 26,
+      "total": 1264
+    },
+    "createdAt": "2026-10-20T05:14:47.017Z"
+  },
+  "83b37a4eef5358a5f7731eeca4f8354288bf3e5636612fa90a7dc90155eb91a4": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 178,
+    "tokens": {
+      "prompt": 459,
+      "completion": 4,
+      "total": 463
+    },
+    "createdAt": "2026-10-20T05:15:00.515Z"
+  },
+  "66663bec1574e461d258b981ebac2c57f49c7bdf39c5e8c0e2682c29a484be42": {
+    "text": "The cancellation fee for a SkyNova Air economy booking depends on the specific fare sub-type (Economy Saver or Economy Flex) and how far in advance the cancellation is made:\n\n**Economy Saver:**\n*   **More than 72 hours before departure:** USD 45 [OKF:cancellation-skynova-economy.md]\n*   **Between 24 and 72 hours before departure:** USD 90 [OKF:cancellation-skynova-economy.md]\n*   **Within 24 hours of departure:** The fare is fully forfeited (no refund for base fare or fuel surcharge) [OKF:cancellation-skynova-economy.md]\n\n**Economy Flex:**\n*   **More than 24 hours before departure:** USD 30 [OKF:cancellation-skynova-economy.md]\n*   **Within 24 hours of departure:** USD 60 [OKF:cancellation-skynova-economy.md]\n\nNote: Airport taxes and statutory fees are always refunded regardless of the cancellation window or fare type [OKF:cancellation-skynova-economy.md].",
+    "latencyMs": 1040,
+    "tokens": {
+      "prompt": 1304,
+      "completion": 240,
+      "total": 1544
+    },
+    "createdAt": "2026-10-20T07:18:27.944Z"
+  },
+  "7c248ab49c9fcc6f62730316f21ec405d54702ccb5f8f21d1de30cc89ab2ba8e": {
+    "text": "The evidence contains two different records for flight SN-101 with conflicting dates, causes, and delay durations:\n\n1.  [RAG:notice-0001] states that flight SN-101 on **2026-03-14** was delayed by **4 hours and 20 minutes** due to **crew unavailability** (crew exceeded maximum duty hours).\n2.  [RAG:notice-0009] states that flight SN-101 on **2026-06-17** was delayed by **8 hours and 20 minutes** due to an **unscheduled engine maintenance requirement** (oil leak).\n\nSince the question does not specify the date of the flight, and the evidence provides two different reasons and durations for two different instances of flight SN-101, the facts needed to answer the question are contradictory in the context of a single specific event without a date qualifier.\n\nCONFLICT",
+    "latencyMs": 623,
+    "tokens": {
+      "prompt": 421,
+      "completion": 207,
+      "total": 628
+    },
+    "createdAt": "2026-10-20T07:18:49.510Z"
+  },
+  "b82fc9432acb721efd19d428565177382069a81c12c8ff72e7df50f44e9a8798": {
+    "text": "The cancellation fee depends on your specific fare type (Economy Saver or Economy Flex) and how far in advance you cancel:\n\n**Economy Saver:**\n*   **More than 72 hours before departure:** USD 45 [OKF:cancellation-skynova-economy.md]\n*   **Between 24 and 72 hours before departure:** USD 90 [OKF:cancellation-skynova-economy.md]\n*   **Within 24 hours of departure:** The base fare and fuel surcharge are fully forfeited (no refund), but airport taxes and statutory fees are refunded [OKF:cancellation-skynova-economy.md]\n\n**Economy Flex:**\n*   **More than 24 hours before departure:** USD 30 [OKF:cancellation-skynova-economy.md]\n*   **Within 24 hours of departure:** USD 60 [OKF:cancellation-skynova-economy.md]\n\nIn all cases, airport taxes, passenger service fees, and statutory charges are always refunded [OKF:cancellation-skynova-economy.md].",
+    "latencyMs": 1063,
+    "tokens": {
+      "prompt": 1308,
+      "completion": 235,
+      "total": 1543
+    },
+    "createdAt": "2026-10-20T07:19:04.701Z"
+  },
+  "73a66da696e8324245fd588bb8c766940576d3bd2e9d3d72aeb1b2267eaa76ee": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 260,
+    "tokens": {
+      "prompt": 451,
+      "completion": 4,
+      "total": 455
+    },
+    "createdAt": "2026-10-20T07:19:21.913Z"
   }
 }

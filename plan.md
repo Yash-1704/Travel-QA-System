@@ -2,7 +2,7 @@
 
 **RAG-only baseline vs. OKF + RAG with LLM routing**
 
-Last updated: October 20, 2026 (Simplified version, corrected; label, CONFLICT, stale-policy and token-budget fixes applied)
+Last updated: October 20, 2026 (reconciled with AGENTS.md: active Groq model and limits, 10-second call spacing, and explicit stale/conflict evaluation caveats)
 
 **How to use this file.** Read sections 1 to 5 to understand what you are building and why. Section 6 is the version-by-version build map you follow while coding. Sections 7 and 8 cover the evaluation and the paper. Sections 9 to 12 are reference (what to learn, tech stack, key terms, future work).
 
@@ -15,11 +15,13 @@ Last updated: October 20, 2026 (Simplified version, corrected; label, CONFLICT, 
 **How it works.**
 
 **V1: RAG-only baseline**
-- All documents (policy files and event notices) are chunked and uploaded to a single vector store.
-- For each question, retrieve the top 3 most similar chunks and generate an answer.
+
+- Each complete policy file and each event notice is stored as one item in a single vector store.
+- For each question, retrieve the top 3 most similar items and generate an answer.
 - No routing logic; the LLM answers from whatever retrieves.
 
 **V2: OKF + RAG with LLM-first routing**
+
 - Two knowledge sources: OKF files (curated policies on visa, baggage, cancellations) and a RAG vector store (event notices, delays, incident reports).
 - The LLM classifies the question type first — before any retrieval — based only on the question text.
 - Based on the classification, the system retrieves from the appropriate source(s) only, then generates an answer.
@@ -27,17 +29,18 @@ Last updated: October 20, 2026 (Simplified version, corrected; label, CONFLICT, 
 
 **The research contribution (the paper):**
 Compare V1 (RAG-only) vs V2 (LLM-classified routing + OKF + RAG) on:
+
 - Answer accuracy (does routing to the right source lead to better answers?)
 - Routing reliability (does the LLM correctly classify question types?)
 - Latency and token cost (does routing to a smaller, targeted source save time and tokens?)
 
 **Built in versions.** Each version is complete on its own:
 
-| Version | What it does |
-| --- | --- |
-| V1 | RAG-only baseline: all documents in one vector store, retrieve and answer |
-| V2 | LLM classifies question type first, then retrieves from OKF or RAG or both |
-| V3 (optional) | Customer context: resolve "my flight" to actual bookings in MongoDB |
+| Version       | What it does                                                               |
+| ------------- | -------------------------------------------------------------------------- |
+| V1            | RAG-only baseline: all documents in one vector store, retrieve and answer  |
+| V2            | LLM classifies question type first, then retrieves from OKF or RAG or both |
+| V3 (optional) | Customer context: resolve "my flight" to actual bookings in MongoDB        |
 
 **One-sentence pitch for your mentor.** "We study whether asking an LLM to classify a question before retrieval — routing it to curated policies or event data — produces more accurate answers than a standard RAG-only system that retrieves from everything at once."
 
@@ -83,18 +86,18 @@ The LLM classifies the question type based on the question text alone — before
 
 Example routing:
 
-| Question | LLM classifies | Why |
-| --- | --- | --- |
-| What is the cancellation fee? | OKF_ONLY | Asking for a policy rule |
-| Do I need a visa for Japan? | OKF_ONLY | Asking for a rule |
-| Why was flight AI-202 delayed on October 10? | RAG_ONLY | Asking about a specific event |
-| Are there baggage problems on the Dubai route this week? | RAG_ONLY | Asking about recent incidents |
-| Can I get compensation for my 4-hour delay? | HYBRID | Needs the compensation rule (OKF) AND the facts of the delay (RAG) |
-| Can I bring my pet snake on board? | ESCALATE | Not covered by any source |
+| Question                                                 | LLM classifies | Why                                                                |
+| -------------------------------------------------------- | -------------- | ------------------------------------------------------------------ |
+| What is the cancellation fee?                            | OKF_ONLY       | Asking for a policy rule                                           |
+| Do I need a visa for Japan?                              | OKF_ONLY       | Asking for a rule                                                  |
+| Why was flight AI-202 delayed on October 10?             | RAG_ONLY       | Asking about a specific event                                      |
+| Are there baggage problems on the Dubai route this week? | RAG_ONLY       | Asking about recent incidents                                      |
+| Can I get compensation for my 4-hour delay?              | HYBRID         | Needs the compensation rule (OKF) AND the facts of the delay (RAG) |
+| Can I bring my pet snake on board?                       | ESCALATE       | Not covered by any source                                          |
 
-**Why RAG-only struggles:** A standard vector store mixes policies and notices together. Policy chunks can be cut off mid-condition, or a notice might accidentally rank higher than the official policy. This is what V1 will demonstrate.
+**V1 hypothesis:** A mixed collection may create cross-source ranking interference: an event notice could occupy a top-three result for a policy question, or a policy document could rank above a relevant notice. Each policy is stored as one complete document, so truncation of a policy condition is not part of this design. Treat ranking interference as a hypothesis to evaluate, not a demonstrated V1 result.
 
-**Why classify-then-retrieve helps:** By classifying first and retrieving from only the right source, you avoid retrieval noise. Policy questions get the full, uncut OKF file. Event questions get only event chunks without policy noise. This is the hypothesis V2 tests.
+**Why classify-then-retrieve may help:** Retrieving from the source selected by the question type may reduce cross-source ranking interference. This is the hypothesis V2 tests; results must establish whether it occurred.
 
 ### What this project does NOT do
 
@@ -110,11 +113,11 @@ OKF is a file format with optional metadata. It stores curated policies but does
 
 Spec: https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md
 
-| OKF provides | This project builds |
-| --- | --- |
-| Markdown files with YAML frontmatter; only `type` is required | Travel policy files in OKF format, and a parser to read them |
-| Optional metadata fields (`sources`, `verified`, `stale_after`, `status`) | Used for citing sources in answers; not used for routing or scoring |
-| Nothing for retrieval or routing | The LLM classifier (classify question type from the question alone), retrieval from the chosen source(s), the escalation decision, and the evaluation (V1 vs V2 comparison) |
+| OKF provides                                                              | This project builds                                                                                                                                                         |
+| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Markdown files with YAML frontmatter; only `type` is required             | Travel policy files in OKF format, and a parser to read them                                                                                                                |
+| Optional metadata fields (`sources`, `verified`, `stale_after`, `status`) | Used for citing sources in answers; not used for routing or scoring                                                                                                         |
+| Nothing for retrieval or routing                                          | The LLM classifier (classify question type from the question alone), retrieval from the chosen source(s), the escalation decision, and the evaluation (V1 vs V2 comparison) |
 
 Read the spec yourself before generating files.
 
@@ -132,7 +135,7 @@ Express  POST /api/chat
         |
         v
    [V1 path]                    [V2 path]
-   Retrieve top 3 chunks        Ask LLM to classify question:
+  Retrieve top 3 items         Ask LLM to classify question:
    from `combined` collection   "OKF_ONLY / RAG_ONLY / HYBRID / ESCALATE"
         |                               |
         |                    Based on classification:
@@ -141,7 +144,7 @@ Express  POST /api/chat
         |                    - HYBRID: both of the above
         |                    - ESCALATE: skip to human fallback
         |                               |
-        +---------> LLM answer (Groq, Llama 3.3 70B)
+        +---------> LLM answer (Groq, `qwen/qwen3.8-27b`)
                     answers ONLY from the retrieved evidence
                                |
                    +-----------+------------------+
@@ -312,13 +315,13 @@ travel-qa/
   cache/llm-cache.json         Cache all LLM outputs keyed by exact prompt
 ```
 
-| Endpoint | Purpose |
-| --- | --- |
-| `POST /api/chat` | Body: `{ question, customerId? }`. Returns `{ outcome, answer?, citations, caseId? }` |
-| `GET /api/cases?status=pending` | Employee queue |
-| `GET /api/cases/:id` | Evidence view for one case |
-| `POST /api/cases/:id/resolve` | Employee's final answer |
-| `GET /api/customers/:id/bookings` | V3 only |
+| Endpoint                          | Purpose                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------- |
+| `POST /api/chat`                  | Body: `{ question, customerId? }`. Returns `{ outcome, answer?, citations, caseId? }` |
+| `GET /api/cases?status=pending`   | Employee queue                                                                        |
+| `GET /api/cases/:id`              | Evidence view for one case                                                            |
+| `POST /api/cases/:id/resolve`     | Employee's final answer                                                               |
+| `GET /api/customers/:id/bookings` | V3 only                                                                               |
 
 **MongoDB collections:** `cases`, `customers`, `bookings`, `experiment_logs`.
 
@@ -344,7 +347,8 @@ Example `cases` document:
 Note `classifyMs` — log classification time separately from retrieval and generation. This lets you report the latency cost of the classification step in the paper.
 
 **Chroma collections:**
-- `combined`: all documents (OKF policy files chunked + notices). Used by V1 only.
+
+- `combined`: all 18 complete OKF policy files (one item per file) plus 30 notices. Used by V1 only.
 - `notices`: event notices only. Used by V2's RAG retrieval.
 
 ---
@@ -359,12 +363,12 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 
 ### V1: RAG-only baseline (about 1 week)
 
-- **Goal:** build the standard RAG-only system. Chunk all documents (OKF files as plain text + notices) into one Chroma collection called `combined`. Answer from whatever retrieves.
-- **Build:** Express `/api/chat` endpoint; RAG pipeline: chunk the OKF files and notices, embed with Gemini, store in Chroma `combined` (cosine distance), retrieve top 3 by similarity; one Groq call that answers from that evidence; React chat page showing the answer and citations.
+- **Goal:** build the RAG-only system. Store each complete OKF file and each notice as one item in a Chroma collection called `combined`. Answer from whatever retrieves.
+- **Build:** Express `/api/chat` endpoint; embed the complete OKF files and notices with Gemini, store them in Chroma `combined` (cosine distance), retrieve the top 3 items by similarity; one Groq call that answers from that evidence; React chat page showing the answer and citations.
 - **You learn:** embeddings, vector databases, similarity search, the full RAG pipeline end to end, Groq API calls with a constrained system prompt.
-- **Done when:** 10 questions (mix of policy and event) return reasonable answers with chunk IDs cited.
+- **Done when:** 10 questions (mix of policy and event) return reasonable answers with source item IDs cited.
 - **This is your baseline.** Everything is compared against V1.
-- **Limitation:** policy questions may retrieve a partial chunk that cuts off a condition; event questions may retrieve a policy chunk instead of the right notice. You will observe both of these during testing, and they motivate V2.
+- **Hypothesis to evaluate:** top-three retrieval from the mixed collection may rank a different source type above relevant evidence. Policy-condition truncation is not applicable because each complete policy file is stored as one item. Do not claim cross-source interference occurred unless the observed results support it.
 
 ### V2: LLM classification + OKF + RAG routing (about 2 weeks)
 
@@ -404,50 +408,55 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 
 **84 questions: 7 categories with 12 each.** 4 per category (28 total) form the development set used only to verify the system works. 8 per category (56 total) are the final test set, run once after everything is built.
 
-| Category | Expected V2 outcome | What it tests |
-| --- | --- | --- |
-| Policy question, strong OKF match | OKF_ONLY | Does the LLM correctly classify policy questions? Does OKF give a better answer than V1? |
-| Event question, strong RAG match | RAG_ONLY | Does the LLM correctly classify event questions? |
-| Hybrid (compensation = rule + event) | HYBRID | Can V2 use both sources together? Does V1 struggle here? |
-| Policy question, OKF file is past its review date | OKF_ONLY | Neither system checks staleness (no metadata signals are used). Scored like a normal policy question; documented as a limitation |
-| Event question with no matching records | ESCALATE | Both systems should admit insufficient evidence; does V1 hallucinate? |
-| Ambiguous or out-of-scope question | ESCALATE | Does V2 classify correctly? Does V1 guess? |
-| Sources give conflicting information | ESCALATE | Does the answer LLM reply CONFLICT? Counted as correct when the system escalates this way |
+| Category                                          | Expected V2 outcome | What it tests                                                                                                                    |
+| ------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Policy question, strong OKF match                 | OKF_ONLY            | Does the LLM correctly classify policy questions? Does OKF give a better answer than V1?                                         |
+| Event question, strong RAG match                  | RAG_ONLY            | Does the LLM correctly classify event questions?                                                                                 |
+| Hybrid (compensation = rule + event)              | HYBRID              | Can V2 use both sources together? Does V1 struggle here?                                                                         |
+| Policy question, OKF file is past its review date | OKF_ONLY            | Neither system checks staleness (no metadata signals are used). Scored like a normal policy question; documented as a limitation |
+| Event question with no matching records           | ESCALATE            | Both systems should admit insufficient evidence; does V1 hallucinate?                                                            |
+| Ambiguous or out-of-scope question                | ESCALATE            | Does V2 classify correctly? Does V1 guess?                                                                                       |
+| Sources give conflicting information              | ESCALATE            | Does the answer LLM reply CONFLICT? Counted as correct when the system escalates this way                                        |
 
-**Labels:** correct answers are known by design since you created the OKF files and notices. Use `key_facts` strings for auto-checking; only read by hand the answers that fail the substring match.
+**Scoring caveat for the stale-policy category:** the 12 questions in `human_fallback_stale` are deliberately tied to outdated values in the stale policy file body, and the system is explicitly not allowed to use staleness metadata. The frozen test set contains 8 questions from this category (the other 4 are dev). A match in this category means the answer matched the provided stale source; it does **not** mean the answer is current real-world policy. Preserve the category and its prescribed scoring, but report headline overall correctness, answer accuracy, and wrong-answer rate both across all 56 frozen-test questions and separately excluding this category (48 questions). Label the latter as a sensitivity analysis; keep all 56 as the primary result.
+
+**Conflict-category caveat:** the category is scored correct only when the answer system escalates with `CONFLICT`, not merely when it escalates for any reason. The retrieval opportunities are asymmetric by design: V1 can return three items from the combined collection, while V2's OKF matcher returns at most one OKF file and the classifier may route directly to `ESCALATE` without retrieving evidence. Report whether each system actually retrieved both the airline-specific cancellation file and `refund-policy-general.md`. Do not interpret an apparent advantage in this category as general system superiority; discuss the retrieval asymmetry as a limitation.
+
+**Labels:** expected answers are defined from the synthetic corpus. Use `key_facts` strings for auto-checking; manually review answers that fail the substring match. The stale-policy qualification above must be kept visible when reporting results.
 
 ### Systems compared
 
-| System | What it is |
-| --- | --- |
-| **V1: RAG-only** | One Chroma collection (`combined`) containing chunked OKF files and notices. Top-3 similarity retrieval. No classification. Always answers; escalates only if answer LLM says INSUFFICIENT or CONFLICT. |
+| System                         | What it is                                                                                                                                                                                                                                                            |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **V1: RAG-only**               | One Chroma collection (`combined`) containing each complete OKF file as one item plus notices. Top-3 similarity retrieval. No classification. Always answers; escalates only if answer LLM says INSUFFICIENT or CONFLICT.                                             |
 | **V2: LLM-classified routing** | LLM classifies question type from the question text alone. Retrieves from OKF files or `notices` collection or both based on classification. Escalates when classified as ESCALATE, when retrieval returns nothing, or when answer LLM says INSUFFICIENT or CONFLICT. |
 
 ### Metrics
 
-| Metric | Measured how |
-| --- | --- |
-| **Answer accuracy** | % of answered questions where the answer contains all key_facts |
-| **Wrong answer rate** | % of all questions where the system answered with a factually wrong answer |
-| **Routing accuracy (V2 only)** | % of questions where llmClassification matches expected_outcome |
-| **Escalation rate** | % of questions escalated to human |
-| **Unnecessary escalation rate** | % of escalations on questions that had a known correct answer available |
-| **Latency** | Median and p95 wall-clock time. Report classifyMs, retrievalMs, llmMs separately for V2. |
-| **Token cost** | Mean prompt + completion tokens per question. V2 uses one extra LLM call (classification); report total and breakdown. |
-| **Per-category breakdown** | All metrics split by question category |
+| Metric                          | Measured how                                                                                                           |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Answer accuracy**             | % of answered questions where the answer contains all key_facts                                                        |
+| **Wrong answer rate**           | % of all questions where the system answered with a factually wrong answer                                             |
+| **Routing accuracy (V2 only)**  | % of questions where llmClassification matches expected_outcome                                                        |
+| **Escalation rate**             | % of questions escalated to human                                                                                      |
+| **Unnecessary escalation rate** | % of escalations on questions that had a known correct answer available                                                |
+| **Latency**                     | Median and p95 wall-clock time. Report classifyMs, retrievalMs, llmMs separately for V2.                               |
+| **Token cost**                  | Mean prompt + completion tokens per question. V2 uses one extra LLM call (classification); report total and breakdown. |
+| **Per-category breakdown**      | All metrics split by question category                                                                                 |
 
 ### Practical rules
 
-- **Same LLM and embedding model for everything.** Llama 3.3 70B on Groq, Gemini embeddings.
+- **Same LLM and embedding model for everything.** Use Groq model ID `qwen/qwen3.8-27b` for both answer generation and classification; use Gemini embeddings for ingest and query embeddings.
 - **Cache all LLM outputs** keyed by exact prompt. Store original `latencyMs` and token counts in each cache entry.
 - **Accuracy comes from one frozen run.** Run V1 and V2 on the 56 test questions once, with caching. Do not retune or rerun.
-- **Run latency separately:** after the main run, bypass the cache and run a 20-question subset (stratified across categories) 3 times for both systems, in one session. Report median and p95. The subset keeps the run inside Groq's daily token limit.
+- **Run latency separately:** after the main run, bypass the cache and run the fixed 20-question subset 3 times for both systems, respecting the daily token cap. Follow the implementation guide's repetition boundary rules; do not split a repetition across quota days. Report median and p95 and record each repetition's date. Because the calls bypass cache, do not assume the timing subset automatically fits in one daily quota.
 - **No thresholds to tune.** The only numeric value to set is the minimum RAG similarity floor (0.3). Set it once before building, document it in the paper, do not adjust it based on test results.
 - **Report counts alongside percentages.** With 56 test questions, small percentage differences are noise. "V2 got 4 more policy questions right (34 vs 30 out of 40)" is more honest than "V2 improved accuracy by 10%."
 - **Plan for about 150 LLM calls on the test set** (V1: 56 answer calls; V2: 56 classify calls + up to 56 answer calls), plus the 28 dev questions run first for bug checking.
-- **The binding Groq limit is tokens per day, not requests per day.** On the free tier, `llama-3.3-70b-versatile` allows roughly 30 requests/min, 1,000 requests/day, 12,000 tokens/min, and 100,000 tokens/day (check console.groq.com/settings/limits for your account's real numbers). Limits apply per organization, so extra API keys do not help.
-- **Rough budget (estimate, replace with measured numbers from the `usage` field once V1 works):** about 1,800 tokens per question across V1 and V2 together, so one pass over all 84 questions is about 150K tokens, which is about 2 days of quota. A 3-repetition timing run on a 20-question subset is about 100K tokens, roughly one more day.
-- **Required handling in `llm.js`:** cache by exact prompt; throttle calls (about one call per 5 seconds keeps tokens/min safe); on HTTP 429 read the `retry-after` header and retry with exponential backoff (maximum 5 attempts); keep a persisted daily token counter and stop cleanly near 90K instead of failing mid-run. `run-eval.js` must be resumable (skip anything already cached).
+- **Groq model and rate limits:** use model ID `qwen/qwen3.8-27b` for both V1/V2 answer generation and V2 classification. The Groq model/plan reference limits checked on 2026-10-20 were 30 requests/min, 1,000 requests/day, 8,000 tokens/min, and 200,000 tokens/day (official references: https://console.groq.com/docs/rate-limits and https://console.groq.com/docs/model/qwen/qwen3.8-27b). The selected project/account can have lower limits; verify the live console before bulk runs. Limits can change over time. These values are a dated reference, not a guarantee.
+- **Project safety settings:** `GROQ_DAILY_TOKEN_CAP=90000` and `GROQ_MIN_INTERVAL_MS=10000`. The throttle spaces real call starts by at least 10 seconds (about 6 calls/min), below the reference 30 RPM rate.
+- **Rough budget only; use actual `usage` measurements for estimates:** at about 1,800 tokens per question across V1 and V2, the 28-question dev run is roughly 50K tokens, the 56-question frozen test run roughly 100K, and three timing repetitions on 20 questions roughly 100K. Total planning estimate: about 250K tokens, meaning at least 3 days under the 90K/day application cap and realistically 4-5 quota days once the timing repetition boundaries and actual usage are considered. Before each bulk run, print an estimate using measured usage; never present this rough figure as an observed result.
+- **Required handling in `llm.js`:** cache by exact prompt; space real calls by at least 10 seconds; on HTTP 429 read the `retry-after` header and retry with exponential backoff (maximum 5 attempts); keep a persisted daily token counter and stop cleanly at the 90K application cap instead of failing mid-run. `run-eval.js` must be resumable and skip already logged question/system rows. Cached results should not increase token usage.
 - **Gemini embeddings** are also free-tier limited. Embed in batches at ingest, cache every embedding (including query embeddings) on disk, and retry on 429.
 
 ---
@@ -466,7 +475,7 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 
 - A direct comparison of a standard RAG-only system against a classify-then-retrieve hybrid system, measured on accuracy, latency, and token cost.
 - An analysis of LLM classification reliability across question types, including failure modes.
-- Evidence that routing policy questions to curated OKF files reduces the noise problem that RAG-only systems face when policies and events are stored together.
+- An evaluation of whether routing questions to curated OKF files reduces possible cross-source ranking interference in a collection that mixes policies and events.
 - A simple, no-tuning routing approach that is reproducible and easy to explain.
 
 ### What you must NOT claim
@@ -480,24 +489,25 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 
 1. **Title:** "Classify-Then-Retrieve: LLM-Based Question Routing Between Curated Policies and Event Data for Travel Support QA"
 2. **Abstract:** problem, approach, test set, headline numbers.
-3. **Introduction:** why mixing policies and events in one vector store causes retrieval noise; why classifying before retrieving is cleaner; what this paper measures.
+3. **Introduction:** the hypothesis that mixing policies and events in one vector store may cause cross-source ranking interference; why classifying before retrieval may reduce it; what this paper measures.
 4. **Related work:** RAG, hallucination in LLM QA, customer support chatbots, structured knowledge formats.
 5. **System design:** V1 (RAG-only), V2 (classify-then-retrieve), the two Chroma collections, OKF as the policy store.
 6. **Experimental setup:** synthetic travel data, 7 categories, 84 questions, metrics.
-7. **Results:** accuracy and latency tables, per-category breakdown, routing confusion matrix, error analysis.
+7. **Results:** accuracy and latency tables, per-category breakdown, routing confusion matrix, error analysis, primary headline metrics over all 56 frozen-test questions plus a clearly labeled sensitivity analysis excluding the 8 stale-category test questions (48 questions), and conflict-category evidence availability for both conflicting files.
 8. **Discussion:** where classification helps most; where it fails; the latency and cost tradeoff.
 9. **Limitations and conclusion.**
 
 ### Limitations to state honestly
 
 - Synthetic data generated by LLM, single domain (travel), small test set (56 questions).
-- One LLM (Llama 3.3 70B) and one embedding model (Gemini); results may not transfer.
+- One LLM (`qwen/qwen3.8-27b` on Groq) and one embedding model (Gemini); results may not transfer.
 - LLM classification is not perfect; misclassification directly causes wrong retrieval.
 - Keyword matching for OKF is basic and misses synonyms (e.g. "reimbursement" vs "refund").
 - The 0.3 minimum RAG similarity floor was set once without tuning; a different value might give different results.
 - Latency measured on Groq free tier, which has variable load.
-- Neither system checks whether a policy file is stale (`stale_after`, `status` are not used), so the stale-policy category tests only whether the answer matches the file's content. Handling staleness is future work.
-- The free-tier token limits forced the evaluation to be spread over several days and the timing run to use a 20-question subset.
+- Neither system checks whether a policy file is stale (`stale_after`, `status` are not used), so the stale-policy category tests only whether the answer matches the intentionally outdated file content, not whether it is current real-world policy. Report the primary results over all 56 frozen-test questions and a clearly labeled sensitivity analysis excluding the 8 stale-category test questions (48 questions); preserve and disclose both.
+- The conflict category is scored correct only when the system escalates with `CONFLICT`, and this requires both conflicting source files in the evidence. V1 top-3 combined retrieval and V2 single-file OKF matching / classifier-first skipping create an asymmetric opportunity to see both files; report the per-system retrieval counts and do not overinterpret a category difference.
+- The free-tier token limits may require evaluation to be spread over several quota days; run the timing study on the specified 20-question subset and record dates and measured usage.
 
 ---
 
@@ -510,46 +520,46 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 5. **The full RAG pipeline:** chunk, embed, store, retrieve, generate. Search "RAG from scratch".
 6. **The OKF specification:** read v0.2 spec at GoogleCloudPlatform/knowledge-catalog. Understand the `type` field (required) and optional fields `sources`, `verified`, `stale_after`, `status`.
 7. **Evaluation basics:** accuracy, per-category breakdowns, confusion matrices. Search "confusion matrix explained".
-8. **LLM classification prompting:** how to write a classification prompt that reliably returns one of N labels and nothing else. Practice this before building V2 — test it with 10 questions manually before wiring it into the system.
+8. **LLM classification prompting:** how to assess whether the model returns exactly one of N labels and nothing else. The Phase 2A-1 gate runs the frozen classifier prompt on 10 dev questions before it is wired into V2. The earlier Phase 0 `OK` smoke test checks connectivity/cache behavior only; it does not establish classifier-format reliability. Record any malformed outputs at the gate without changing the frozen prompt or adding retries.
 
 ---
 
 ## 10. Tech stack
 
-| Part | Choice | Notes |
-| --- | --- | --- |
-| Frontend | React + React Router (+ Tailwind) | Two pages: customer chat and employee dashboard |
-| Backend | Node.js + Express | One language across the project |
-| LLM | Groq API, Llama 3.3 70B | Free tier: about 1,000 requests/day but only about 100K tokens/day on the 70B model, and 12K tokens/min. Tokens per day is the real limit. Check your account's limits page before evaluation. |
-| Embeddings | Gemini embedding API (free tier) | Groq has no embeddings endpoint |
-| Vector DB | Chroma (local, JS client) | Two collections: `combined` (V1) and `notices` (V2) |
-| OKF files | Markdown + YAML, parsed with gray-matter | Per OKF v0.2 spec |
-| Database | MongoDB | Collections: `cases`, `customers`, `bookings`, `experiment_logs` |
-| Cache | `cache/llm-cache.json` | Key every LLM call by exact prompt; store latencyMs and tokens alongside the response |
+| Part       | Choice                                   | Notes                                                                                                                                                                                                                                                                                           |
+| ---------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Frontend   | React + React Router (+ Tailwind)        | Two pages: customer chat and employee dashboard                                                                                                                                                                                                                                                 |
+| Backend    | Node.js + Express                        | One language across the project                                                                                                                                                                                                                                                                 |
+| LLM        | Groq API, `qwen/qwen3.8-27b`             | Groq's model/plan reference limits checked 2026-10-20: 30 requests/min, 1,000 requests/day, 8,000 tokens/min, 200,000 tokens/day. Project/account limits may be lower. This project sets `GROQ_DAILY_TOKEN_CAP=90000` and `GROQ_MIN_INTERVAL_MS=10000`; verify current limits before bulk runs. |
+| Embeddings | Gemini embedding API (free tier)         | Groq has no embeddings endpoint                                                                                                                                                                                                                                                                 |
+| Vector DB  | Chroma (local, JS client)                | Two collections: `combined` (V1) and `notices` (V2)                                                                                                                                                                                                                                             |
+| OKF files  | Markdown + YAML, parsed with gray-matter | Per OKF v0.2 spec                                                                                                                                                                                                                                                                               |
+| Database   | MongoDB                                  | Collections: `cases`, `customers`, `bookings`, `experiment_logs`                                                                                                                                                                                                                                |
+| Cache      | `cache/llm-cache.json`                   | Key every LLM call by exact prompt; store latencyMs and tokens alongside the response                                                                                                                                                                                                           |
 
 ---
 
 ## 11. Key terms in plain English
 
-| Term | Meaning |
-| --- | --- |
-| LLM | A language model that generates text from a prompt |
-| Embedding | A list of numbers representing the meaning of a piece of text |
-| Chunk | A small piece of a document, stored and retrieved on its own |
-| Vector database | A database that finds stored embeddings closest to a query embedding |
-| Similarity | How close two embeddings are (cosine similarity from 0 to 1) |
-| RAG | Retrieve relevant chunks, then give them to an LLM to answer |
-| OKF | Google Cloud's markdown-plus-metadata format for curated knowledge |
-| Frontmatter | The YAML block at the top of a markdown file that holds metadata |
-| Classification | The LLM step that assigns a question to a source type before retrieval |
-| Routing | Deciding which source(s) to retrieve from, based on the classification |
-| Escalation | Sending a question to a human instead of answering it |
-| Hallucination | The model stating something not supported by the retrieved evidence |
-| Baseline | The simpler system you compare against (V1 is the baseline) |
-| Latency / p95 | Time from question to answer / the time 95% of requests finish within |
-| Token cost | Total tokens (prompt + completion) consumed per question |
+| Term             | Meaning                                                                         |
+| ---------------- | ------------------------------------------------------------------------------- |
+| LLM              | A language model that generates text from a prompt                              |
+| Embedding        | A list of numbers representing the meaning of a piece of text                   |
+| Chunk            | A small piece of a document, stored and retrieved on its own                    |
+| Vector database  | A database that finds stored embeddings closest to a query embedding            |
+| Similarity       | How close two embeddings are (cosine similarity from 0 to 1)                    |
+| RAG              | Retrieve relevant chunks, then give them to an LLM to answer                    |
+| OKF              | Google Cloud's markdown-plus-metadata format for curated knowledge              |
+| Frontmatter      | The YAML block at the top of a markdown file that holds metadata                |
+| Classification   | The LLM step that assigns a question to a source type before retrieval          |
+| Routing          | Deciding which source(s) to retrieve from, based on the classification          |
+| Escalation       | Sending a question to a human instead of answering it                           |
+| Hallucination    | The model stating something not supported by the retrieved evidence             |
+| Baseline         | The simpler system you compare against (V1 is the baseline)                     |
+| Latency / p95    | Time from question to answer / the time 95% of requests finish within           |
+| Token cost       | Total tokens (prompt + completion) consumed per question                        |
 | Confusion matrix | A table showing how many times each classification label was expected vs actual |
-| Error analysis | Reading through failures to understand why the system got something wrong |
+| Error analysis   | Reading through failures to understand why the system got something wrong       |
 
 ---
 
