@@ -168,5 +168,125 @@
       "total": 455
     },
     "createdAt": "2026-10-20T07:19:21.913Z"
+  },
+  "a1b3606c93c2a1419685a7537939d9741fa11bc92d0b7f2dfb552e721a30cebb": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 423,
+    "tokens": {
+      "prompt": 869,
+      "completion": 4,
+      "total": 873
+    },
+    "createdAt": "2026-10-21T07:26:07.287Z"
+  },
+  "7a24de5149fceaf44163426baa5834e7eee8180245e4da7145bcdc8792c63a0e": {
+    "text": "Based on the evidence provided, flight SN-101 has been delayed on two specific dates:\n\n1.  On **2026-03-14**, it was delayed by 4 hours and 20 minutes due to crew unavailability [RAG:notice-0001].\n2.  On **2026-06-17**, it was delayed by 8 hours and 20 minutes due to an unscheduled engine maintenance requirement [RAG:notice-0009].\n\n[RAG:notice-0001] [RAG:notice-0009]",
+    "latencyMs": 830,
+    "tokens": {
+      "prompt": 414,
+      "completion": 136,
+      "total": 550
+    },
+    "createdAt": "2026-10-21T07:33:00.661Z"
+  },
+  "f7d506989f2c60b32284cb47641c11943fbf51db432d3ce5dbf0189a007d5b86": {
+    "text": "OKF_ONLY",
+    "latencyMs": 503,
+    "tokens": {
+      "prompt": 213,
+      "completion": 4,
+      "total": 217
+    },
+    "createdAt": "2026-10-21T18:59:29.083Z"
+  },
+  "281c5819b3185b763b1be36daab65089f4fde045914bbbe9ee02dbb621dde32b": {
+    "text": "OKF_ONLY",
+    "latencyMs": 155,
+    "tokens": {
+      "prompt": 198,
+      "completion": 4,
+      "total": 202
+    },
+    "createdAt": "2026-10-21T18:59:38.730Z"
+  },
+  "8ffc9d9f9ec20a18309b98b3060e83ff28b4a4f301337e0b9c0eb95bdf5989c7": {
+    "text": "RAG_ONLY",
+    "latencyMs": 187,
+    "tokens": {
+      "prompt": 206,
+      "completion": 4,
+      "total": 210
+    },
+    "createdAt": "2026-10-21T18:59:48.764Z"
+  },
+  "7cd5ca2e98bed6bba79754ff28833fa95a55e5a8159a2c4c10ad26d7639d0adb": {
+    "text": "RAG_ONLY",
+    "latencyMs": 444,
+    "tokens": {
+      "prompt": 201,
+      "completion": 4,
+      "total": 205
+    },
+    "createdAt": "2026-10-21T19:00:31.126Z"
+  },
+  "755abaa51575a15272c67be9350ad1ae0a34540df2f187d19e729b2483df8399": {
+    "text": "HYBRID",
+    "latencyMs": 136,
+    "tokens": {
+      "prompt": 228,
+      "completion": 4,
+      "total": 232
+    },
+    "createdAt": "2026-10-21T19:00:31.273Z"
+  },
+  "7f41f75006b99c67c01b162c7efb59f52c29ae0bbe773f34a42f25c01acb4b5b": {
+    "text": "HYBRID",
+    "latencyMs": 239,
+    "tokens": {
+      "prompt": 225,
+      "completion": 4,
+      "total": 229
+    },
+    "createdAt": "2026-10-21T19:00:41.383Z"
+  },
+  "84de0a52dca2e49a17cf32f88b2f375db224fcb74c57bbc28c1dc9b5d2ffb50f": {
+    "text": "OKF_ONLY",
+    "latencyMs": 161,
+    "tokens": {
+      "prompt": 206,
+      "completion": 4,
+      "total": 210
+    },
+    "createdAt": "2026-10-21T19:00:51.318Z"
+  },
+  "5cde9e32276c1840c85b7d4efa6d4ee3c4252cdc2dcff694cfdda955ca76ecd3": {
+    "text": "OKF_ONLY",
+    "latencyMs": 185,
+    "tokens": {
+      "prompt": 195,
+      "completion": 4,
+      "total": 199
+    },
+    "createdAt": "2026-10-21T19:01:01.346Z"
+  },
+  "a18f9f03bea17ae4a461ca9d87af504df9cb5f50f5aec7329c7c968347980ca5": {
+    "text": "ESCALATE",
+    "latencyMs": 154,
+    "tokens": {
+      "prompt": 196,
+      "completion": 4,
+      "total": 200
+    },
+    "createdAt": "2026-10-21T19:01:11.324Z"
+  },
+  "4786d4470a7921522f5ac81271aca66506427dc2bc1180f1c0df97c8746c99ec": {
+    "text": "ESCALATE",
+    "latencyMs": 192,
+    "tokens": {
+      "prompt": 198,
+      "completion": 4,
+      "total": 202
+    },
+    "createdAt": "2026-10-21T19:01:21.373Z"
   }
 }
