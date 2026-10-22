@@ -4,6 +4,8 @@ chroma-data
 mongo-data
 client/dist
 cache/usage.json
+cache/llm-cache.json
+cache/embed-cache.json
 AGENTS.md
 /graphify-out/
 .agents
