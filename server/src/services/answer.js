@@ -8,6 +8,9 @@
 import { retrieve } from './rag.js';
 import { callLLM } from './llm.js';
 import { buildAnswerPrompt, formatEvidence } from './prompts.js';
+import { classifyQuestion } from './classifier.js';
+import { matchOkf } from './okf.js';
+import { RAG_SIM_FLOOR } from '../config.js';
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -41,7 +44,7 @@ export function interpretAnswerReply(raw) {
  * Deduplicate. Returns {citations, droppedCitations}.
  *
  * @param {string} answerText
- * @param {Array<{id: string, metadata: {kind: string, filename?: string, noticeId?: string}}>} retrievedItems
+ * @param {Array<{id: string, type?: string, metadata?: {kind: string, filename?: string, noticeId?: string}}>} retrievedItems
  */
 function parseCitations(answerText, retrievedItems) {
   const pattern = /\[(OKF|RAG):([^\]]+)\]/g;
@@ -62,13 +65,13 @@ function parseCitations(answerText, retrievedItems) {
   // Build a set of valid retrieved ids
   const validIds = new Set();
   for (const item of retrievedItems) {
-    // OKF items have id like 'okf:<filename>' in Chroma; but citation uses just filename
     if (item.metadata?.kind === 'okf') {
       validIds.add(`OKF:${item.metadata.filename}`);
     } else if (item.metadata?.kind === 'notice') {
       validIds.add(`RAG:${item.metadata.noticeId}`);
+    } else if (item.type && item.id) {
+      validIds.add(`${item.type}:${item.id}`);
     } else {
-      // Fallback: item.id might be 'okf:filename' or 'notice-xxxx'
       if (item.id?.startsWith('okf:')) {
         const filename = item.id.slice(4);
         validIds.add(`OKF:${filename}`);
@@ -111,7 +114,6 @@ export async function answerV1(question, opts = {}) {
   const { items, retrievalMs } = await retrieve('combined', question, 3, { bypassCache });
 
   // Build evidence blocks
-  // Map retrieved items to evidence format
   const evidenceItems = items.map(item => {
     if (item.metadata?.kind === 'okf') {
       return { type: 'OKF', id: item.metadata.filename, text: item.text };
@@ -162,15 +164,207 @@ export async function answerV1(question, opts = {}) {
 }
 
 // ──────────────────────────────────────────────────────────────
-// V2: Classify-first (stub — implemented in Phase 2A-2)
+// V2: Classify-first (Phase 2A-2)
 // ──────────────────────────────────────────────────────────────
 
 /**
  * answerV2 — classify-first pipeline.
- * Full implementation in Phase 2A-2. Placeholder here returns error.
+ *
+ * @param {string} question
+ * @param {object} [opts]
+ * @param {boolean} [opts.bypassCache=false]
+ * @returns {Promise<object>}  A6 contract with system "V2"
  */
 export async function answerV2(question, opts = {}) {
-  throw new Error('answerV2 is not yet implemented — available from Phase 2A-2');
+  const bypassCache = opts.bypassCache || false;
+
+  // 1. Classify question (sees ONLY question text)
+  const classifyRes = await classifyQuestion(question, { bypassCache });
+  const classifyMs = classifyRes.latencyMs;
+  const classification = classifyRes.label;
+  const classifyTokens = classifyRes.tokens;
+
+  // 2. Pre-retrieval escalations
+  if (classification === 'INVALID' || classification === 'ESCALATE') {
+    const escalationReason = classification === 'INVALID'
+      ? 'CLASSIFIER_INVALID'
+      : 'CLASSIFIER_ESCALATE';
+
+    return {
+      system: 'V2',
+      outcome: 'ESCALATED',
+      answer: null,
+      escalationReason,
+      classification,
+      citations: [],
+      retrieved: [],
+      classifyMs,
+      retrievalMs: 0,
+      llmMs: 0,
+      tokens: { ...classifyTokens },
+      droppedCitations: 0
+    };
+  }
+
+  let evidenceItems = [];
+  let retrieved = [];
+  let retrievalMs = 0;
+
+  // 3. OKF_ONLY
+  if (classification === 'OKF_ONLY') {
+    const okfRes = matchOkf(question);
+    retrievalMs = okfRes.retrievalMs;
+
+    if (!okfRes.match) {
+      return {
+        system: 'V2',
+        outcome: 'ESCALATED',
+        answer: null,
+        escalationReason: 'NO_OKF_MATCH',
+        classification,
+        citations: [],
+        retrieved: [],
+        classifyMs,
+        retrievalMs,
+        llmMs: 0,
+        tokens: { ...classifyTokens },
+        droppedCitations: 0
+      };
+    }
+
+    evidenceItems.push({
+      type: 'OKF',
+      id: okfRes.match.filename,
+      text: okfRes.match.text
+    });
+    retrieved.push({
+      type: 'OKF',
+      id: okfRes.match.filename,
+      score: okfRes.match.score,
+      text: okfRes.match.text
+    });
+  }
+
+  // 4. RAG_ONLY
+  else if (classification === 'RAG_ONLY') {
+    const ragRes = await retrieve('notices', question, 3, { bypassCache });
+    retrievalMs = ragRes.retrievalMs;
+
+    const bestSim = ragRes.items.length > 0
+      ? Math.max(...ragRes.items.map(i => i.similarity))
+      : 0;
+
+    if (ragRes.items.length === 0 || bestSim < RAG_SIM_FLOOR) {
+      return {
+        system: 'V2',
+        outcome: 'ESCALATED',
+        answer: null,
+        escalationReason: 'NO_RAG_MATCH',
+        classification,
+        citations: [],
+        retrieved: [],
+        classifyMs,
+        retrievalMs,
+        llmMs: 0,
+        tokens: { ...classifyTokens },
+        droppedCitations: 0
+      };
+    }
+
+    for (const item of ragRes.items) {
+      const noticeId = item.metadata?.noticeId || item.id;
+      evidenceItems.push({ type: 'RAG', id: noticeId, text: item.text });
+      retrieved.push({ type: 'RAG', id: noticeId, similarity: item.similarity, text: item.text });
+    }
+  }
+
+  // 5. HYBRID
+  else if (classification === 'HYBRID') {
+    const okfRes = matchOkf(question);
+    const ragRes = await retrieve('notices', question, 3, { bypassCache });
+    retrievalMs = okfRes.retrievalMs + ragRes.retrievalMs;
+
+    const hasOkf = okfRes.match !== null;
+    const bestSim = ragRes.items.length > 0
+      ? Math.max(...ragRes.items.map(i => i.similarity))
+      : 0;
+    const hasRag = ragRes.items.length > 0 && bestSim >= RAG_SIM_FLOOR;
+
+    if (!hasOkf && !hasRag) {
+      return {
+        system: 'V2',
+        outcome: 'ESCALATED',
+        answer: null,
+        escalationReason: 'NO_EVIDENCE',
+        classification,
+        citations: [],
+        retrieved: [],
+        classifyMs,
+        retrievalMs,
+        llmMs: 0,
+        tokens: { ...classifyTokens },
+        droppedCitations: 0
+      };
+    }
+
+    // Evidence = OKF first, then RAG chunks
+    if (hasOkf) {
+      evidenceItems.push({
+        type: 'OKF',
+        id: okfRes.match.filename,
+        text: okfRes.match.text
+      });
+      retrieved.push({
+        type: 'OKF',
+        id: okfRes.match.filename,
+        score: okfRes.match.score,
+        text: okfRes.match.text
+      });
+    }
+
+    if (hasRag) {
+      for (const item of ragRes.items) {
+        const noticeId = item.metadata?.noticeId || item.id;
+        evidenceItems.push({ type: 'RAG', id: noticeId, text: item.text });
+        retrieved.push({ type: 'RAG', id: noticeId, similarity: item.similarity, text: item.text });
+      }
+    }
+  }
+
+  // 6. Generate answer
+  const evidenceBlocks = formatEvidence(evidenceItems);
+  const prompt = buildAnswerPrompt(question, evidenceBlocks);
+
+  const llmResult = await callLLM({ prompt, maxTokens: 400, bypassCache });
+  const llmMs = llmResult.latencyMs;
+
+  const { outcome, escalationReason, answer } = interpretAnswerReply(llmResult.text);
+
+  const { citations, droppedCitations } = parseCitations(
+    answer || '',
+    retrieved
+  );
+
+  const totalTokens = {
+    prompt: classifyTokens.prompt + llmResult.tokens.prompt,
+    completion: classifyTokens.completion + llmResult.tokens.completion,
+    total: classifyTokens.total + llmResult.tokens.total
+  };
+
+  return {
+    system: 'V2',
+    outcome,
+    answer,
+    escalationReason,
+    classification,
+    citations,
+    retrieved,
+    classifyMs,
+    retrievalMs,
+    llmMs,
+    tokens: totalTokens,
+    droppedCitations
+  };
 }
 
 export default { answerV1, answerV2 };

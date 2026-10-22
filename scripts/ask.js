@@ -67,10 +67,12 @@ async function run() {
   let result;
   const startTotal = Date.now();
 
+  const bypassCache = args.includes('--bypass-cache');
+
   if (system === 'v1') {
-    result = await answerV1(question);
+    result = await answerV1(question, { bypassCache });
   } else {
-    result = await answerV2(question);
+    result = await answerV2(question, { bypassCache });
   }
 
   const totalMs = Date.now() - startTotal;

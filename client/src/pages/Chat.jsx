@@ -17,9 +17,32 @@ function Message({ msg }) {
           <p>{msg.content}</p>
         ) : (
           <>
+            {/* Team Member resolution badge */}
+            {msg.isTeamMember && (
+              <div style={{ marginBottom: '6px' }}>
+                <span className="chip chip-team">Team Member</span>
+              </div>
+            )}
+
+            {/* Classification chip (V2) */}
+            {!msg.isTeamMember && msg.classification && (
+              <div style={{ marginBottom: '6px' }}>
+                <span className="chip chip-classification">
+                  {msg.classification}
+                </span>
+              </div>
+            )}
+
             <p className={msg.outcome === 'ESCALATED' ? 'escalated-text' : ''}>
               {msg.content}
             </p>
+
+            {/* Case status badge when pending */}
+            {msg.caseId && !msg.resolved && (
+              <p className="muted case-pending-notice">
+                Case #{msg.caseId.slice(-6)} opened with human support. Waiting for staff reply...
+              </p>
+            )}
 
             {/* Citations */}
             {msg.citations && msg.citations.length > 0 && (
@@ -57,13 +80,55 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const [system, setSystem] = useState('v1');
+  const [system, setSystem] = useState('v2');
   const [error, setError] = useState(null);
   const bottomRef = useRef(null);
+  const activePolls = useRef(new Map());
+
+  // Clean up polling intervals on unmount
+  useEffect(() => {
+    return () => {
+      activePolls.current.forEach(intervalId => clearInterval(intervalId));
+      activePolls.current.clear();
+    };
+  }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
+
+  function startPolling(caseId) {
+    if (activePolls.current.has(caseId)) return;
+
+    const intervalId = setInterval(async () => {
+      try {
+        const res = await fetch(`/api/cases/${caseId}/reply`);
+        if (!res.ok) return;
+        const data = await res.json();
+
+        if (data.status === 'resolved' && data.finalAnswer) {
+          // Stop polling
+          clearInterval(intervalId);
+          activePolls.current.delete(caseId);
+
+          // Append employee answer labeled "Team member"
+          setMessages(prev => [
+            ...prev,
+            {
+              role: 'assistant',
+              isTeamMember: true,
+              content: data.finalAnswer,
+              resolvedCaseId: caseId
+            }
+          ]);
+        }
+      } catch (err) {
+        console.error('Polling error for case', caseId, err);
+      }
+    }, 5000);
+
+    activePolls.current.set(caseId, intervalId);
+  }
 
   async function send() {
     const q = input.trim();
@@ -98,15 +163,24 @@ export default function Chat() {
         return;
       }
 
-      setMessages(prev => [...prev, {
+      const newMsg = {
         role: 'assistant',
         content: data.answer || 'A team member will get back to you shortly.',
         outcome: data.outcome,
+        caseId: data.caseId,
+        classification: data.classification,
         citations: data.citations || [],
         escalationReason: data.escalationReason,
         tokens: data.tokens,
         retrieved: data.retrieved
-      }]);
+      };
+
+      setMessages(prev => [...prev, newMsg]);
+
+      // If escalated and caseId is provided, start polling /api/cases/:id/reply
+      if (data.outcome === 'ESCALATED' && data.caseId) {
+        startPolling(data.caseId);
+      }
     } catch (err) {
       setError('Network error: ' + err.message);
     } finally {
@@ -159,25 +233,23 @@ export default function Chat() {
         <div ref={bottomRef} />
       </div>
 
-      {error && <div className="error-banner">{error}</div>}
+      {error && (
+        <div className="error-banner">
+          {error}
+        </div>
+      )}
 
       <div className="input-area">
         <textarea
-          id="chat-input"
-          placeholder="Ask a travel question..."
+          rows={2}
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
+          placeholder="Ask a question about travel policies or flight notices..."
           disabled={loading}
-          rows={2}
-          maxLength={1000}
         />
-        <button
-          id="send-btn"
-          onClick={send}
-          disabled={loading || !input.trim()}
-        >
-          {loading ? '...' : 'Send'}
+        <button onClick={send} disabled={loading || !input.trim()}>
+          Send
         </button>
       </div>
     </div>

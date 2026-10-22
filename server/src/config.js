@@ -27,7 +27,12 @@ export const config = Object.freeze({
   CHROMA_URL: process.env.CHROMA_URL || 'http://localhost:8000',
   MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017',
   MONGODB_DB: process.env.MONGODB_DB || 'travel_qa',
-  PORT: Number(process.env.PORT) || 3001
+  PORT: Number(process.env.PORT) || 3001,
+  // Set ONCE before evaluation, never tuned. Do not change.
+  RAG_SIM_FLOOR: 0.3
 });
+
+// Set ONCE before evaluation, never tuned. Do not change.
+export const RAG_SIM_FLOOR = 0.3;
 
 export default config;
