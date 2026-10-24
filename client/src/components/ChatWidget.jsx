@@ -22,12 +22,27 @@ export default function ChatWidget() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [activeCaseId, setActiveCaseId] = useState(null);
+  const [preselectedBooking, setPreselectedBooking] = useState(null);
 
   const messagesEndRef = useRef(null);
   const pollIntervalRef = useRef(null);
 
   // Exclude from staff routes and lab chat
   const shouldHide = location.pathname.startsWith('/staff') || location.pathname === '/lab/chat';
+
+  // Listen for 'tq-open-chat-booking' event from MyBookings
+  useEffect(() => {
+    const handleOpenWithBooking = e => {
+      const detail = e.detail;
+      if (detail && detail.bookingId) {
+        setIsOpen(true);
+        setPreselectedBooking(detail);
+        setInput(`Why was my flight ${detail.flightNo} delayed?`);
+      }
+    };
+    window.addEventListener('tq-open-chat-booking', handleOpenWithBooking);
+    return () => window.removeEventListener('tq-open-chat-booking', handleOpenWithBooking);
+  }, []);
 
   // Scroll to bottom
   useEffect(() => {
@@ -86,12 +101,82 @@ export default function ChatWidget() {
     };
   }, [activeCaseId]);
 
-  if (shouldHide) return null;
+  const processChatResponse = (data, query) => {
+    if (data.outcome === 'CLARIFY') {
+      setMessages(prev => [
+        ...prev,
+        {
+          role: 'assistant',
+          text: data.message || 'Which booking do you mean?',
+          isClarify: true,
+          originalQuestion: query,
+          options: data.options || []
+        }
+      ]);
+    } else if (data.outcome === 'ESCALATED') {
+      setMessages(prev => [
+        ...prev,
+        {
+          role: 'assistant',
+          text: data.message || 'A team member will get back to you shortly.',
+          isEscalated: true,
+          caseId: data.caseId,
+          appliedBooking: data.appliedBooking || null
+        }
+      ]);
+      if (data.caseId) {
+        setActiveCaseId(data.caseId);
+      }
+    } else {
+      setMessages(prev => [
+        ...prev,
+        {
+          role: 'assistant',
+          text: data.answer || 'No answer available.',
+          citations: data.citations || [],
+          appliedBooking: data.appliedBooking || null
+        }
+      ]);
+    }
+  };
+
+  const handleSelectOption = async (originalQuestion, bookingId) => {
+    if (loading) return;
+    setLoading(true);
+    setMessages(prev => [
+      ...prev,
+      { role: 'user', text: `Selected booking ${bookingId}` }
+    ]);
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ question: originalQuestion, bookingId, system: 'v2' })
+      });
+      const data = await res.json();
+      processChatResponse(data, originalQuestion);
+    } catch (err) {
+      setMessages(prev => [
+        ...prev,
+        { role: 'assistant', text: 'Sorry, I encountered an error connecting to support.' }
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSend = async e => {
     e.preventDefault();
     const query = input.trim();
     if (!query || loading) return;
+
+    const payload = { question: query, system: 'v2' };
+    if (preselectedBooking?.bookingId) {
+      payload.bookingId = preselectedBooking.bookingId;
+    }
+    setPreselectedBooking(null);
 
     setInput('');
     setMessages(prev => [...prev, { role: 'user', text: query }]);
@@ -102,34 +187,11 @@ export default function ChatWidget() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ question: query, system: 'v2' })
+        body: JSON.stringify(payload)
       });
 
       const data = await res.json();
-
-      if (data.outcome === 'ESCALATED') {
-        setMessages(prev => [
-          ...prev,
-          {
-            role: 'assistant',
-            text: data.message || 'A team member will get back to you shortly.',
-            isEscalated: true,
-            caseId: data.caseId
-          }
-        ]);
-        if (data.caseId) {
-          setActiveCaseId(data.caseId);
-        }
-      } else {
-        setMessages(prev => [
-          ...prev,
-          {
-            role: 'assistant',
-            text: data.answer || 'No answer available.',
-            citations: data.citations || []
-          }
-        ]);
-      }
+      processChatResponse(data, query);
     } catch (err) {
       setMessages(prev => [
         ...prev,
@@ -201,6 +263,40 @@ export default function ChatWidget() {
 
                   <p className="whitespace-pre-wrap">{m.text}</p>
 
+                  {/* Using booking tag */}
+                  {m.appliedBooking && (
+                    <div className="text-[11px] text-slate-500 mt-1 font-mono italic">
+                      Using booking {m.appliedBooking}
+                    </div>
+                  )}
+
+                  {/* Clarification booking buttons */}
+                  {m.isClarify && m.options && m.options.length > 0 && (
+                    <div className="mt-3 flex flex-col gap-1.5">
+                      {m.options.map((opt, optIdx) => (
+                        <button
+                          key={optIdx}
+                          type="button"
+                          onClick={() => handleSelectOption(m.originalQuestion, opt.bookingId)}
+                          disabled={loading}
+                          className="text-left p-2.5 rounded-lg bg-sky-50 hover:bg-sky-100 border border-sky-200 text-xs text-sky-950 transition-colors shadow-xs disabled:opacity-50 cursor-pointer"
+                        >
+                          <div className="font-bold flex items-center justify-between">
+                            <span>
+                              {opt.bookingId}: {opt.flightNo} • {opt.route}
+                            </span>
+                            <span className="text-[10px] text-sky-700 font-mono font-medium">
+                              {opt.airline}
+                            </span>
+                          </div>
+                          <div className="text-[11px] text-slate-500 mt-0.5">
+                            Travel date: {opt.date}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
                   {/* Citations */}
                   {m.citations && m.citations.length > 0 && (
                     <div className="mt-2 pt-2 border-t border-slate-100 flex flex-wrap gap-1">
@@ -235,6 +331,23 @@ export default function ChatWidget() {
             <div ref={messagesEndRef} />
           </div>
 
+          {/* Preselected Booking Indicator */}
+          {preselectedBooking && (
+            <div className="px-3 py-1.5 bg-sky-50 border-t border-sky-100 flex items-center justify-between text-xs text-sky-900">
+              <span className="truncate">
+                Referencing booking: <strong className="font-semibold">{preselectedBooking.bookingId}</strong> ({preselectedBooking.flightNo})
+              </span>
+              <button
+                type="button"
+                onClick={() => setPreselectedBooking(null)}
+                className="text-sky-600 hover:text-sky-900 font-bold ml-2 cursor-pointer"
+                title="Remove booking context"
+              >
+                ✕
+              </button>
+            </div>
+          )}
+
           {/* Input Footer */}
           <form
             onSubmit={handleSend}
@@ -251,7 +364,7 @@ export default function ChatWidget() {
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="bg-sky-600 hover:bg-sky-500 disabled:opacity-50 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm"
+              className="bg-sky-600 hover:bg-sky-500 disabled:opacity-50 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm cursor-pointer"
             >
               Send
             </button>

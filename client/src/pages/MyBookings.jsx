@@ -115,11 +115,32 @@ export default function MyBookings() {
                   </div>
                 </div>
 
-                <div className="text-right border-t sm:border-t-0 pt-3 sm:pt-0 border-slate-100">
-                  <div className="text-xs text-slate-400">Passengers: {b.passengers || 1}</div>
-                  <div className="text-lg font-bold text-slate-900">
-                    {b.totalPrice ? `$${b.totalPrice} USD` : 'Complimentary / Seed'}
+                <div className="flex sm:flex-col items-start sm:items-end justify-between gap-3 border-t sm:border-t-0 pt-3 sm:pt-0 border-slate-100">
+                  <div className="text-left sm:text-right">
+                    <div className="text-xs text-slate-400">Passengers: {b.passengers || 1}</div>
+                    <div className="text-lg font-bold text-slate-900">
+                      {b.totalPrice ? `$${b.totalPrice} USD` : 'Complimentary / Seed'}
+                    </div>
                   </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.dispatchEvent(
+                        new CustomEvent('tq-open-chat-booking', {
+                          detail: {
+                            bookingId: b.bookingId,
+                            flightNo: b.flightNo,
+                            route: b.route,
+                            airline: b.airline
+                          }
+                        })
+                      );
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-600 hover:text-sky-500 hover:underline cursor-pointer"
+                  >
+                    <span>💬</span>
+                    <span>Ask about this booking</span>
+                  </button>
                 </div>
               </div>
             ))}

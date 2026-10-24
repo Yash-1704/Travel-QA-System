@@ -18,6 +18,7 @@ import { DailyBudgetError } from '../services/llm.js';
 import { getCollection } from '../services/db.js';
 import { loadOkfFiles } from '../services/okfLoader.js';
 import { optionalAuth } from '../middleware/auth.js';
+import { resolveQuestion } from '../services/context.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,9 +47,9 @@ function getOkfFileMap() {
 }
 
 /**
- * Build case document per AGENTS.md Phase 2B schema.
+ * Build case document per AGENTS.md Phase 2B / Phase 4 schema.
  */
-function buildCaseDoc(question, result, customerId = null) {
+function buildCaseDoc(question, resolvedQuestion, result, customerId = null) {
   const okfRetrieved = (result.retrieved || []).find(r => r.type === 'OKF');
   let okfEvidence = null;
 
@@ -93,6 +94,7 @@ function buildCaseDoc(question, result, customerId = null) {
 
   return {
     question,
+    resolvedQuestion: resolvedQuestion || question,
     status: 'pending',
     llmClassification: result.classification || 'ESCALATE',
     reason: result.escalationReason || 'ESCALATE',
@@ -106,7 +108,7 @@ function buildCaseDoc(question, result, customerId = null) {
 }
 
 router.post('/', optionalAuth, async (req, res) => {
-  const { question, system = 'v2' } = req.body || {};
+  const { question, system = 'v2', bookingId } = req.body || {};
 
   // Validate question
   if (!question || typeof question !== 'string' || question.trim() === '') {
@@ -117,18 +119,39 @@ router.post('/', optionalAuth, async (req, res) => {
   }
 
   // Session customerId: customers get their customerId; guests & agents get null.
-  // Ignore any customerId or bookingId sent in req.body.
+  // Ignore any customerId sent in req.body.
   const caseCustomerId = (req.user && req.user.role === 'customer') ? req.user.customerId : null;
 
+  // Phase 4: Customer Context Resolution
+  let contextResult;
+  try {
+    contextResult = await resolveQuestion(req.user, question.trim(), bookingId);
+  } catch (ctxErr) {
+    if (ctxErr.status === 400) {
+      return res.status(400).json({ error: ctxErr.message });
+    }
+    throw ctxErr;
+  }
+
+  // If customer has multiple bookings and no bookingId was provided, prompt clarification (no LLM, no case)
+  if (contextResult.needsClarification) {
+    return res.json({
+      outcome: 'CLARIFY',
+      message: 'Which booking do you mean?',
+      options: contextResult.options
+    });
+  }
+
+  const effectiveQuestion = contextResult.question;
   const systemLower = (system || 'v2').toLowerCase();
 
   try {
     let result;
 
     if (systemLower === 'v1') {
-      result = await answerV1(question.trim());
+      result = await answerV1(effectiveQuestion);
     } else if (systemLower === 'v2') {
-      result = await answerV2(question.trim());
+      result = await answerV2(effectiveQuestion);
     } else {
       return res.status(400).json({ error: 'system must be "v1" or "v2"' });
     }
@@ -145,7 +168,7 @@ router.post('/', optionalAuth, async (req, res) => {
     let caseId = undefined;
     if (systemLower === 'v2' && result.outcome === 'ESCALATED') {
       try {
-        const caseDoc = buildCaseDoc(question.trim(), result, caseCustomerId);
+        const caseDoc = buildCaseDoc(question.trim(), effectiveQuestion, result, caseCustomerId);
         const casesCol = getCollection('cases');
         const insertRes = await casesCol.insertOne(caseDoc);
         caseId = insertRes.insertedId.toString();
@@ -172,7 +195,8 @@ router.post('/', optionalAuth, async (req, res) => {
       retrieved: responseRetrieved,
       classifyMs: result.classifyMs,
       retrievalMs: result.retrievalMs,
-      llmMs: result.llmMs
+      llmMs: result.llmMs,
+      appliedBooking: contextResult.booking ? contextResult.booking.bookingId : null
     });
   } catch (err) {
     if (err instanceof DailyBudgetError || err.name === 'DailyBudgetError') {
