@@ -1,0 +1,122 @@
+[
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-001",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14 business days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-001",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14 business days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-002",
+    "correct": false,
+    "note": "Missing required key fact(s): \"64 kg\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-003",
+    "correct": false,
+    "note": "Missing required key fact(s): \"6 months\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-003",
+    "correct": false,
+    "note": "Missing required key fact(s): \"6 months\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-014",
+    "correct": false,
+    "note": "Missing required key fact(s): \"6 hours and 50 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-014",
+    "correct": false,
+    "note": "Missing required key fact(s): \"6 hours and 50 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-016",
+    "correct": false,
+    "note": "Missing required key fact(s): \"suspended\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-016",
+    "correct": false,
+    "note": "Missing required key fact(s): \"suspended\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-025",
+    "correct": false,
+    "note": "Missing required key fact(s): \"90 days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-025",
+    "correct": false,
+    "note": "Missing required key fact(s): \"90 days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-027",
+    "correct": false,
+    "note": "Missing required key fact(s): \"not payable\", \"Meal and refreshments\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-027",
+    "correct": false,
+    "note": "Missing required key fact(s): \"not payable\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-028",
+    "correct": false,
+    "note": "Missing required key fact(s): \"airline fault\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-038",
+    "correct": false,
+    "note": "Missing required key fact(s): \"10 business days\".",
+    "source": "agent-proposed"
+  }
+]
