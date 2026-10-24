@@ -28,6 +28,8 @@ export const config = Object.freeze({
   MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017',
   MONGODB_DB: process.env.MONGODB_DB || 'travel_qa',
   PORT: Number(process.env.PORT) || 3001,
+  JWT_SECRET: process.env.JWT_SECRET || '',
+  SEED_DEMO_PASSWORD: process.env.SEED_DEMO_PASSWORD || '',
   // Set ONCE before evaluation, never tuned. Do not change.
   RAG_SIM_FLOOR: 0.3
 });

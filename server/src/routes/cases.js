@@ -1,13 +1,14 @@
 /**
- * routes/cases.js
+ * server/src/routes/cases.js
  *
- * REST API for employee dashboard and case resolution (Phase 2B).
+ * REST API for employee dashboard and case resolution (Phase 2B & Phase 3A).
  * Base URL: /api/cases
  */
 
 import express from 'express';
 import { ObjectId } from 'mongodb';
 import { getCollection } from '../services/db.js';
+import { requireRole, optionalAuth } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -16,10 +17,27 @@ function isValidObjectId(id) {
 }
 
 /**
- * GET /?status=pending|resolved
- * Lists cases with summary projection, sorted newest first.
+ * Helper to fetch asker details for a given customerId.
+ * @param {string|null} customerId
+ * @returns {Promise<object|null>}
  */
-router.get('/', async (req, res) => {
+async function getAsker(customerId) {
+  if (!customerId) return null;
+  const usersCol = getCollection('users');
+  const user = await usersCol.findOne({ customerId });
+  if (!user) return null;
+  return {
+    customerId: user.customerId,
+    name: user.name,
+    email: user.email
+  };
+}
+
+/**
+ * GET /api/cases?status=pending|resolved
+ * Agent only. Lists cases with summary projection, sorted newest first, with asker.
+ */
+router.get('/', requireRole('agent'), async (req, res) => {
   try {
     const statusParam = req.query.status || 'pending';
     const filter = ['pending', 'resolved'].includes(statusParam)
@@ -32,6 +50,7 @@ router.get('/', async (req, res) => {
       status: 1,
       llmClassification: 1,
       reason: 1,
+      customerId: 1,
       createdAt: 1
     };
 
@@ -40,7 +59,21 @@ router.get('/', async (req, res) => {
       .sort({ createdAt: -1 })
       .toArray();
 
-    return res.json(cases);
+    // Attach asker to each case
+    const customerIds = [...new Set(cases.map(c => c.customerId).filter(Boolean))];
+    let askerMap = new Map();
+    if (customerIds.length > 0) {
+      const usersCol = getCollection('users');
+      const users = await usersCol.find({ customerId: { $in: customerIds } }).toArray();
+      askerMap = new Map(users.map(u => [u.customerId, { customerId: u.customerId, name: u.name, email: u.email }]));
+    }
+
+    const casesWithAsker = cases.map(c => ({
+      ...c,
+      asker: c.customerId ? askerMap.get(c.customerId) || null : null
+    }));
+
+    return res.json(casesWithAsker);
   } catch (err) {
     console.error('Error fetching cases:', err);
     return res.status(500).json({ error: 'Failed to fetch cases' });
@@ -48,33 +81,40 @@ router.get('/', async (req, res) => {
 });
 
 /**
- * GET /:id
- * Returns the full case document.
+ * GET /api/cases/mine
+ * Customer only. Defined BEFORE /:id.
+ * Returns the customer's own cases as {_id, question, status, finalAnswer, createdAt, resolvedAt}, newest first, no evidence.
  */
-router.get('/:id', async (req, res) => {
+router.get('/mine', requireRole('customer'), async (req, res) => {
   try {
-    const { id } = req.params;
-    if (!isValidObjectId(id)) {
-      return res.status(400).json({ error: 'Invalid case ID' });
-    }
+    const projection = {
+      _id: 1,
+      question: 1,
+      status: 1,
+      finalAnswer: 1,
+      createdAt: 1,
+      resolvedAt: 1
+    };
 
-    const caseDoc = await getCollection('cases').findOne({ _id: new ObjectId(id) });
-    if (!caseDoc) {
-      return res.status(404).json({ error: 'Case not found' });
-    }
+    const cases = await getCollection('cases')
+      .find({ customerId: req.user.customerId }, { projection })
+      .sort({ createdAt: -1 })
+      .toArray();
 
-    return res.json(caseDoc);
+    return res.json(cases);
   } catch (err) {
-    console.error('Error fetching case by ID:', err);
-    return res.status(500).json({ error: 'Failed to fetch case' });
+    console.error('Error fetching customer cases:', err);
+    return res.status(500).json({ error: 'Failed to fetch customer cases' });
   }
 });
 
 /**
- * GET /:id/reply
- * Public polling endpoint. Returns ONLY { status, finalAnswer }.
+ * GET /api/cases/:id/reply
+ * Polling endpoint for case resolution. Returns ONLY { status, finalAnswer }.
+ * Open for guest cases (customerId is null).
+ * For a customer case, only that customer or an agent may read it (401 anonymous, 403 other users).
  */
-router.get('/:id/reply', async (req, res) => {
+router.get('/:id/reply', optionalAuth, async (req, res) => {
   try {
     const { id } = req.params;
     if (!isValidObjectId(id)) {
@@ -83,11 +123,21 @@ router.get('/:id/reply', async (req, res) => {
 
     const caseDoc = await getCollection('cases').findOne(
       { _id: new ObjectId(id) },
-      { projection: { status: 1, finalAnswer: 1 } }
+      { projection: { status: 1, finalAnswer: 1, customerId: 1 } }
     );
 
     if (!caseDoc) {
       return res.status(404).json({ error: 'Case not found' });
+    }
+
+    // Access control: if case belongs to a customer, verify caller
+    if (caseDoc.customerId) {
+      if (!req.user) {
+        return res.status(401).json({ error: 'Unauthorized: Session required for customer case reply' });
+      }
+      if (req.user.role !== 'agent' && req.user.customerId !== caseDoc.customerId) {
+        return res.status(403).json({ error: 'Forbidden: Cannot access this case reply' });
+      }
     }
 
     return res.json({
@@ -101,11 +151,39 @@ router.get('/:id/reply', async (req, res) => {
 });
 
 /**
- * POST /:id/resolve
- * Employee submits answer for a pending case.
+ * GET /api/cases/:id
+ * Agent only. Returns the full case document with asker.
+ */
+router.get('/:id', requireRole('agent'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!isValidObjectId(id)) {
+      return res.status(400).json({ error: 'Invalid case ID' });
+    }
+
+    const caseDoc = await getCollection('cases').findOne({ _id: new ObjectId(id) });
+    if (!caseDoc) {
+      return res.status(404).json({ error: 'Case not found' });
+    }
+
+    const asker = await getAsker(caseDoc.customerId);
+
+    return res.json({
+      ...caseDoc,
+      asker
+    });
+  } catch (err) {
+    console.error('Error fetching case by ID:', err);
+    return res.status(500).json({ error: 'Failed to fetch case' });
+  }
+});
+
+/**
+ * POST /api/cases/:id/resolve
+ * Agent only. Employee submits answer for a pending case.
  * Body: { answer: string }
  */
-router.post('/:id/resolve', async (req, res) => {
+router.post('/:id/resolve', requireRole('agent'), async (req, res) => {
   try {
     const { id } = req.params;
     if (!isValidObjectId(id)) {
@@ -142,7 +220,13 @@ router.post('/:id/resolve', async (req, res) => {
       { returnDocument: 'after' }
     );
 
-    return res.json(updatedCase);
+    const doc = updatedCase.value || updatedCase;
+    const asker = await getAsker(doc?.customerId);
+
+    return res.json({
+      ...doc,
+      asker
+    });
   } catch (err) {
     console.error('Error resolving case:', err);
     return res.status(500).json({ error: 'Failed to resolve case' });

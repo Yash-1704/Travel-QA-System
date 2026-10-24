@@ -288,5 +288,25 @@
       "total": 202
     },
     "createdAt": "2026-10-21T19:01:21.373Z"
+  },
+  "7c241d9066ce9c3dbadb0f5c5b80bde49c9852d0f96a1e3cfeb721033350d678": {
+    "text": "The cancellation fee for a SkyNova Air Economy Saver ticket if cancelled more than 72 hours before the flight is USD 45. [OKF:cancellation-skynova-economy.md]",
+    "latencyMs": 385,
+    "tokens": {
+      "prompt": 540,
+      "completion": 42,
+      "total": 582
+    },
+    "createdAt": "2026-10-24T10:49:44.239Z"
+  },
+  "451119437c13430af89948237830b4496b59a0a76c320f3057075763db3163bb": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 197,
+    "tokens": {
+      "prompt": 774,
+      "completion": 4,
+      "total": 778
+    },
+    "createdAt": "2026-10-24T10:50:25.099Z"
   }
 }

@@ -17,6 +17,7 @@ import { answerV1, answerV2 } from '../services/answer.js';
 import { DailyBudgetError } from '../services/llm.js';
 import { getCollection } from '../services/db.js';
 import { loadOkfFiles } from '../services/okfLoader.js';
+import { optionalAuth } from '../middleware/auth.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -104,8 +105,8 @@ function buildCaseDoc(question, result, customerId = null) {
   };
 }
 
-router.post('/', async (req, res) => {
-  const { question, system = 'v2', customerId } = req.body || {};
+router.post('/', optionalAuth, async (req, res) => {
+  const { question, system = 'v2' } = req.body || {};
 
   // Validate question
   if (!question || typeof question !== 'string' || question.trim() === '') {
@@ -114,6 +115,10 @@ router.post('/', async (req, res) => {
   if (question.length > 1000) {
     return res.status(400).json({ error: 'question must be at most 1000 characters' });
   }
+
+  // Session customerId: customers get their customerId; guests & agents get null.
+  // Ignore any customerId or bookingId sent in req.body.
+  const caseCustomerId = (req.user && req.user.role === 'customer') ? req.user.customerId : null;
 
   const systemLower = (system || 'v2').toLowerCase();
 
@@ -140,7 +145,7 @@ router.post('/', async (req, res) => {
     let caseId = undefined;
     if (systemLower === 'v2' && result.outcome === 'ESCALATED') {
       try {
-        const caseDoc = buildCaseDoc(question.trim(), result, customerId);
+        const caseDoc = buildCaseDoc(question.trim(), result, caseCustomerId);
         const casesCol = getCollection('cases');
         const insertRes = await casesCol.insertOne(caseDoc);
         caseId = insertRes.insertedId.toString();
