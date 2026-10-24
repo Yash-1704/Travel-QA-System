@@ -308,5 +308,15 @@
       "total": 778
     },
     "createdAt": "2026-10-24T10:50:25.099Z"
+  },
+  "9c766f02c900718601b4e2566b5666e2617e02bdfb110972da91f9a44b1f6f18": {
+    "text": "No, you cannot bring a pet snake on board under standard passenger procedures. The policy explicitly states that exotic, unusual, or non-standard animals, including reptiles, are not covered and cannot be transported. Passengers wishing to travel with such animals must contact the airline's special cargo and live animal team directly, as approval is not guaranteed. [OKF:pets-policy.md]",
+    "latencyMs": 405,
+    "tokens": {
+      "prompt": 748,
+      "completion": 77,
+      "total": 825
+    },
+    "createdAt": "2026-10-24T11:48:15.760Z"
   }
 }
