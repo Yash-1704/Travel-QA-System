@@ -9,11 +9,14 @@
     "dev": "node --watch server/src/index.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "chromadb": "^1.10.4",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "gray-matter": "^4.0.3",
+    "jsonwebtoken": "^9.0.3",
     "mongodb": "^6.13.0"
   }
 }

@@ -288,5 +288,115 @@
       "total": 202
     },
     "createdAt": "2026-10-21T19:01:21.373Z"
+  },
+  "7c241d9066ce9c3dbadb0f5c5b80bde49c9852d0f96a1e3cfeb721033350d678": {
+    "text": "The cancellation fee for a SkyNova Air Economy Saver ticket if cancelled more than 72 hours before the flight is USD 45. [OKF:cancellation-skynova-economy.md]",
+    "latencyMs": 385,
+    "tokens": {
+      "prompt": 540,
+      "completion": 42,
+      "total": 582
+    },
+    "createdAt": "2026-10-24T10:49:44.239Z"
+  },
+  "451119437c13430af89948237830b4496b59a0a76c320f3057075763db3163bb": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 197,
+    "tokens": {
+      "prompt": 774,
+      "completion": 4,
+      "total": 778
+    },
+    "createdAt": "2026-10-24T10:50:25.099Z"
+  },
+  "9c766f02c900718601b4e2566b5666e2617e02bdfb110972da91f9a44b1f6f18": {
+    "text": "No, you cannot bring a pet snake on board under standard passenger procedures. The policy explicitly states that exotic, unusual, or non-standard animals, including reptiles, are not covered and cannot be transported. Passengers wishing to travel with such animals must contact the airline's special cargo and live animal team directly, as approval is not guaranteed. [OKF:pets-policy.md]",
+    "latencyMs": 405,
+    "tokens": {
+      "prompt": 748,
+      "completion": 77,
+      "total": 825
+    },
+    "createdAt": "2026-10-24T11:48:15.760Z"
+  },
+  "b132182fd66a465eb4714fd7baec05031d0a8e22f388e815c985a3b5735d6584": {
+    "text": "RAG_ONLY",
+    "latencyMs": 232,
+    "tokens": {
+      "prompt": 192,
+      "completion": 4,
+      "total": 196
+    },
+    "createdAt": "2026-10-24T13:22:49.479Z"
+  },
+  "e84c6e6d928d571ce96a26bd619162b0f2bc1de35a522cb404ca1d29da6f0468": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 185,
+    "tokens": {
+      "prompt": 402,
+      "completion": 4,
+      "total": 406
+    },
+    "createdAt": "2026-10-24T13:22:59.427Z"
+  },
+  "c3b7338fae8f182268193dbc57b72ab670bc51e51ac55fa1d47ad6f757ccbd07": {
+    "text": "RAG_ONLY",
+    "latencyMs": 250,
+    "tokens": {
+      "prompt": 240,
+      "completion": 4,
+      "total": 244
+    },
+    "createdAt": "2026-10-24T13:23:35.579Z"
+  },
+  "4007701d921165fc449163b644ba1b661921ca1cd5f35ae3ef79d96ddaa09c2a": {
+    "text": "Your flight SN-303 on 2026-01-19 was delayed by 3 hours and 45 minutes due to crew scheduling issues at Mumbai. Specifically, a first officer originally rostered for the flight was reassigned to cover an emergency on another route, requiring a replacement first officer to be called in from standby. This delay is classified as an airline operational issue within SkyNova Air's control. [RAG:notice-0006]",
+    "latencyMs": 523,
+    "tokens": {
+      "prompt": 475,
+      "completion": 100,
+      "total": 575
+    },
+    "createdAt": "2026-10-24T13:23:45.852Z"
+  },
+  "cbe26b693013c44d7060c63f6966b578d2c28a857f31877f7bd342f655c3c485": {
+    "text": "RAG_ONLY",
+    "latencyMs": 170,
+    "tokens": {
+      "prompt": 237,
+      "completion": 4,
+      "total": 241
+    },
+    "createdAt": "2026-10-24T13:23:55.502Z"
+  },
+  "f2d994efd07c669c364b4369dadeb499a60a47947da4f6d8a02479fad697e38b": {
+    "text": "Your flight AJ-512 on 2026-05-22 was delayed due to a technical fault in the aircraft's auxiliary power unit (APU) discovered during pre-flight checks at Delhi. A replacement aircraft was sourced from Mumbai, which required repositioning and contributed to the total delay of 6 hours and 50 minutes. [RAG:notice-0002]",
+    "latencyMs": 358,
+    "tokens": {
+      "prompt": 492,
+      "completion": 86,
+      "total": 578
+    },
+    "createdAt": "2026-10-24T13:24:05.694Z"
+  },
+  "5b76fabb570b467162f55b96f398c33eee5e8747d3ebf60aefb048ae2f5612ed": {
+    "text": "RAG_ONLY",
+    "latencyMs": 212,
+    "tokens": {
+      "prompt": 245,
+      "completion": 4,
+      "total": 249
+    },
+    "createdAt": "2026-10-24T13:29:06.412Z"
+  },
+  "6258ed526287f195690db67e7288440e3bfff6b3131fd85a0c2c825c8ca7aec7": {
+    "text": "Your flight SN-303 on 2026-01-19 was delayed by 3 hours and 45 minutes due to crew scheduling issues at Mumbai. Specifically, a first officer originally rostered for the flight was reassigned to cover an emergency on another route, requiring a replacement first officer to be called in from standby. This delay is classified as an airline operational issue within SkyNova Air's control. [RAG:notice-0006]",
+    "latencyMs": 374,
+    "tokens": {
+      "prompt": 480,
+      "completion": 100,
+      "total": 580
+    },
+    "createdAt": "2026-10-24T13:29:16.585Z"
   }
 }

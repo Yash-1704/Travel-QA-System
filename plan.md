@@ -2,15 +2,17 @@
 
 **RAG-only baseline vs. OKF + RAG with LLM routing**
 
-Last updated: October 20, 2026 (reconciled with AGENTS.md: active Groq model and limits, 10-second call spacing, and explicit stale/conflict evaluation caveats)
+Last updated: October 24, 2026 (added Phase 3, the travel agency website with authentication; later phases renumbered to 4, 5A, 5B and 6; earlier reconciliation with AGENTS.md covered the active Groq model and limits, 10-second call spacing, and explicit stale/conflict evaluation caveats)
 
-**How to use this file.** Read sections 1 to 5 to understand what you are building and why. Section 6 is the version-by-version build map you follow while coding. Sections 7 and 8 cover the evaluation and the paper. Sections 9 to 12 are reference (what to learn, tech stack, key terms, future work).
+**How to use this file.** Read sections 1 to 5 to understand what you are building and why. Section 6 is the phase-by-phase build map you follow while coding. Sections 7 and 8 cover the evaluation and the paper. Sections 9 to 12 are reference (what to learn, tech stack, key terms, future work).
 
 ---
 
 ## 1. The project in one page
 
 **What it is.** A web app where a customer asks a travel support question (cancellations, visas, baggage, delays, bookings) and gets an answer with its source cited. Two versions of the system are built and compared: one uses RAG only (a standard vector store baseline), the other combines curated policies (OKF) with RAG and uses the LLM to classify the question type before retrieving.
+
+**The product around it.** The question answering system lives inside a small travel agency website (Phase 3). Customers and agency staff log in with different roles; customers search flights, view flight details and make demo bookings; staff work the queue of questions the system escalates to a human. The website is the product shell around the research system. The research contribution is only the V1 versus V2 comparison described below, and the website itself is not evaluated.
 
 **How it works.**
 
@@ -40,7 +42,8 @@ Compare V1 (RAG-only) vs V2 (LLM-classified routing + OKF + RAG) on:
 | ------------- | -------------------------------------------------------------------------- |
 | V1            | RAG-only baseline: all documents in one vector store, retrieve and answer  |
 | V2            | LLM classifies question type first, then retrieves from OKF or RAG or both |
-| V3 (optional) | Customer context: resolve "my flight" to actual bookings in MongoDB        |
+| Website (Phase 3) | Travel agency website: customer and agent login, flight search, flight details, demo bookings, staff support queue (product shell, not evaluated) |
+| Customer context (Phase 4, optional) | Resolve "my flight" to the logged-in customer's actual bookings in MongoDB |
 
 **One-sentence pitch for your mentor.** "We study whether asking an LLM to classify a question before retrieval — routing it to curated policies or event data — produces more accurate answers than a standard RAG-only system that retrieves from everything at once."
 
@@ -51,7 +54,8 @@ Compare V1 (RAG-only) vs V2 (LLM-classified routing + OKF + RAG) on:
 - This is a college project titled "Question Answering System for Automated Customer Relationship Management." The title is a general direction, not a strict requirement.
 - The mentor wants a technically strong project with a real research component, leading to a research paper.
 - It must be primarily a web application, buildable by one student in the available time, and understandable by you end to end.
-- Focus: build V1 and V2 fully and test them. V3 is optional if time allows.
+- Focus: build V1 and V2 fully and test them. The website around them (Phase 3) is time-boxed, and customer context (Phase 4) is optional if time allows.
+- Because the project must be primarily a web application, Phase 3 wraps the system in a travel agency website with login for two roles (customer and agent). The evaluation never goes through the website: the scripts call `answerV1` and `answerV2` directly.
 - Avoid complex weight tuning and threshold tweaking; the LLM classification handles routing.
 - AI may generate the data (policy files, synthetic notices, test questions) and help with code.
 
@@ -102,7 +106,8 @@ Example routing:
 ### What this project does NOT do
 
 - It does **not** use past agent replies in support tickets as a source of policy. If a policy changes, the OKF file is updated.
-- It does **not** use RAG for customer-specific data such as bookings. That is an exact lookup in a table (V3 optional), not a similarity search.
+- It does **not** use RAG for customer-specific data such as bookings. That is an exact lookup in a table (Phase 4, optional), not a similarity search.
+- It does **not** put website data (users, flights, bookings) into the OKF files, `notices.json` or either Chroma collection. Website data lives only in MongoDB, so website activity cannot change the evaluation corpus.
 - It does **not** try to decide which of two contradicting sources is right. If the evidence contradicts itself, it escalates to a human.
 
 ---
@@ -128,10 +133,11 @@ Read the spec yourself before generating files.
 ### 5.1 Architecture
 
 ```
-Customer (React chat page)
-        |
+Browser: React website (public pages, customer area, staff area)
+        |   customers and agents log in; session cookie
+        |   chat widget on the site
         v
-Express  POST /api/chat
+Express  POST /api/chat   (login optional; adds the customer id when logged in)
         |
         v
    [V1 path]                    [V2 path]
@@ -153,7 +159,7 @@ Express  POST /api/chat
              back to customer                     |
                                           Human fallback:
                                           -> MongoDB "cases"
-                                          -> Employee dashboard
+                                          -> Staff support queue (agent login)
                                           -> employee writes answer
                                           -> answer sent to customer
 ```
@@ -219,27 +225,90 @@ If the model replies `INSUFFICIENT` or `CONFLICT`, treat it as ESCALATE. V1 and 
 **When it triggers:** LLM classifies as ESCALATE; retrieval returns nothing above threshold; the answer LLM replies INSUFFICIENT or CONFLICT.
 
 1. The customer sees "A team member will get back to you shortly." The case is saved to MongoDB with status **pending**.
-2. An employee opens the dashboard and sees pending cases in a list.
+2. An employee (a user with the agent role) logs in, opens the support queue, and sees pending cases in a list.
 3. Clicking a case shows:
    - the customer's question
    - the LLM's classification (or "ESCALATE")
    - OKF file found (if any) with excerpt and metadata
    - RAG chunks found (if any) with timestamps
    - reason for escalation
-4. The employee writes and submits an answer. The case becomes **resolved** and the answer is sent to the customer.
+4. The employee writes and submits an answer. The case becomes **resolved** and the answer is sent to the customer (it appears in the open chat and, if the customer was logged in, under My support requests).
 
-**Dashboard scope:** a simple page showing pending cases, each expandable to show evidence and an answer text box. Plain UI, functional only. Aim for about one week of work.
+**Dashboard scope:** the support queue already exists from Phase 2B (pending and resolved lists, expandable evidence, answer box). Phase 3 moves it into the staff area behind the agent login and shows who asked when the customer was logged in; it is not redesigned. Plain UI, functional only.
 
-### 5.4 Customer context (V3, optional)
+### 5.4 Travel agency website and authentication (Phase 3)
+
+The question answering system sits inside a small travel agency website, so the project is a usable web application and not only a chat box. The website is a product shell: it is built after V2 works and before the evaluation freezes, and it does not change how questions are answered.
+
+**Roles.** There are two roles. Guests (not logged in) can still browse and use the chat.
+
+| Role | How the account is created | What it can do |
+| --- | --- | --- |
+| Guest | none | Browse and search flights, view flight details, use the chat widget. Escalated questions are saved as cases, but a guest has no inbox, so the answer appears only in the open chat |
+| Customer | Registers on the site, or one of the seeded demo accounts | Everything a guest can, plus book flights, see their own bookings, and see their own escalated questions with the staff reply |
+| Agent | Seeded only; there is no public sign-up for agents | Work the support queue (read the evidence, write the reply) and view all bookings read-only. Agents cannot book |
+
+**Pages (React Router).**
+
+| Route | Who | What it shows |
+| --- | --- | --- |
+| `/` | everyone | Landing page: flight search form, popular routes, the airlines, a note that all data is demo data |
+| `/flights` | everyone | Search results for origin, destination, date and passengers, sortable by price and departure time |
+| `/flights/:id` | everyone | Flight details: airline, flight number, route, departure and arrival in each airport's local time, duration, fare classes with price and seats left, a Book button |
+| `/login`, `/register` | guests | Log in as customer or staff (a role tab changes the wording; the server decides the role from the account); customer sign-up |
+| `/book/:flightId` | customer | Choose fare class and 1 to 4 passengers, review, confirm (no payment is taken) |
+| `/account/bookings` | customer | Own bookings, upcoming and past, with booking reference and status |
+| `/account/support` | customer | Own escalated questions with status and the staff reply |
+| `/staff/support` | agent | The support queue from Phase 2B (pending and resolved, evidence, reply box), now behind the agent login and showing who asked |
+| `/staff/bookings` | agent | All bookings, read-only (nice to have) |
+| `/lab/chat` | everyone | The original chat page with the V1/V2 selector and token line, kept for demos and paper screenshots |
+
+A floating chat widget (V2 only, no selector) appears on every public and customer page and uses the same `POST /api/chat`.
+
+**Data.** Website data lives only in MongoDB.
+
+| Collection | Main fields |
+| --- | --- |
+| `users` | `role` (`customer` or `agent`), `name`, `email` (unique, lower case), `passwordHash`, `customerId` (customers only, for example `cust-001`), `createdAt` |
+| `flights` | `flightNo`, `airline`, `origin`, `destination`, `route` (for example `DEL-DXB`), `departureAt` and `arrivalAt` (UTC), `aircraft`, `fares`: a list of `{ fareClass, price, seatsAvailable }` |
+| `bookings` | `bookingId` (`BK-xxxxx`), `customerId`, `flightNo`, `route`, `airline`, `fareClass`, `date`, `status` (`confirmed` or `completed`), `passengers`, `totalPrice`, `source` (`seed` or `website`), `createdAt`. The first eight fields keep the names used in `data/seed/bookings.json`, so Phase 4 works the same on seeded and new bookings |
+| `counters` | One document that hands out booking numbers atomically |
+
+**Authentication design (kept small enough to explain).**
+
+- Passwords are hashed with bcrypt (`bcryptjs`, pure JavaScript, so it installs without native builds). Plain passwords are never stored, logged or returned.
+- Login sets a signed token (JWT, `jsonwebtoken`) in an httpOnly, sameSite=lax cookie. The token holds only the user id and role, and the server reloads the user on each request, so a deleted user or a changed role takes effect immediately. The secret is `JWT_SECRET` in `.env`.
+- Middleware `requireAuth`, `requireRole("agent")` and `optionalAuth` guard the routes. The React route guards only hide pages from the wrong role; the server check is the real protection.
+- `POST /api/chat` uses `optionalAuth`: when a customer is logged in, the saved case gets their `customerId` from the session. A `customerId` sent in the request body is ignored.
+- Login attempts are limited with a small in-memory limiter (no extra service). State-changing routes accept JSON only.
+- Booking prices are always computed on the server from the flight record. The client never sends a price.
+
+**Booking rules.** The flight must depart in the future, there must be 1 to 4 passengers, and the fare class must exist on that flight. Taking seats is one conditional atomic update, so two customers cannot take the last seat. MongoDB runs standalone here (no transactions), so if the booking insert fails the code gives the seats back. Payment is simulated: the confirm button states that no payment is taken.
+
+**Case access rules.** `GET /api/cases`, `GET /api/cases/:id` and `POST /api/cases/:id/resolve` are agent-only. A customer reads their own cases through `GET /api/cases/mine`. `GET /api/cases/:id/reply` stays open for guest cases (the chat widget polls it), but for a case that belongs to a customer only that customer or an agent can read it.
+
+**Seed data and consistency rules (the website must not contradict the evaluation data).** `scripts/seed-db.js` is idempotent. It creates the demo accounts (the three customers from `data/seed/bookings.json` plus two agents; the password comes from `SEED_DEMO_PASSWORD` in `.env`, never from the code), the six seed bookings (status `completed`), and flights for the next 60 days generated from a new file, `data/seed/flight-templates.json`. Re-running it extends the flight window without resetting seat counts or removing bookings made on the site. Rules for the flight templates:
+
+- Use only the airlines, routes, flight numbers and fare class names in `docs/universe.md` and the delay notices. Do not invent return legs that the universe does not define.
+- Never create a flight number that the evaluation treats as nonexistent: `AJ-511`, `SN-505`, `VA-802`.
+- `AJ-411` departs Mumbai at 05:00 local time (notice-0020). `VA-902` has no departures from 1 to 31 October 2026 (notice-0024).
+- Flight records contain no delay or disruption information. That lives only in the notices.
+- Fares are demo prices in USD and are labelled as such on the site. They are never added to the OKF files.
+
+**Known and accepted gaps.** The chatbot does not know about fares, seats left, or the customer's own bookings (until Phase 4), so a question like "how much is a ticket to Dubai?" escalates. This matches the evaluation's no-evidence category and is deliberately left as it is. Not in scope: payments, cancellations and changes, seat selection, e-mail, password reset, agents creating flights.
+
+**Evaluation isolation.** Phase 3 must not change the research code: `answer.js`, `classifier.js`, `prompts.js`, `rag.js`, `okf.js`, `okfLoader.js`, `llm.js`, `embed.js`, the existing values in `config.js` (new keys such as `JWT_SECRET` may be added), the OKF files, `notices.json` or `questions.json`. `run-eval.js` calls `answerV1` and `answerV2` directly, never through HTTP, so logins never touch it.
+
+### 5.5 Customer context (Phase 4, optional)
 
 If time allows: when a customer asks "Why was my flight delayed?", the system needs to know which flight.
 
-- The demo has a few synthetic customers who can "log in."
-- The backend looks up that customer's bookings in MongoDB `bookings` collection (flight number, airline, date, etc.).
+- Customers already log in through the website (Phase 3). The customer id comes from the session cookie, never from the request body.
+- The backend looks up that customer's bookings in the `bookings` collection from Phase 3 (seeded history plus bookings made on the site: flight number, airline, date, etc.).
 - The flight number is added to the question before classification, so the classification and retrieval use the full context.
 - If the customer has multiple bookings, the bot asks which one.
 
-### 5.5 Data you will create (mostly with AI help, always reviewed by you)
+### 5.6 Data you will create (mostly with AI help, always reviewed by you)
 
 **OKF policy file (check exact field formats against the v0.2 spec):**
 
@@ -289,41 +358,62 @@ minus a fee of 50 USD. Within 24 hours of departure, the fare is not refundable.
 
 `expected_outcome` must be exactly one of the four classifier labels: `OKF_ONLY`, `RAG_ONLY`, `HYBRID`, `ESCALATE`. This is what makes routing accuracy computable by direct string comparison.
 
-### 5.6 Project structure, API, and data model
+**Website seed data (Phase 3, separate from the evaluation data).** `data/seed/flight-templates.json` is a new file with one template per route: airline, flight number, origin, destination, local departure time, duration, aircraft, and fare classes with demo prices and seat counts. `scripts/seed-db.js` expands it into dated flights. The rules that keep it consistent with the evaluation data are in section 5.4. The existing `bookings.json` is unchanged.
+
+### 5.7 Project structure, API, and data model
 
 ```
 travel-qa/
   client/
-    src/pages/Chat.jsx         customer chat (works with V1 and V2)
-    src/pages/Dashboard.jsx    employee dashboard for escalated cases
+    src/config.js                 agency name and demo-data notice (one place to change)
+    src/auth/                     AuthContext and route guards (RequireRole)
+    src/components/               NavBar, Footer, ChatWidget, FlightCard, ...
+    src/pages/                    Home, FlightSearch, FlightDetails, Login, Register, Book,
+                                  MyBookings, MySupport, LabChat (the original chat page),
+                                  staff/SupportQueue, staff/Bookings
   server/
     src/index.js
-    src/routes/chat.js         POST /api/chat
-    src/routes/cases.js        GET/POST /api/cases for human fallback
+    src/middleware/auth.js     requireAuth, requireRole, optionalAuth
+    src/routes/auth.js         register, login, logout, me
+    src/routes/flights.js      flight search and details (public)
+    src/routes/bookings.js     create and read bookings
+    src/routes/chat.js         POST /api/chat (login optional)
+    src/routes/cases.js        human fallback (agents; customers read their own)
     src/services/okf.js        load OKF files, keyword scoring (V2 only)
     src/services/rag.js        chunk, embed, Chroma query (V1 and V2)
     src/services/classifier.js LLM-based question classification (V2 only)
     src/services/llm.js        Groq calls; caches latency and token counts
-    src/services/db.js         MongoDB for cases and bookings
+    src/services/db.js         MongoDB for users, flights, bookings and cases
   data/okf/*.md                OKF policy files (V2 only)
   data/rag/notices.json        Unstructured event notices
   data/eval/questions.json     Test question set with expected answers
-  data/seed/bookings.json      Demo customer bookings (V3 optional)
+  data/seed/bookings.json      Demo customers and their six past bookings
+  data/seed/flight-templates.json  Route templates used to generate demo flights (Phase 3)
   scripts/ingest-rag.js        Embed notices; build `combined` (V1) and `notices` (V2) Chroma collections
-  scripts/seed-db.js           Load demo customers and bookings into MongoDB
+  scripts/seed-db.js           Seed demo users, bookings and flights into MongoDB
+  scripts/test-website-api.js  Checks login, roles, booking and case access rules
   scripts/run-eval.js          Run V1 and V2 on test questions; measure accuracy, latency, tokens
   cache/llm-cache.json         Cache all LLM outputs keyed by exact prompt
 ```
 
-| Endpoint                          | Purpose                                                                               |
-| --------------------------------- | ------------------------------------------------------------------------------------- |
-| `POST /api/chat`                  | Body: `{ question, customerId? }`. Returns `{ outcome, answer?, citations, caseId? }` |
-| `GET /api/cases?status=pending`   | Employee queue                                                                        |
-| `GET /api/cases/:id`              | Evidence view for one case                                                            |
-| `POST /api/cases/:id/resolve`     | Employee's final answer                                                               |
-| `GET /api/customers/:id/bookings` | V3 only                                                                               |
+| Endpoint | Who | Purpose |
+| --- | --- | --- |
+| `POST /api/auth/register` | guest | Create a customer account |
+| `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me` | any | Start and end a session; read the current user |
+| `GET /api/flights?from=&to=&date=&passengers=` | everyone | Search flights |
+| `GET /api/flights/:id` | everyone | Flight details with fares and seats left |
+| `POST /api/bookings` | customer | Body: `{ flightId, fareClass, passengers }`. Returns the booking |
+| `GET /api/bookings/mine` | customer | Own bookings |
+| `GET /api/bookings/:bookingId` | owner or agent | One booking |
+| `GET /api/staff/bookings` | agent | All bookings, read-only |
+| `POST /api/chat` | everyone | Body: `{ question, system? }`. Returns `{ outcome, answer?, citations, caseId? }`. The customer id comes from the session |
+| `GET /api/cases?status=pending` | agent | Support queue |
+| `GET /api/cases/mine` | customer | Own escalated questions and replies |
+| `GET /api/cases/:id` | agent | Evidence view for one case |
+| `POST /api/cases/:id/resolve` | agent | Employee's final answer |
+| `GET /api/cases/:id/reply` | guest cases: anyone with the id; customer cases: owner or agent | Status and final answer only |
 
-**MongoDB collections:** `cases`, `customers`, `bookings`, `experiment_logs`.
+**MongoDB collections:** `users`, `flights`, `bookings`, `counters` (booking numbers), `cases`, `experiment_logs`. The earlier `customers` collection is replaced by `users`: a customer account carries the `customerId` (for example `cust-001`) that links it to the seeded bookings.
 
 Example `cases` document:
 
@@ -337,6 +427,7 @@ Example `cases` document:
   "okfEvidence": null,
   "ragEvidence": [],
   "finalAnswer": null,
+  "customerId": null,
   "createdAt": "2026-10-16T10:00:00Z",
   "resolvedAt": null
 }
@@ -355,13 +446,25 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 
 ## 6. Progressive build map
 
-### Step 0: Foundations and data (about 1 week)
+Phases are what you type to the coding agent. V1 and V2 are the two systems that get compared; the website is the product around them and is not one of the compared systems.
+
+| Phase | Version | What gets built |
+| --- | --- | --- |
+| Phase 0 | | Setup, data intake, verification |
+| Phase 1 | V1 | RAG-only baseline |
+| Phases 2A-1, 2A-2, 2B | V2 | Classifier (then your approval), classify-first routing, human fallback and support queue |
+| Phase 3 (3A, 3B) | | Travel agency website with authentication |
+| Phase 4 (optional) | | Customer context from the logged-in customer's bookings |
+| Phases 5A, 5B | | Evaluation tooling and dev run (then the freeze), frozen test run and timing |
+| Phase 6 | | Paper draft |
+
+### Phase 0: Foundations and data (about 1 week)
 
 1. Learn concepts 2 to 6 from section 9 (embeddings through RAG pipeline).
 2. **Design the evaluation first** (section 7): fix the question categories and what a correct answer looks like.
 3. Generate the data with AI: 15–18 OKF policy files, 30 synthetic event notices (with timestamps and source types), and 84 test questions with expected answers and key_facts. Review all of it before moving on. (You already have this data from a previous step — verify it is in place.)
 
-### V1: RAG-only baseline (about 1 week)
+### Phase 1 (V1): RAG-only baseline (about 1 week)
 
 - **Goal:** build the RAG-only system. Store each complete OKF file and each notice as one item in a Chroma collection called `combined`. Answer from whatever retrieves.
 - **Build:** Express `/api/chat` endpoint; embed the complete OKF files and notices with Gemini, store them in Chroma `combined` (cosine distance), retrieve the top 3 items by similarity; one Groq call that answers from that evidence; React chat page showing the answer and citations.
@@ -370,7 +473,7 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 - **This is your baseline.** Everything is compared against V1.
 - **Hypothesis to evaluate:** top-three retrieval from the mixed collection may rank a different source type above relevant evidence. Policy-condition truncation is not applicable because each complete policy file is stored as one item. Do not claim cross-source interference occurred unless the observed results support it.
 
-### V2: LLM classification + OKF + RAG routing (about 2 weeks)
+### Phases 2A-1, 2A-2 and 2B (V2): LLM classification + OKF + RAG routing (about 2 weeks)
 
 - **Goal:** classify the question type first, then retrieve from only the appropriate source.
 - **Build:**
@@ -384,13 +487,36 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 - **Done when:** policy questions are classified as OKF_ONLY and answered from OKF files; event questions are classified as RAG_ONLY and answered from notices; hybrid questions use both; out-of-scope questions appear in the employee dashboard; the employee's answer reaches the customer.
 - **No threshold tuning:** the only numeric threshold is the 0.3 minimum similarity for RAG — set it once and leave it.
 
-### V3 (optional, if time allows): Customer context (about 3 to 5 days)
+### Phase 3: Travel agency website with authentication (about 1.5 to 2 weeks, time-boxed)
 
-- **Goal:** resolve "my flight" to the actual flight in the customer's bookings.
-- **Build:** demo customer login; MongoDB `bookings` collection seeded with sample data; when a customer's question mentions "my flight" or "my booking," look up their bookings and inject the flight number into the question before it reaches the classifier.
-- **Done when:** "Why was my flight delayed?" resolves to the correct flight and returns the right delay notice without the customer having to name the flight.
+- **Goal:** turn the chat demo into a believable travel agency product. Customers and staff log in, customers search flights and make demo bookings, and staff work the escalation queue. The answering system itself is unchanged. Design details are in section 5.4.
+- **Why here:** V2 and the case flow already work (Phase 2B), and the evaluation freeze (Phase 5A) locks all code under `server/`. Every back end change the website needs must be finished and committed before that freeze.
+- **Split in two, so you verify the back end before building screens on it:**
+  - **Phase 3A: back end foundation (about 3 to 4 days).** The `users`, `flights`, `bookings` and `counters` collections; password hashing and the login, logout and `me` routes; the auth middleware; flight search and details; the booking route with the atomic seat update; protecting the cases routes and adding `GET /api/cases/mine`; `scripts/seed-db.js` and the flight templates; `scripts/test-website-api.js`; and updating `scripts/test-cases-flow.js` so it logs in as an agent. Then STOP and verify.
+  - **Phase 3B: front end (about 1 to 1.5 weeks).** Tailwind setup (the existing chat styles must keep working), the auth context and route guards, nav bar and footer, the pages in section 5.4, the chat widget, the customer support inbox, and the staff area.
+    - Must have: home with search, results, flight details, login and sign-up, booking, my bookings, chat widget, my support requests, staff support queue, `/lab/chat`.
+    - Nice to have: staff bookings table, sorting and filters, a read-only "recent notices" panel on the flight page (from `notices.json`).
+- **You learn:** password hashing, cookie sessions, role-based authorization on the server and in React, protected routes, form validation, an atomic MongoDB update, responsive layout with Tailwind.
+- **Done when:**
+  1. `node scripts/seed-db.js` run twice gives the same counts (5 users, 6 seeded bookings, no duplicate flights) and prints the demo logins once.
+  2. `node scripts/test-website-api.js` is all PASS: wrong password gives 401; duplicate email gives 409; anonymous and customer calls to `/api/cases` are rejected and an agent is allowed; a booking reduces seats exactly once; overbooking is rejected; reading someone else's booking or case is rejected; no response contains a password hash.
+  3. `node scripts/test-cases-flow.js` is still all PASS (now with the agent login).
+  4. `cd client && npm run build` succeeds.
+  5. Manual walkthrough. As a customer: search DEL to DXB, open a flight, book two passengers, see the booking with correct local times, then ask the widget "Can I bring my pet snake on board?" and see the escalation message. In a second browser as an agent: the case appears with the customer's name; resolve it. Back as the customer, the reply shows in the widget and under My support requests.
+  6. The research code is untouched: `git diff --stat` shows no change to the frozen files listed in section 5.4; `node scripts/test-answer-parsing.js` and `node scripts/validate-data.js` still pass; `node scripts/ask.js v2 --id q-001` returns the cached answer with no new tokens.
+- **Rules while you build and demo:** do not type test-split questions (`"split": "test"` in `questions.json`) into the site before the freeze, because looking at their outputs invites tuning. The chat draws on the same free Groq daily token cap as the evaluation, so keep demos off the quota days reserved for evaluation runs.
+- **Time box:** if the deadline slips, cut the nice-to-have items first. Never cut Phases 5A to 6, because the paper depends on them.
 
-### Step 5: Evaluation run (about 1 week)
+### Phase 4 (optional, if time allows): Customer context (about 2 to 4 days)
+
+- **Goal:** resolve "my flight" to the logged-in customer's actual booking.
+- **Build:** `services/context.js` with `resolveQuestion`, applied in `routes/chat.js` before `answerV2` (the evaluation scripts never use it). For a logged-in customer whose question mentions "my flight", "my booking", "my trip", "my ticket" or "my journey": no bookings leaves the question unchanged; one booking, or a supplied `bookingId` that belongs to them, appends that booking's details; two or more bookings with no `bookingId` returns "Which booking do you mean?" with buttons and makes no LLM call. The chat widget shows the buttons, and My bookings gets an "Ask about this booking" link.
+- **Uses what Phase 3 built:** the bookings, the login session and the seed script. There is no separate login dropdown, and the customer id never comes from the request body.
+- **Done when:** a seeded customer with one matching booking asks "Why was my flight delayed?" and gets the matching delay notice, or the gap is recorded as a finding without tuning anything; a customer with several bookings gets the "which booking" buttons with no token use; guests behave exactly as before.
+
+### Phases 5A and 5B (Step 5): Evaluation run (about 1 week)
+
+Phase 5A builds the evaluation tooling and runs the dev split, then stops so you can make the freeze commit and tag. Phase 5B runs the frozen test split once, then the timing study and the review queue. Everything under `server/`, including the website and customer context work of Phases 3 and 4, must be committed before the freeze, because Phase 5B stops if `server/` has changed since the tag.
 
 1. Run V1 and V2 on the dev set (28 questions) first to catch bugs, then once on the frozen test set (56 questions). Cache all LLM outputs in `cache/llm-cache.json`. Spread runs over 2 or more days to respect Groq's daily token limit (section 7, practical rules).
 2. For each question, log: systemName, questionId, llmClassification (V2 only), outcome, answer, whether it matched correct_answer, latencyMs broken into classifyMs + retrievalMs + llmMs, tokens.
@@ -398,7 +524,7 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 4. Run a separate timing run: bypass the cache, run a 20-question subset 3 times for both systems in one session, report median and p95 latency.
 5. **Error analysis:** for every wrong answer and every wrong classification, write one sentence explaining why it failed.
 
-### Step 6: Write the paper (section 8)
+### Phase 6 (Step 6): Write the paper (section 8)
 
 ---
 
@@ -449,6 +575,8 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 - **Same LLM and embedding model for everything.** Use Groq model ID `qwen/qwen3.8-27b` for both answer generation and classification; use Gemini embeddings for ingest and query embeddings.
 - **Cache all LLM outputs** keyed by exact prompt. Store original `latencyMs` and token counts in each cache entry.
 - **Accuracy comes from one frozen run.** Run V1 and V2 on the 56 test questions once, with caching. Do not retune or rerun.
+- **The website is outside the evaluation.** `run-eval.js` and `run-timing.js` call `answerV1` and `answerV2` directly and never use logins, bookings or the chat route. All website and customer context work (Phases 3 and 4) must be committed before the freeze tag.
+- **Keep the test set unseen.** Do not run test-split questions through the website, `ask.js` or any other path before the frozen run.
 - **Run latency separately:** after the main run, bypass the cache and run the fixed 20-question subset 3 times for both systems, respecting the daily token cap. Follow the implementation guide's repetition boundary rules; do not split a repetition across quota days. Report median and p95 and record each repetition's date. Because the calls bypass cache, do not assume the timing subset automatically fits in one daily quota.
 - **No thresholds to tune.** The only numeric value to set is the minimum RAG similarity floor (0.3). Set it once before building, document it in the paper, do not adjust it based on test results.
 - **Report counts alongside percentages.** With 56 test questions, small percentage differences are noise. "V2 got 4 more policy questions right (34 vs 30 out of 40)" is more honest than "V2 improved accuracy by 10%."
@@ -484,6 +612,7 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 - That results on synthetic data generalize to real customer traffic.
 - That an accuracy difference of a few percentage points on 56 questions is statistically significant.
 - That OKF is necessary for this to work — the classification approach could be used with any structured policy store. OKF is the format you chose; it is not what makes the approach novel.
+- That the website's login, booking or staff features are part of the research contribution, or that the website was evaluated for usability.
 
 ### Suggested outline
 
@@ -491,7 +620,7 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 2. **Abstract:** problem, approach, test set, headline numbers.
 3. **Introduction:** the hypothesis that mixing policies and events in one vector store may cause cross-source ranking interference; why classifying before retrieval may reduce it; what this paper measures.
 4. **Related work:** RAG, hallucination in LLM QA, customer support chatbots, structured knowledge formats.
-5. **System design:** V1 (RAG-only), V2 (classify-then-retrieve), the two Chroma collections, OKF as the policy store.
+5. **System design:** V1 (RAG-only), V2 (classify-then-retrieve), the two Chroma collections, OKF as the policy store, and a short description of the web application around them (roles and the escalation inbox).
 6. **Experimental setup:** synthetic travel data, 7 categories, 84 questions, metrics.
 7. **Results:** accuracy and latency tables, per-category breakdown, routing confusion matrix, error analysis, primary headline metrics over all 56 frozen-test questions plus a clearly labeled sensitivity analysis excluding the 8 stale-category test questions (48 questions), and conflict-category evidence availability for both conflicting files.
 8. **Discussion:** where classification helps most; where it fails; the latency and cost tradeoff.
@@ -508,6 +637,7 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 - Neither system checks whether a policy file is stale (`stale_after`, `status` are not used), so the stale-policy category tests only whether the answer matches the intentionally outdated file content, not whether it is current real-world policy. Report the primary results over all 56 frozen-test questions and a clearly labeled sensitivity analysis excluding the 8 stale-category test questions (48 questions); preserve and disclose both.
 - The conflict category is scored correct only when the system escalates with `CONFLICT`, and this requires both conflicting source files in the evidence. V1 top-3 combined retrieval and V2 single-file OKF matching / classifier-first skipping create an asymmetric opportunity to see both files; report the per-system retrieval counts and do not overinterpret a category difference.
 - The free-tier token limits may require evaluation to be spread over several quota days; run the timing study on the specified 20-question subset and record dates and measured usage.
+- The travel agency website (authentication, flight search, demo bookings, staff queue) is a product shell with synthetic flights and prices and simulated payment. It was not evaluated, and no usability or user-study claims are made. The chatbot does not know about the website's fares or seat counts, so such questions escalate.
 
 ---
 
@@ -521,6 +651,7 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 6. **The OKF specification:** read v0.2 spec at GoogleCloudPlatform/knowledge-catalog. Understand the `type` field (required) and optional fields `sources`, `verified`, `stale_after`, `status`.
 7. **Evaluation basics:** accuracy, per-category breakdowns, confusion matrices. Search "confusion matrix explained".
 8. **LLM classification prompting:** how to assess whether the model returns exactly one of N labels and nothing else. The Phase 2A-1 gate runs the frozen classifier prompt on 10 dev questions before it is wired into V2. The earlier Phase 0 `OK` smoke test checks connectivity/cache behavior only; it does not establish classifier-format reliability. Record any malformed outputs at the gate without changing the frozen prompt or adding retries.
+9. **Authentication and roles (learn before Phase 3):** how passwords are hashed (bcrypt), how a login session works (a signed token in an httpOnly cookie), how the server protects routes by role, how React hides pages from the wrong role (the server check is the real protection), and one MongoDB atomic update (`$inc` with a condition) for seat counts. Search "JWT httpOnly cookie authentication Express" and "React Router protected routes".
 
 ---
 
@@ -528,13 +659,14 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 
 | Part       | Choice                                   | Notes                                                                                                                                                                                                                                                                                           |
 | ---------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Frontend   | React + React Router (+ Tailwind)        | Two pages: customer chat and employee dashboard                                                                                                                                                                                                                                                 |
+| Frontend | React (Vite) + React Router + Tailwind CSS | Public site, customer area, staff area and a chat widget; the original chat page stays at `/lab/chat` |
 | Backend    | Node.js + Express                        | One language across the project                                                                                                                                                                                                                                                                 |
 | LLM        | Groq API, `qwen/qwen3.8-27b`             | Groq's model/plan reference limits checked 2026-10-20: 30 requests/min, 1,000 requests/day, 8,000 tokens/min, 200,000 tokens/day. Project/account limits may be lower. This project sets `GROQ_DAILY_TOKEN_CAP=90000` and `GROQ_MIN_INTERVAL_MS=10000`; verify current limits before bulk runs. |
 | Embeddings | Gemini embedding API (free tier)         | Groq has no embeddings endpoint                                                                                                                                                                                                                                                                 |
 | Vector DB  | Chroma (local, JS client)                | Two collections: `combined` (V1) and `notices` (V2)                                                                                                                                                                                                                                             |
 | OKF files  | Markdown + YAML, parsed with gray-matter | Per OKF v0.2 spec                                                                                                                                                                                                                                                                               |
-| Database   | MongoDB                                  | Collections: `cases`, `customers`, `bookings`, `experiment_logs`                                                                                                                                                                                                                                |
+| Database | MongoDB | Collections: `users`, `flights`, `bookings`, `counters`, `cases`, `experiment_logs` |
+| Auth | `bcryptjs`, `jsonwebtoken`, `cookie-parser` | Hashed passwords; signed token in an httpOnly cookie; roles `customer` and `agent` |
 | Cache      | `cache/llm-cache.json`                   | Key every LLM call by exact prompt; store latencyMs and tokens alongside the response                                                                                                                                                                                                           |
 
 ---
@@ -560,6 +692,10 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 | Token cost       | Total tokens (prompt + completion) consumed per question                        |
 | Confusion matrix | A table showing how many times each classification label was expected vs actual |
 | Error analysis   | Reading through failures to understand why the system got something wrong       |
+| Authentication   | Proving who a user is (here: email and password, then a signed token in a cookie) |
+| Role             | What an account is allowed to do (here: `customer` or `agent`)                  |
+| Password hash    | A one-way scramble of a password, so the real password is never stored          |
+| Protected route  | A page or API route that only logged-in users of the right role can use         |
 
 ---
 
@@ -570,3 +706,6 @@ Note `classifyMs` — log classification time separately from retrieval and gene
 - **Learning from employees.** Use resolved escalation cases to propose OKF file updates.
 - **Real data.** Test on real support logs from a partner agency.
 - **More domains.** Banking, hotels, or shopping would test whether the approach transfers.
+- **Real booking features.** Payments, cancellations and changes, seat selection, e-mail notifications, and live flight inventory.
+- **Usability study.** A user study of the website and the escalation flow with real customers and staff.
+- **Operational feed into RAG.** Letting staff publish delay notices from the website into the RAG store. This would need re-ingestion and a new evaluation run, so it is deliberately excluded.

@@ -2,24 +2,19 @@
 /**
  * scripts/test-cases-flow.js
  *
- * Automated verification for Phase 2B Human Fallback & Dashboard flow.
- * Tests:
- *  1. Create V2 escalation via POST /api/chat -> returns caseId
- *  2. List pending cases -> includes caseId
- *  3. Fetch full case document -> matches exact schema
- *  4. Check GET /api/cases/:id/reply -> returns ONLY {status, finalAnswer}
- *  5. Resolve case via POST /api/cases/:id/resolve -> status becomes resolved
- *  6. Check GET /api/cases/:id/reply -> returns resolved answer
- *  7. Second resolve -> HTTP 409
- *  8. Empty answer -> HTTP 400
- *  9. Bad ID -> HTTP 400
- * 10. V1 escalation -> creates no case in MongoDB
+ * Automated verification for Human Fallback & Dashboard flow (Phase 2B & Phase 3A).
+ * Updated for Phase 3A:
+ *  - Logs in as agent1@travelqa.demo for agent-only endpoints
+ *  - Tests customer session attachment on POST /api/chat (ignoring bogus body customerId)
+ *  - Cleans up created cases
  */
 
 import http from 'http';
 import app from '../server/src/index.js';
 import { connect, close, getCollection } from '../server/src/services/db.js';
 import { config } from '../server/src/config.js';
+import { COOKIE_NAME } from '../server/src/middleware/auth.js';
+import { ObjectId } from 'mongodb';
 
 let server = null;
 let baseUrl = '';
@@ -35,10 +30,9 @@ async function startServer() {
     });
     server.on('error', err => {
       if (err.code === 'EADDRINUSE') {
-        // Already running on port
         baseUrl = `http://127.0.0.1:${port}`;
         console.log(`Server already running on port ${port}, connecting directly.`);
-        server = null; // Do not close externally managed server
+        server = null;
         resolve();
       } else {
         reject(err);
@@ -54,15 +48,43 @@ async function stopServer() {
   await close();
 }
 
+function parseCookie(res) {
+  const setCookie = res.headers.get('set-cookie');
+  if (!setCookie) return '';
+  const match = setCookie.match(new RegExp(`${COOKIE_NAME}=([^;]+)`));
+  return match ? `${COOKIE_NAME}=${match[1]}` : '';
+}
+
 async function run() {
-  console.log('=== Phase 2B: Testing Human Fallback Flow ===\n');
+  console.log('=== Phase 3A / 2B: Testing Human Fallback Flow ===\n');
   await startServer();
 
   let passed = 0;
-  let total = 10;
+  let total = 11;
   let testCaseId = null;
+  const createdCaseIds = [];
 
-  // ── Step 1: Create V2 Escalation ──
+  // Log in as agent for agent-only calls
+  let agentCookie = '';
+  try {
+    const loginRes = await fetch(`${baseUrl}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'agent1@travelqa.demo',
+        password: config.SEED_DEMO_PASSWORD
+      })
+    });
+    if (loginRes.status === 200) {
+      agentCookie = parseCookie(loginRes);
+    } else {
+      console.error('Agent login failed:', await loginRes.text());
+    }
+  } catch (err) {
+    console.error('Failed to log in as agent:', err.message);
+  }
+
+  // ── Step 1: Create V2 Escalation (Guest) ──
   try {
     const res = await fetch(`${baseUrl}/api/chat`, {
       method: 'POST',
@@ -82,6 +104,7 @@ async function run() {
       data.message === 'A team member will get back to you shortly.'
     ) {
       testCaseId = data.caseId;
+      createdCaseIds.push(testCaseId);
       console.log(`[PASS] 1. V2 escalation created case with ID: ${testCaseId}`);
       passed++;
     } else {
@@ -97,9 +120,11 @@ async function run() {
     process.exit(1);
   }
 
-  // ── Step 2: List Pending Cases ──
+  // ── Step 2: List Pending Cases (as Agent) ──
   try {
-    const res = await fetch(`${baseUrl}/api/cases?status=pending`);
+    const res = await fetch(`${baseUrl}/api/cases?status=pending`, {
+      headers: { Cookie: agentCookie }
+    });
     const list = await res.json();
     const found = Array.isArray(list) && list.some(c => c._id === testCaseId && c.status === 'pending');
 
@@ -113,9 +138,11 @@ async function run() {
     console.error('[FAIL] 2. List pending cases failed:', err.message);
   }
 
-  // ── Step 3: Fetch Full Case & Verify Schema ──
+  // ── Step 3: Fetch Full Case & Verify Schema (as Agent) ──
   try {
-    const res = await fetch(`${baseUrl}/api/cases/${testCaseId}`);
+    const res = await fetch(`${baseUrl}/api/cases/${testCaseId}`, {
+      headers: { Cookie: agentCookie }
+    });
     const doc = await res.json();
 
     const hasRequiredFields =
@@ -141,7 +168,7 @@ async function run() {
     console.error('[FAIL] 3. Fetch full case failed:', err.message);
   }
 
-  // ── Step 4: Check Public Reply Endpoint (Pending) ──
+  // ── Step 4: Check Public Reply Endpoint (Pending Guest Case) ──
   try {
     const res = await fetch(`${baseUrl}/api/cases/${testCaseId}/reply`);
     const replyData = await res.json();
@@ -159,12 +186,15 @@ async function run() {
     console.error('[FAIL] 4. Reply endpoint failed:', err.message);
   }
 
-  // ── Step 5: Resolve Case ──
+  // ── Step 5: Resolve Case (as Agent) ──
   const testAnswer = 'Travel to Zorovia is currently suspended due to local safety advisories.';
   try {
     const res = await fetch(`${baseUrl}/api/cases/${testCaseId}/resolve`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Cookie: agentCookie
+      },
       body: JSON.stringify({ answer: testAnswer })
     });
     const updated = await res.json();
@@ -179,7 +209,7 @@ async function run() {
     console.error('[FAIL] 5. Resolve case request failed:', err.message);
   }
 
-  // ── Step 6: Check Public Reply Endpoint (Resolved) ──
+  // ── Step 6: Check Public Reply Endpoint (Resolved Guest Case) ──
   try {
     const res = await fetch(`${baseUrl}/api/cases/${testCaseId}/reply`);
     const replyData = await res.json();
@@ -198,7 +228,10 @@ async function run() {
   try {
     const res = await fetch(`${baseUrl}/api/cases/${testCaseId}/resolve`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Cookie: agentCookie
+      },
       body: JSON.stringify({ answer: 'Second attempt' })
     });
     if (res.status === 409) {
@@ -215,7 +248,10 @@ async function run() {
   try {
     const res = await fetch(`${baseUrl}/api/cases/${testCaseId}/resolve`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Cookie: agentCookie
+      },
       body: JSON.stringify({ answer: '   ' })
     });
     if (res.status === 400) {
@@ -230,7 +266,9 @@ async function run() {
 
   // ── Step 9: Bad ObjectId Should Return 400 ──
   try {
-    const res = await fetch(`${baseUrl}/api/cases/invalid-case-id-12345`);
+    const res = await fetch(`${baseUrl}/api/cases/invalid-case-id-12345`, {
+      headers: { Cookie: agentCookie }
+    });
     if (res.status === 400) {
       console.log('[PASS] 9. Malformed case ID returns HTTP 400 Bad Request');
       passed++;
@@ -270,6 +308,60 @@ async function run() {
     }
   } catch (err) {
     console.error('[FAIL] 10. V1 escalation test failed:', err.message);
+  }
+
+  // ── Step 11: Logged in Customer V2 Escalation Uses Session customerId ──
+  try {
+    // Log in as customer Arjun Sharma (cust-001)
+    const custLoginRes = await fetch(`${baseUrl}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'arjun.sharma@email.com',
+        password: config.SEED_DEMO_PASSWORD
+      })
+    });
+    const customerCookie = parseCookie(custLoginRes);
+
+    const chatRes = await fetch(`${baseUrl}/api/chat`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Cookie: customerCookie
+      },
+      body: JSON.stringify({
+        question: 'Is it safe to travel to Zorovia right now?',
+        system: 'v2',
+        customerId: 'bogus-customer-999' // must be ignored
+      })
+    });
+    const chatData = await chatRes.json();
+
+    if (chatRes.status === 200 && chatData.caseId) {
+      createdCaseIds.push(chatData.caseId);
+      const casesCol = getCollection('cases');
+      const savedCase = await casesCol.findOne({ _id: new ObjectId(chatData.caseId) });
+
+      if (savedCase && savedCase.customerId === 'cust-001') {
+        console.log('[PASS] 11. Logged-in customer case carries session customerId (ignored bogus body)');
+        passed++;
+      } else {
+        console.error('[FAIL] 11. Saved case customerId mismatch:', savedCase?.customerId);
+      }
+    } else {
+      console.error('[FAIL] 11. Customer chat escalation failed:', chatData);
+    }
+  } catch (err) {
+    console.error('[FAIL] 11. Customer session check failed:', err.message);
+  }
+
+  // Cleanup created test cases
+  try {
+    const casesCol = getCollection('cases');
+    const ids = createdCaseIds.map(id => new ObjectId(id));
+    await casesCol.deleteMany({ _id: { $in: ids } });
+  } catch (cleanupErr) {
+    console.error('Warning: failed to clean up test cases:', cleanupErr);
   }
 
   console.log(`\n========================================`);

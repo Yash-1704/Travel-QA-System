@@ -1,0 +1,146 @@
+[
+  {
+    "airline": "SkyNova Air",
+    "flightNo": "SN-101",
+    "origin": "DEL",
+    "destination": "DXB",
+    "route": "DEL-DXB",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "Asia/Dubai",
+    "localDepartureTime": "08:30",
+    "durationMinutes": 240,
+    "aircraft": "Boeing 737-800",
+    "fares": [
+      { "fareClass": "Economy Saver", "price": 180, "seatsAvailable": 120 },
+      { "fareClass": "Economy Flex", "price": 260, "seatsAvailable": 40 }
+    ]
+  },
+  {
+    "airline": "SkyNova Air",
+    "flightNo": "SN-202",
+    "origin": "DEL",
+    "destination": "BKK",
+    "route": "DEL-BKK",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "Asia/Bangkok",
+    "localDepartureTime": "11:15",
+    "durationMinutes": 270,
+    "aircraft": "Airbus A320neo",
+    "fares": [
+      { "fareClass": "Economy Saver", "price": 210, "seatsAvailable": 110 },
+      { "fareClass": "Economy Flex", "price": 300, "seatsAvailable": 35 }
+    ]
+  },
+  {
+    "airline": "SkyNova Air",
+    "flightNo": "SN-303",
+    "origin": "BOM",
+    "destination": "DXB",
+    "route": "BOM-DXB",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "Asia/Dubai",
+    "localDepartureTime": "14:00",
+    "durationMinutes": 200,
+    "aircraft": "Boeing 737-800",
+    "fares": [
+      { "fareClass": "Economy Saver", "price": 175, "seatsAvailable": 130 },
+      { "fareClass": "Economy Flex", "price": 250, "seatsAvailable": 45 }
+    ]
+  },
+  {
+    "airline": "ArcticJet",
+    "flightNo": "AJ-411",
+    "origin": "BOM",
+    "destination": "LHR",
+    "route": "BOM-LHR",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "Europe/London",
+    "localDepartureTime": "05:00",
+    "durationMinutes": 570,
+    "aircraft": "Boeing 787-9",
+    "fares": [
+      { "fareClass": "Economy", "price": 520, "seatsAvailable": 180 },
+      { "fareClass": "Business", "price": 1650, "seatsAvailable": 30 }
+    ]
+  },
+  {
+    "airline": "ArcticJet",
+    "flightNo": "AJ-512",
+    "origin": "DEL",
+    "destination": "NRT",
+    "route": "DEL-NRT",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "Asia/Tokyo",
+    "localDepartureTime": "22:45",
+    "durationMinutes": 465,
+    "aircraft": "Airbus A350-900",
+    "fares": [
+      { "fareClass": "Economy", "price": 480, "seatsAvailable": 190 },
+      { "fareClass": "Business", "price": 1450, "seatsAvailable": 32 }
+    ]
+  },
+  {
+    "airline": "ArcticJet",
+    "flightNo": "AJ-613",
+    "origin": "BOM",
+    "destination": "SIN",
+    "route": "BOM-SIN",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "Asia/Singapore",
+    "localDepartureTime": "09:30",
+    "durationMinutes": 320,
+    "aircraft": "Airbus A321neo",
+    "fares": [
+      { "fareClass": "Economy", "price": 290, "seatsAvailable": 150 },
+      { "fareClass": "Business", "price": 890, "seatsAvailable": 24 }
+    ]
+  },
+  {
+    "airline": "VistaAir",
+    "flightNo": "VA-703",
+    "origin": "DEL",
+    "destination": "NRT",
+    "route": "DEL-NRT",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "Asia/Tokyo",
+    "localDepartureTime": "19:30",
+    "durationMinutes": 450,
+    "aircraft": "Boeing 777-300ER",
+    "fares": [
+      { "fareClass": "Economy", "price": 540, "seatsAvailable": 200 },
+      { "fareClass": "Business Sapphire", "price": 1850, "seatsAvailable": 40 }
+    ]
+  },
+  {
+    "airline": "VistaAir",
+    "flightNo": "VA-801",
+    "origin": "DEL",
+    "destination": "LHR",
+    "route": "DEL-LHR",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "Europe/London",
+    "localDepartureTime": "07:15",
+    "durationMinutes": 560,
+    "aircraft": "Airbus A350-1000",
+    "fares": [
+      { "fareClass": "Economy", "price": 620, "seatsAvailable": 220 },
+      { "fareClass": "Business Sapphire", "price": 2100, "seatsAvailable": 42 }
+    ]
+  },
+  {
+    "airline": "VistaAir",
+    "flightNo": "VA-902",
+    "origin": "BOM",
+    "destination": "JFK",
+    "route": "BOM-JFK",
+    "originTz": "Asia/Kolkata",
+    "destinationTz": "America/New_York",
+    "localDepartureTime": "01:30",
+    "durationMinutes": 980,
+    "aircraft": "Boeing 777-200LR",
+    "fares": [
+      { "fareClass": "Economy", "price": 850, "seatsAvailable": 190 },
+      { "fareClass": "Business Sapphire", "price": 2950, "seatsAvailable": 36 }
+    ]
+  }
+]
