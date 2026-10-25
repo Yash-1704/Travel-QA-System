@@ -1,229 +1,328 @@
-# Manual Review Queue: dev-1
+# Manual Review Queue: test-frozen
 
-**Date:** 2026-10-24T14:05:26.349Z  
-**Total Rows Needing Review (Substring Grader Failed):** 15  
+**Date:** 2026-10-25T08:18:30.468Z  
+**Total Rows Needing Review (Substring Grader Failed):** 22  
 
-Review instructions: If you disagree with an agent-proposed verdict, edit `data/eval/manual-grades.json`, change `correct` to `true` or `false`, and set `source: "author"`. Then re-run `node scripts/report.js --run-id dev-1`.
+Review instructions: If you disagree with an agent-proposed verdict, edit `data/eval/manual-grades.json`, change `correct` to `true` or `false`, and set `source: "author"`. Then re-run `node scripts/report.js --run-id test-frozen`.
 
-## 1. Questions Needing Manual Review (15)
+## 1. Questions Needing Manual Review (22)
 
-### [V1] q-001 (okf_only)
+### [V1] q-005 (okf_only)
 
-- **Question:** "What is the cancellation fee for a SkyNova Air Economy Saver ticket if I cancel more than 72 hours before my flight?"
-- **Expected Answer:** "The cancellation fee is USD 45. The remaining balance of the base fare is refunded to your original payment method within 14 business days."
-- **Key Facts Required:** `USD 45`, `14 business days`
-- **System Answer:** "The cancellation fee for a SkyNova Air Economy Saver ticket cancelled more than 72 hours before the flight is USD 45. [OKF:cancellation-skynova-economy.md]"
-- **Key Facts Matched by Substring:** `USD 45`
+- **Question:** "What is the cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure?"
+- **Expected Answer:** "The cancellation fee is USD 120. The remaining balance of the base fare and fuel surcharge is refunded to the original payment method within 14 business days."
+- **Key Facts Required:** `USD 120`, `14 business days`
+- **System Answer:** "The cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure is USD 120. [OKF:cancellation-arcticjet-economy.md]"
+- **Key Facts Matched by Substring:** `USD 120`
 - **Key Facts Missing by Substring:** `14 business days`
 - **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "14 business days".*
 
 ---
 
-### [V2] q-001 (okf_only)
+### [V2] q-005 (okf_only)
 
-- **Question:** "What is the cancellation fee for a SkyNova Air Economy Saver ticket if I cancel more than 72 hours before my flight?"
-- **Expected Answer:** "The cancellation fee is USD 45. The remaining balance of the base fare is refunded to your original payment method within 14 business days."
-- **Key Facts Required:** `USD 45`, `14 business days`
-- **System Answer:** "The cancellation fee for a SkyNova Air Economy Saver ticket if cancelled more than 72 hours before the flight is USD 45. [OKF:cancellation-skynova-economy.md]"
-- **Key Facts Matched by Substring:** `USD 45`
+- **Question:** "What is the cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure?"
+- **Expected Answer:** "The cancellation fee is USD 120. The remaining balance of the base fare and fuel surcharge is refunded to the original payment method within 14 business days."
+- **Key Facts Required:** `USD 120`, `14 business days`
+- **System Answer:** "The cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure is USD 120. [OKF:cancellation-arcticjet-economy.md]"
+- **Key Facts Matched by Substring:** `USD 120`
 - **Key Facts Missing by Substring:** `14 business days`
 - **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "14 business days".*
 
 ---
 
-### [V1] q-002 (okf_only)
+### [V1] q-006 (okf_only)
 
-- **Question:** "How many kilograms of checked baggage can I bring on ArcticJet Business class?"
-- **Expected Answer:** "ArcticJet Business class passengers are entitled to 2 checked bags, each with a maximum weight of 32 kg, giving a total free checked allowance of 64 kg."
-- **Key Facts Required:** `2 checked bags`, `32 kg`, `64 kg`
-- **System Answer:** "You can bring 2 checked bags, each with a maximum weight of 32 kg, on ArcticJet Business class. [OKF:baggage-arcticjet-all.md]"
-- **Key Facts Matched by Substring:** `2 checked bags`, `32 kg`
-- **Key Facts Missing by Substring:** `64 kg`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "64 kg".*
-
----
-
-### [V1] q-003 (okf_only)
-
-- **Question:** "Do Indian passport holders need a visa to visit Thaloria?"
-- **Expected Answer:** "No. Indian passport holders do not require a visa to enter Thaloria. Entry is visa-free for up to 30 days. The passport must be valid for at least 6 months."
-- **Key Facts Required:** `visa-free`, `30 days`, `6 months`
-- **System Answer:** "No, Indian passport holders do not require a visa to enter Thaloria for tourism or short visits. Entry is visa-free, with a maximum stay of 30 days per visit. [OKF:visa-country-a-thaloria.md]"
-- **Key Facts Matched by Substring:** `visa-free`, `30 days`
-- **Key Facts Missing by Substring:** `6 months`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "6 months".*
+- **Question:** "How much does it cost to cancel a VistaAir Business Sapphire ticket more than 48 hours before departure?"
+- **Expected Answer:** "Cancelling a VistaAir Business Sapphire ticket more than 48 hours before departure is fully refundable with no cancellation fee. The full amount paid, including base fare, fuel surcharge, and taxes, is refunded within 14 business days."
+- **Key Facts Required:** `no cancellation fee`, `fully refundable`, `14 business days`
+- **System Answer:** "It costs USD 0 to cancel a VistaAir Business Sapphire ticket more than 48 hours before departure, as the ticket is fully refundable with no cancellation fee. [OKF:cancellation-vistaair-business.md]"
+- **Key Facts Matched by Substring:** `no cancellation fee`, `fully refundable`
+- **Key Facts Missing by Substring:** `14 business days`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "14 business days".*
 
 ---
 
-### [V2] q-003 (okf_only)
+### [V1] q-008 (okf_only)
 
-- **Question:** "Do Indian passport holders need a visa to visit Thaloria?"
-- **Expected Answer:** "No. Indian passport holders do not require a visa to enter Thaloria. Entry is visa-free for up to 30 days. The passport must be valid for at least 6 months."
-- **Key Facts Required:** `visa-free`, `30 days`, `6 months`
-- **System Answer:** "No, Indian passport holders do not require a visa to enter Thaloria for tourism or short visits. Entry is visa-free, with a maximum stay of 30 days per visit. [OKF:visa-country-a-thaloria.md]"
-- **Key Facts Matched by Substring:** `visa-free`, `30 days`
-- **Key Facts Missing by Substring:** `6 months`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "6 months".*
+- **Question:** "What visa do Indian passport holders need to visit Emiria?"
+- **Expected Answer:** "Indian passport holders can obtain a Visa on Arrival when entering Emiria. The fee is USD 35 for a 14-day visa. Passport validity of at least 6 months is required, along with a return ticket and proof of accommodation."
+- **Key Facts Required:** `Visa on Arrival`, `USD 35`, `14-day`
+- **System Answer:** "Indian passport holders can obtain a **Visa on Arrival (VoA)** when entering Emiria. This visa allows for a maximum stay of 14 days per visit and costs USD 35, payable at the immigration counter upon arrival [OKF:visa-country-b-emiria.md].
 
----
-
-### [V1] q-014 (rag_only)
-
-- **Question:** "What caused the delay on AJ-512 on 22 May 2026?"
-- **Expected Answer:** "Flight AJ-512 on 22 May 2026 arrived at Tokyo Narita 6 hours and 50 minutes behind schedule due to a technical fault in the aircraft's auxiliary power unit (APU) discovered during pre-flight checks at Delhi. A replacement aircraft had to be repositioned from Mumbai."
-- **Key Facts Required:** `auxiliary power unit`, `APU`, `6 hours and 50 minutes`
-- **System Answer:** "The delay on flight AJ-512 on 22 May 2026 was caused by a technical fault in the aircraft's auxiliary power unit (APU) discovered during pre-flight checks at Delhi. A replacement aircraft had to be repositioned from Mumbai, which contributed to the total delay duration. [RAG:notice-0002]"
-- **Key Facts Matched by Substring:** `auxiliary power unit`, `APU`
-- **Key Facts Missing by Substring:** `6 hours and 50 minutes`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "6 hours and 50 minutes".*
+[OKF:visa-country-b-emiria.md]"
+- **Key Facts Matched by Substring:** `Visa on Arrival`, `USD 35`
+- **Key Facts Missing by Substring:** `14-day`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "14-day".*
 
 ---
 
-### [V2] q-014 (rag_only)
+### [V2] q-008 (okf_only)
 
-- **Question:** "What caused the delay on AJ-512 on 22 May 2026?"
-- **Expected Answer:** "Flight AJ-512 on 22 May 2026 arrived at Tokyo Narita 6 hours and 50 minutes behind schedule due to a technical fault in the aircraft's auxiliary power unit (APU) discovered during pre-flight checks at Delhi. A replacement aircraft had to be repositioned from Mumbai."
-- **Key Facts Required:** `auxiliary power unit`, `APU`, `6 hours and 50 minutes`
-- **System Answer:** "The delay on flight AJ-512 on 22 May 2026 was caused by a technical fault in the aircraft's auxiliary power unit (APU) discovered during pre-flight checks at Delhi. A replacement aircraft had to be repositioned from Mumbai, which contributed to the total delay duration. [RAG:notice-0002]"
-- **Key Facts Matched by Substring:** `auxiliary power unit`, `APU`
-- **Key Facts Missing by Substring:** `6 hours and 50 minutes`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "6 hours and 50 minutes".*
-
----
-
-### [V1] q-016 (rag_only)
-
-- **Question:** "Is the SkyNova Air Delhi to Bangkok flight running normally on Tuesdays?"
-- **Expected Answer:** "No. Effective 1 August 2026, SkyNova Air suspended the SN-202 Delhi–Bangkok service on Tuesdays and Thursdays for 8 weeks due to low seasonal demand. Passengers on affected bookings are being rerouted or offered a full refund."
-- **Key Facts Required:** `suspended`, `Tuesdays and Thursdays`, `8 weeks`
-- **System Answer:** "Based on the evidence provided, the SkyNova Air Delhi to Bangkok flight (SN-202) is **not** running normally on Tuesdays starting from **1 August 2026**.
-
-According to the operational notice, effective 1 August 2026, SkyNova Air will suspend its SN-202 service on Tuesdays and Thursdays for a period of 8 weeks due to low seasonal demand. Passengers on these dates will be rerouted via an ArcticJet codeshare or offered a full refund.
-
-[RAG:notice-0019]"
-- **Key Facts Matched by Substring:** `Tuesdays and Thursdays`, `8 weeks`
-- **Key Facts Missing by Substring:** `suspended`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "suspended".*
+- **Question:** "What visa do Indian passport holders need to visit Emiria?"
+- **Expected Answer:** "Indian passport holders can obtain a Visa on Arrival when entering Emiria. The fee is USD 35 for a 14-day visa. Passport validity of at least 6 months is required, along with a return ticket and proof of accommodation."
+- **Key Facts Required:** `Visa on Arrival`, `USD 35`, `14-day`
+- **System Answer:** "Indian passport holders can obtain a **Visa on Arrival (VoA)** when entering Emiria. This visa allows for a maximum stay of 14 days per visit and requires a fee of USD 35, payable in local currency or USD cash at the immigration counter. [OKF:visa-country-b-emiria.md]"
+- **Key Facts Matched by Substring:** `Visa on Arrival`, `USD 35`
+- **Key Facts Missing by Substring:** `14-day`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "14-day".*
 
 ---
 
-### [V2] q-016 (rag_only)
+### [V1] q-012 (okf_only)
 
-- **Question:** "Is the SkyNova Air Delhi to Bangkok flight running normally on Tuesdays?"
-- **Expected Answer:** "No. Effective 1 August 2026, SkyNova Air suspended the SN-202 Delhi–Bangkok service on Tuesdays and Thursdays for 8 weeks due to low seasonal demand. Passengers on affected bookings are being rerouted or offered a full refund."
-- **Key Facts Required:** `suspended`, `Tuesdays and Thursdays`, `8 weeks`
-- **System Answer:** "Based on the evidence provided, the SkyNova Air Delhi to Bangkok flight (SN-202) is **not** running normally on Tuesdays starting from **1 August 2026**.
-
-According to the operational notice, effective 1 August 2026, SkyNova Air will suspend its SN-202 service on Tuesdays and Thursdays for a period of 8 weeks due to low seasonal demand. Passengers on these dates will be rerouted via an ArcticJet codeshare or offered a full refund.
-
-[RAG:notice-0019]"
-- **Key Facts Matched by Substring:** `Tuesdays and Thursdays`, `8 weeks`
-- **Key Facts Missing by Substring:** `suspended`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "suspended".*
+- **Question:** "What is the minimum number of SkyNova Miles required to get a discount on a booking?"
+- **Expected Answer:** "The minimum redemption is 500 SkyNova Miles, which gives a USD 5 discount on the base fare."
+- **Key Facts Required:** `500 SkyNova Miles`, `USD 5`
+- **System Answer:** "The minimum number of SkyNova Miles required to get a discount on a booking is 500 miles. [OKF:loyalty-skynova.md]"
+- **Key Facts Matched by Substring:** None
+- **Key Facts Missing by Substring:** `500 SkyNova Miles`, `USD 5`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "500 SkyNova Miles", "USD 5".*
 
 ---
 
-### [V1] q-025 (hybrid)
+### [V2] q-012 (okf_only)
 
-- **Question:** "My flight SN-101 was delayed by more than 4 hours on 17 June 2026 due to an engine issue. Am I entitled to any compensation from SkyNova Air?"
-- **Expected Answer:** "Yes. Flight SN-101 on 17 June 2026 was delayed by 8 hours and 20 minutes due to an oil leak in the left engine — a technical issue within SkyNova Air's operational responsibility. Under SkyNova Air's delay compensation policy, delays of more than 6 hours caused by airline fault entitle passengers to USD 150 cash compensation plus a meal. You can submit a compensation claim within 90 days of the flight."
-- **Key Facts Required:** `USD 150 cash`, `8 hours and 20 minutes`, `airline fault`, `90 days`
-- **System Answer:** "Yes, you are entitled to compensation.
-
-According to the flight notice, Flight SN-101 on 2026-06-17 was delayed by 8 hours and 20 minutes due to an unscheduled engine maintenance requirement, which is an operational issue within SkyNova Air's control [RAG:notice-0009].
-
-Under SkyNova Air's delay compensation policy, a delay of more than 6 hours caused by an airline fault entitles the passenger to USD 150 cash compensation plus a meal [OKF:delay-compensation.md]. Since your delay was 8 hours and 20 minutes, you qualify for this tier. Additionally, because the delay exceeded 5 hours, you also have the option to cancel with a full refund [OKF:delay-compensation.md].
-
-[RAG:notice-0009] [OKF:delay-compensation.md]"
-- **Key Facts Matched by Substring:** `USD 150 cash`, `8 hours and 20 minutes`, `airline fault`
-- **Key Facts Missing by Substring:** `90 days`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "90 days".*
+- **Question:** "What is the minimum number of SkyNova Miles required to get a discount on a booking?"
+- **Expected Answer:** "The minimum redemption is 500 SkyNova Miles, which gives a USD 5 discount on the base fare."
+- **Key Facts Required:** `500 SkyNova Miles`, `USD 5`
+- **System Answer:** "The minimum number of SkyNova Miles required to get a discount on a booking is 500 miles. [OKF:loyalty-skynova.md]"
+- **Key Facts Matched by Substring:** None
+- **Key Facts Missing by Substring:** `500 SkyNova Miles`, `USD 5`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "500 SkyNova Miles", "USD 5".*
 
 ---
 
-### [V2] q-025 (hybrid)
+### [V1] q-019 (rag_only)
 
-- **Question:** "My flight SN-101 was delayed by more than 4 hours on 17 June 2026 due to an engine issue. Am I entitled to any compensation from SkyNova Air?"
-- **Expected Answer:** "Yes. Flight SN-101 on 17 June 2026 was delayed by 8 hours and 20 minutes due to an oil leak in the left engine — a technical issue within SkyNova Air's operational responsibility. Under SkyNova Air's delay compensation policy, delays of more than 6 hours caused by airline fault entitle passengers to USD 150 cash compensation plus a meal. You can submit a compensation claim within 90 days of the flight."
-- **Key Facts Required:** `USD 150 cash`, `8 hours and 20 minutes`, `airline fault`, `90 days`
-- **System Answer:** "Yes, you are entitled to compensation.
+- **Question:** "Did the ArcticJet flight from Mumbai to Singapore have any technical issues in December 2025?"
+- **Expected Answer:** "Yes. Flight AJ-613 on 11 December 2025 arrived at Singapore Changi 4 hours and 5 minutes late due to a software fault in the aircraft's flight management system (FMS) discovered during final checks. The system had to be rebooted and recertified by the on-ground engineering team."
+- **Key Facts Required:** `flight management system`, `FMS`, `4 hours and 5 minutes`
+- **System Answer:** "Based on the evidence provided, there is no record of a technical issue for an ArcticJet flight from Mumbai to Singapore in December 2025.
 
-According to the flight notice, Flight SN-101 on 2026-06-17 was delayed by 8 hours and 20 minutes due to an unscheduled engine maintenance requirement, which is classified as an operational issue within SkyNova Air's control [RAG:notice-0009].
+The evidence mentions:
+1.  Flight AJ-613 on **2025-12-11** had a technical issue (FMS software fault), but the destination was **Singapore Changi** and the origin is not explicitly stated as Mumbai in this specific notice (though it is the same flight number as the October incident). However, the question asks about a flight *from* Mumbai *to* Singapore in December 2025. Notice [RAG:notice-0008] confirms a delay for AJ-613 on 2025-12-11 arriving in Singapore, but does not explicitly confirm the origin was Mumbai in that specific instance, nor does it link the December flight to the Mumbai origin mentioned in the October incident.
+2.  Flight AJ-613 on **2025-10-22** was a Mumbai–Singapore flight, but this was in October, not December.
+3.  Flight AJ-512 on **2026-05-22** had a technical issue, but this was in 2026 and to Tokyo.
 
-Under SkyNova Air's delay compensation policy, for a delay of more than 6 hours caused by an airline fault, the entitlement is USD 150 cash compensation plus a meal provided [OKF:delay-compensation.md]. Since your delay was 8 hours and 20 minutes, you qualify for this compensation.
-
-[OKF:delay-compensation.md]
-[RAG:notice-0009]"
-- **Key Facts Matched by Substring:** `USD 150 cash`, `8 hours and 20 minutes`, `airline fault`
-- **Key Facts Missing by Substring:** `90 days`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "90 days".*
+While [RAG:notice-0008] confirms a technical issue for flight AJ-613 arriving in Singapore in December 2025, it does not explicitly state that the origin was Mumbai. The only evidence linking AJ-613 to a Mumbai origin is from October 2025 [RAG:notice-0015]. Without explicit confirmation that the December 2025 flight originated in Mumbai, the evidence is insufficient to definitively answer "yes" to the specific route constraint. However, typically flight numbers maintain routes. Let's look closer."
+- **Key Facts Matched by Substring:** `FMS`
+- **Key Facts Missing by Substring:** `flight management system`, `4 hours and 5 minutes`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "flight management system", "4 hours and 5 minutes".*
 
 ---
 
-### [V1] q-027 (hybrid)
+### [V2] q-019 (rag_only)
 
-- **Question:** "Was the delay on VA-801 on 8 July 2026 the airline's fault, and am I entitled to compensation?"
-- **Expected Answer:** "Flight VA-801 on 8 July 2026 was delayed by 3 hours and 15 minutes due to air traffic control holding delays over European airspace for the inbound aircraft. This is classified as extraordinary circumstances beyond VistaAir's control. Because the delay was not caused by the airline, VistaAir's compensation policy does not apply and financial compensation is not payable. Meal and refreshments should have been provided at the airport as the delay exceeded 3 hours."
-- **Key Facts Required:** `extraordinary circumstances`, `not payable`, `Meal and refreshments`
-- **System Answer:** "Based on the evidence provided, the delay on flight VA-801 on 2026-07-08 was **not** the airline's fault. The delay was caused by a late inbound aircraft (VA-802) that experienced air traffic control holding delays over European airspace. This situation is explicitly classified as "extraordinary circumstances beyond VistaAir's control" [RAG:notice-0003].
+- **Question:** "Did the ArcticJet flight from Mumbai to Singapore have any technical issues in December 2025?"
+- **Expected Answer:** "Yes. Flight AJ-613 on 11 December 2025 arrived at Singapore Changi 4 hours and 5 minutes late due to a software fault in the aircraft's flight management system (FMS) discovered during final checks. The system had to be rebooted and recertified by the on-ground engineering team."
+- **Key Facts Required:** `flight management system`, `FMS`, `4 hours and 5 minutes`
+- **System Answer:** "Based on the evidence provided, there is no record of a technical issue for an ArcticJet flight from Mumbai to Singapore in December 2025.
 
-Regarding your entitlement to compensation, the provided evidence does not contain information about VistaAir's specific compensation policies or regulations regarding extraordinary circumstances. Therefore, I cannot determine if you are entitled to compensation based solely on the available text.
+The evidence mentions:
+1.  Flight AJ-613 on **2025-12-11** had a technical issue (FMS software fault), but the destination was **Singapore Changi** and the origin is not explicitly stated as Mumbai in this specific notice (though it is the same flight number as the October incident). However, the question asks about a flight *from* Mumbai *to* Singapore in December 2025. Notice [RAG:notice-0008] confirms a delay for AJ-613 on 2025-12-11 arriving in Singapore, but does not explicitly confirm the origin was Mumbai in that specific instance, nor does it link the December flight to the Mumbai origin mentioned in the October incident.
+2.  Flight AJ-613 on **2025-10-22** was a Mumbai–Singapore flight, but this was in October, not December.
+3.  Flight AJ-512 on **2026-05-22** had a technical issue, but this was in 2026 and to Tokyo.
+
+While [RAG:notice-0008] confirms a technical issue for flight AJ-613 arriving in Singapore in December 2025, it does not explicitly state that the origin was Mumbai. The only evidence linking AJ-613 to a Mumbai origin is from October 2025 [RAG:notice-0015]. Without explicit confirmation that the December 2025 flight originated in Mumbai, the evidence is insufficient to definitively answer "yes" to the specific route constraint. However, typically flight numbers maintain routes. Let's look closer."
+- **Key Facts Matched by Substring:** `FMS`
+- **Key Facts Missing by Substring:** `flight management system`, `4 hours and 5 minutes`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "flight management system", "4 hours and 5 minutes".*
+
+---
+
+### [V1] q-021 (rag_only)
+
+- **Question:** "Was there a theft reported from checked baggage on a VistaAir Delhi to Tokyo flight?"
+- **Expected Answer:** "Yes. On flight VA-703 on 19 March 2026, a passenger reported that camera equipment worth approximately USD 2,400 was stolen from checked baggage. The bag showed signs of forced opening at the zip. The incident was reported to Delhi airport security and Tokyo Narita lost property, and VistaAir opened a formal investigation."
+- **Key Facts Required:** `USD 2,400`, `camera equipment`, `forced opening`
+- **System Answer:** "Yes, a theft was reported from checked baggage on a VistaAir Delhi to Tokyo flight. Specifically, on flight VA-703 on 2026-03-19, a passenger's camera equipment worth approximately USD 2,400 was reported stolen from checked baggage on the Delhi–Tokyo route [RAG:notice-0013].
+
+[RAG:notice-0013]"
+- **Key Facts Matched by Substring:** `USD 2,400`, `camera equipment`
+- **Key Facts Missing by Substring:** `forced opening`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "forced opening".*
+
+---
+
+### [V2] q-021 (rag_only)
+
+- **Question:** "Was there a theft reported from checked baggage on a VistaAir Delhi to Tokyo flight?"
+- **Expected Answer:** "Yes. On flight VA-703 on 19 March 2026, a passenger reported that camera equipment worth approximately USD 2,400 was stolen from checked baggage. The bag showed signs of forced opening at the zip. The incident was reported to Delhi airport security and Tokyo Narita lost property, and VistaAir opened a formal investigation."
+- **Key Facts Required:** `USD 2,400`, `camera equipment`, `forced opening`
+- **System Answer:** "Yes, a theft was reported from checked baggage on a VistaAir Delhi to Tokyo flight. Specifically, on flight VA-703 on 2026-03-19, a passenger's camera equipment worth approximately USD 2,400 was reported stolen from checked baggage on the Delhi–Tokyo route [RAG:notice-0013].
+
+[RAG:notice-0013]"
+- **Key Facts Matched by Substring:** `USD 2,400`, `camera equipment`
+- **Key Facts Missing by Substring:** `forced opening`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "forced opening".*
+
+---
+
+### [V1] q-022 (rag_only)
+
+- **Question:** "What caused the 8-hour delay on SkyNova flight SN-101 in June 2026?"
+- **Expected Answer:** "Flight SN-101 on 17 June 2026 was delayed by 8 hours and 20 minutes due to an unscheduled engine maintenance requirement. The captain noticed an oil leak from the left engine during the pre-flight walk-around. The aircraft was grounded for a full engine inspection and seal replacement, and no substitute aircraft was available at Delhi."
+- **Key Facts Required:** `oil leak`, `engine inspection`, `8 hours and 20 minutes`
+- **System Answer:** "The 8-hour delay on SkyNova flight SN-101 in June 2026 was caused by an unscheduled engine maintenance requirement. Specifically, the captain noticed an oil leak from the left engine during the pre-flight walk-around, which necessitated a full engine inspection and seal replacement. Additionally, a substitute aircraft was not available at Delhi. [RAG:notice-0009]"
+- **Key Facts Matched by Substring:** `oil leak`, `engine inspection`
+- **Key Facts Missing by Substring:** `8 hours and 20 minutes`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "8 hours and 20 minutes".*
+
+---
+
+### [V2] q-022 (rag_only)
+
+- **Question:** "What caused the 8-hour delay on SkyNova flight SN-101 in June 2026?"
+- **Expected Answer:** "Flight SN-101 on 17 June 2026 was delayed by 8 hours and 20 minutes due to an unscheduled engine maintenance requirement. The captain noticed an oil leak from the left engine during the pre-flight walk-around. The aircraft was grounded for a full engine inspection and seal replacement, and no substitute aircraft was available at Delhi."
+- **Key Facts Required:** `oil leak`, `engine inspection`, `8 hours and 20 minutes`
+- **System Answer:** "The 8-hour delay on SkyNova flight SN-101 in June 2026 was caused by an unscheduled engine maintenance requirement. Specifically, the captain noticed an oil leak from the left engine during the pre-flight walk-around, which necessitated a full engine inspection and seal replacement. Additionally, a substitute aircraft was not available at Delhi. [RAG:notice-0009]"
+- **Key Facts Matched by Substring:** `oil leak`, `engine inspection`
+- **Key Facts Missing by Substring:** `8 hours and 20 minutes`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "8 hours and 20 minutes".*
+
+---
+
+### [V1] q-024 (rag_only)
+
+- **Question:** "Was SkyNova's Mumbai to Dubai flight ever delayed because of baggage handling problems?"
+- **Expected Answer:** "Yes. On 10 May 2026, a baggage handling conveyor belt failure at Mumbai Terminal 2 during check-in for flight SN-303 caused an 85-minute departure delay. Seven bags missed the flight entirely and were sent on the next morning's SN-303 service."
+- **Key Facts Required:** `conveyor belt failure`, `85-minute`, `Seven bags missed`
+- **System Answer:** "Yes, SkyNova's Mumbai to Dubai flight was delayed due to baggage handling problems. On 2026-05-10, flight SN-303 (Mumbai–Dubai) experienced an 85-minute departure delay because a baggage handling conveyor belt at Terminal 2 in Mumbai suffered a mechanical failure, which delayed the loading of approximately 40 bags [RAG:notice-0014].
+
+[RAG:notice-0014]"
+- **Key Facts Matched by Substring:** `85-minute`
+- **Key Facts Missing by Substring:** `conveyor belt failure`, `Seven bags missed`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "conveyor belt failure", "Seven bags missed".*
+
+---
+
+### [V2] q-024 (rag_only)
+
+- **Question:** "Was SkyNova's Mumbai to Dubai flight ever delayed because of baggage handling problems?"
+- **Expected Answer:** "Yes. On 10 May 2026, a baggage handling conveyor belt failure at Mumbai Terminal 2 during check-in for flight SN-303 caused an 85-minute departure delay. Seven bags missed the flight entirely and were sent on the next morning's SN-303 service."
+- **Key Facts Required:** `conveyor belt failure`, `85-minute`, `Seven bags missed`
+- **System Answer:** "Yes, SkyNova's Mumbai to Dubai flight was delayed due to baggage handling problems. On 2026-05-10, flight SN-303 (Mumbai–Dubai) experienced an 85-minute departure delay because a baggage handling conveyor belt at Terminal 2 in Mumbai suffered a mechanical failure, which delayed the loading of approximately 40 bags [RAG:notice-0014].
+
+[RAG:notice-0014]"
+- **Key Facts Matched by Substring:** `85-minute`
+- **Key Facts Missing by Substring:** `conveyor belt failure`, `Seven bags missed`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "conveyor belt failure", "Seven bags missed".*
+
+---
+
+### [V1] q-031 (hybrid)
+
+- **Question:** "VistaAir VA-902 on 23 August 2026 left Mumbai 3.5 hours late because of a catering issue. Does that count as the airline's fault? What do I get?"
+- **Expected Answer:** "Flight VA-902 on 23 August 2026 was delayed 3 hours and 30 minutes due to a catering supply delay, which VistaAir has classified as an operational issue within its vendor management responsibility — meaning it is the airline's fault. Under VistaAir's delay compensation policy, delays of 3 to 5 hours caused by airline fault entitle passengers to a USD 100 travel voucher. Meal and refreshments should have been provided at the airport."
+- **Key Facts Required:** `USD 100 travel voucher`, `airline's fault`, `3 hours and 30 minutes`
+- **System Answer:** "Yes, the delay is classified as an operational issue within VistaAir's vendor management responsibility, which implies it is the airline's fault. However, the provided evidence does not specify what compensation or benefits you are entitled to receive.
+
+[OKF:notice-0010]"
+- **Key Facts Matched by Substring:** `airline's fault`
+- **Key Facts Missing by Substring:** `USD 100 travel voucher`, `3 hours and 30 minutes`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "USD 100 travel voucher", "3 hours and 30 minutes".*
+
+---
+
+### [V2] q-031 (hybrid)
+
+- **Question:** "VistaAir VA-902 on 23 August 2026 left Mumbai 3.5 hours late because of a catering issue. Does that count as the airline's fault? What do I get?"
+- **Expected Answer:** "Flight VA-902 on 23 August 2026 was delayed 3 hours and 30 minutes due to a catering supply delay, which VistaAir has classified as an operational issue within its vendor management responsibility — meaning it is the airline's fault. Under VistaAir's delay compensation policy, delays of 3 to 5 hours caused by airline fault entitle passengers to a USD 100 travel voucher. Meal and refreshments should have been provided at the airport."
+- **Key Facts Required:** `USD 100 travel voucher`, `airline's fault`, `3 hours and 30 minutes`
+- **System Answer:** "Based on the evidence provided, the delay for flight VA-902 on 2026-08-23 is classified as an **operational issue within VistaAir's vendor management responsibility** [RAG:notice-0010]. Therefore, it is considered the airline's fault (or at least within their operational control/responsibility), unlike delays caused by extraordinary circumstances such as weather or air traffic control [RAG:notice-0003, RAG:notice-0007].
+
+However, the provided evidence **does not contain information** regarding specific compensation, refunds, or benefits ("What do I get?") for passengers affected by this specific delay. The evidence only confirms the cause and classification of the delay.
 
 INSUFFICIENT"
-- **Key Facts Matched by Substring:** `extraordinary circumstances`
-- **Key Facts Missing by Substring:** `not payable`, `Meal and refreshments`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "not payable", "Meal and refreshments".*
+- **Key Facts Matched by Substring:** `airline's fault`
+- **Key Facts Missing by Substring:** `USD 100 travel voucher`, `3 hours and 30 minutes`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "USD 100 travel voucher", "3 hours and 30 minutes".*
 
 ---
 
-### [V2] q-027 (hybrid)
+### [V1] q-032 (hybrid)
 
-- **Question:** "Was the delay on VA-801 on 8 July 2026 the airline's fault, and am I entitled to compensation?"
-- **Expected Answer:** "Flight VA-801 on 8 July 2026 was delayed by 3 hours and 15 minutes due to air traffic control holding delays over European airspace for the inbound aircraft. This is classified as extraordinary circumstances beyond VistaAir's control. Because the delay was not caused by the airline, VistaAir's compensation policy does not apply and financial compensation is not payable. Meal and refreshments should have been provided at the airport as the delay exceeded 3 hours."
-- **Key Facts Required:** `extraordinary circumstances`, `not payable`, `Meal and refreshments`
-- **System Answer:** "Based on the evidence provided, the delay on flight VA-801 on 8 July 2026 was **not** the airline's fault. The delay was caused by air traffic control holding delays over European airspace, which are classified as extraordinary circumstances beyond VistaAir's control [RAG:notice-0003].
+- **Question:** "ArcticJet AJ-411 was delayed 7.5 hours on 10 September 2026 after a bird strike inspection. Am I entitled to compensation?"
+- **Expected Answer:** "Flight AJ-411 on 10 September 2026 arrived at London Heathrow 7 hours and 30 minutes late following a bird strike and mandatory airframe inspection. While the bird strike itself was outside ArcticJet's control, the extended duration of the inspection exceeded what was reasonably expected, and ArcticJet has accepted partial liability. Based on the airline's acceptance of responsibility and the delay exceeding 6 hours, passengers are entitled to USD 200 cash compensation under ArcticJet's delay compensation policy."
+- **Key Facts Required:** `USD 200 cash`, `7 hours and 30 minutes`, `partial liability`
+- **System Answer:** "Based on the evidence provided, you are **not** entitled to financial compensation for the delay, but you are entitled to care and assistance.
 
-According to the delay compensation policy, delays caused by extraordinary circumstances beyond the airline's control do not qualify for financial compensation [OKF:delay-compensation.md]. Therefore, you are **not** entitled to financial compensation for this specific delay.
+Here is the breakdown:
 
-However, because the delay was 3 hours and 15 minutes (which is over 3 hours), you are entitled to **meal and refreshments at the airport** regardless of the cause [OKF:delay-compensation.md].
+1.  **Cause of Delay:** The delay was caused by a bird strike, which is described as an event "outside ArcticJet's control" [RAG:notice-0005]. Although the airline accepted "partial liability" for the extended inspection time, the primary cause (bird strike) falls under extraordinary circumstances.
+2.  **Compensation Policy:** According to the ArcticJet delay compensation policy, financial compensation (such as the USD 200 cash compensation for delays over 6 hours) is payable **only** when the delay is caused by factors within the airline's control [OKF:delay-compensation.md]. Delays caused by extraordinary circumstances beyond airline control do not qualify for financial compensation [OKF:delay-compensation.md].
+3.  **Entitlements for Any Cause:** Since the delay was 7.5 hours (more than 5 hours), you are entitled to:
+    *   Hotel accommodation and meals provided [OKF:delay-compensation.md].
+    *   The option to cancel with a full refund [OKF:delay-compensation.md].
+    *   Meal and refreshments at the airport (for delays over 3 hours) [OKF:delay-compensation.md].
 
-**Citations:**
-[RAG:notice-0003]
-[OKF:delay-compensation.md]"
-- **Key Facts Matched by Substring:** `extraordinary circumstances`, `Meal and refreshments`
-- **Key Facts Missing by Substring:** `not payable`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "not payable".*
+**Conclusion:** You are not entitled to cash compensation or travel vouchers because the root cause (bird strike) was outside the airline's control, but you are entitled to hotel accommodation, meals, and the option to cancel for a full refund.
 
----
-
-### [V1] q-028 (hybrid)
-
-- **Question:** "SkyNova flight SN-303 was delayed 3 hours and 45 minutes on 19 January 2026 due to crew issues. What are my compensation options?"
-- **Expected Answer:** "Flight SN-303 on 19 January 2026 was delayed by 3 hours and 45 minutes due to crew scheduling issues at Mumbai, which is classified as an airline operational issue within SkyNova Air's control. Under SkyNova Air's delay compensation policy, delays of 2 to 4 hours caused by airline fault entitle passengers to a USD 50 meal voucher. You can submit a claim within 90 days of the flight."
-- **Key Facts Required:** `USD 50 meal voucher`, `3 hours and 45 minutes`, `airline fault`
-- **System Answer:** "Based on the evidence provided, here are your compensation options for SkyNova Air flight SN-303:
-
-1.  **USD 50 Meal Voucher**: The delay was 3 hours and 45 minutes, which falls into the category of "2 hours or more, up to 4 hours." Since the delay was caused by crew scheduling issues (an airline operational issue within SkyNova Air's control), you are entitled to a USD 50 meal voucher [OKF:delay-compensation.md] [RAG:notice-0006].
-2.  **Meal and Refreshments at the Airport**: Because the delay exceeded 3 hours, you are also entitled to meals and refreshments at the airport, regardless of the cause [OKF:delay-compensation.md].
-
-To claim this compensation, you must contact SkyNova Air's customer support within 90 days of the flight date (January 19, 2026), providing your booking reference, flight number, and date of travel [OKF:delay-compensation.md].
-
-[RAG:notice-0006] [OKF:delay-compensation.md]"
-- **Key Facts Matched by Substring:** `USD 50 meal voucher`, `3 hours and 45 minutes`
-- **Key Facts Missing by Substring:** `airline fault`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "airline fault".*
+Citations: [RAG:notice-0005], [OKF:delay-compensation.md]"
+- **Key Facts Matched by Substring:** `USD 200 cash`, `partial liability`
+- **Key Facts Missing by Substring:** `7 hours and 30 minutes`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "7 hours and 30 minutes".*
 
 ---
 
-### [V2] q-038 (human_fallback_stale)
+### [V2] q-033 (hybrid)
 
-- **Question:** "How long does a refund from an airline-initiated cancellation take to process?"
-- **Expected Answer:** "airline-initiated cancellation refunds within 10 business days"
-- **Key Facts Required:** `10 business days`
-- **System Answer:** "A refund from an airline-initiated cancellation is processed within 7 business days. [OKF:cancellation-arcticjet-economy.md]"
+- **Question:** "What compensation does VistaAir owe me if my VA-703 flight was delayed nearly 3 hours due to weather on 5 April 2026?"
+- **Expected Answer:** "Flight VA-703 on 5 April 2026 was delayed 2 hours and 50 minutes due to severe thunderstorm activity and an air traffic control ground stop at Delhi. This is classified as extraordinary circumstances beyond VistaAir's control. Because the delay did not reach 3 hours and was caused by weather outside the airline's control, no financial compensation is payable under VistaAir's delay compensation policy."
+- **Key Facts Required:** `extraordinary circumstances`, `no financial compensation`, `2 hours and 50 minutes`
+- **System Answer:** "Based on the evidence provided, VistaAir does not owe you financial compensation for this delay.
+
+The delay for flight VA-703 on 2026-04-05 was caused by severe thunderstorm activity and air traffic control ground stops, which are classified as **extraordinary circumstances** beyond the airline's control [RAG:notice-0007]. According to the delay compensation policy, delays caused by extraordinary circumstances (such as severe weather and air traffic control restrictions) **do not qualify for financial compensation** [OKF:delay-compensation.md].
+
+However, because the delay was nearly 3 hours (specifically 2 hours and 50 minutes), you are entitled to **care and assistance**, though the specific threshold for "Meal and refreshments at the airport" for VistaAir is listed as "Any delay over 3 hours" [OKF:delay-compensation.md]. Since the delay was 2 hours and 50 minutes, it does not strictly meet the "over 3 hours" threshold for the automatic meal/refreshment entitlement listed in the table, but the policy states that "care and assistance must still be provided" for extraordinary circumstances [OKF:delay-compensation.md].
+
+**Summary:**
+*   **Financial Compensation:** None (due to extraordinary circumstances) [OKF:delay-compensation.md], [RAG:notice-0007].
+*   **Care/Assistance:** Must be provided, but specific meal/refreshment entitlements in the table apply to delays *over* 3 hours [OKF:delay-compensation.md].
+
+[OKF:delay-compensation.md] [RAG:notice-0007]"
+- **Key Facts Matched by Substring:** `extraordinary circumstances`, `2 hours and 50 minutes`
+- **Key Facts Missing by Substring:** `no financial compensation`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "no financial compensation".*
+
+---
+
+### [V1] q-034 (hybrid)
+
+- **Question:** "SkyNova flight SN-101 was delayed 8 hours on June 17 2026. Can I also get a refund instead of compensation?"
+- **Expected Answer:** "Yes. Flight SN-101 on 17 June 2026 was delayed 8 hours and 20 minutes due to an engine fault within SkyNova Air's control. Because the delay exceeded 5 hours, SkyNova Air's policy gives you the option to cancel the flight and receive a full refund. Alternatively, you can keep the booking and claim USD 150 cash compensation for a delay over 6 hours caused by airline fault. You do not receive both the refund and the cash compensation."
+- **Key Facts Required:** `full refund`, `USD 150 cash`, `cancel the flight`
+- **System Answer:** "Based on the evidence provided, the delay for flight SN-101 on June 17, 2026, was 8 hours and 20 minutes [RAG:notice-0009]. According to the SkyNova Air delay compensation policy, for any delay over 5 hours (regardless of the cause), passengers have the "Option to cancel with full refund" [OKF:delay-compensation.md]. Therefore, yes, you can choose to cancel and receive a full refund instead of compensation.
+
+[OKF:delay-compensation.md] [RAG:notice-0009]"
+- **Key Facts Matched by Substring:** `full refund`
+- **Key Facts Missing by Substring:** `USD 150 cash`, `cancel the flight`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "USD 150 cash", "cancel the flight".*
+
+---
+
+### [V1] q-044 (human_fallback_stale)
+
+- **Question:** "Does Britannica allow multiple-entry Standard Visitor Visas?"
+- **Expected Answer:** "yes, multiple entry, valid up to 6 months"
+- **Key Facts Required:** `multiple entry`
+- **System Answer:** "Yes, Britannica allows multiple-entry Standard Visitor Visas. The visa is valid for up to 6 months and permits multiple entries. [OKF:visa-country-d-britannica.md]"
 - **Key Facts Matched by Substring:** None
-- **Key Facts Missing by Substring:** `10 business days`
-- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "10 business days".*
+- **Key Facts Missing by Substring:** `multiple entry`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "multiple entry".*
+
+---
+
+### [V2] q-044 (human_fallback_stale)
+
+- **Question:** "Does Britannica allow multiple-entry Standard Visitor Visas?"
+- **Expected Answer:** "yes, multiple entry, valid up to 6 months"
+- **Key Facts Required:** `multiple entry`
+- **System Answer:** "Yes, Britannica allows multiple-entry Standard Visitor Visas. The visa is valid for up to 6 months and permits multiple entries [OKF:visa-country-d-britannica.md]."
+- **Key Facts Matched by Substring:** None
+- **Key Facts Missing by Substring:** `multiple entry`
+- **Agent Proposed Verdict:** `WRONG` — *Missing required key fact(s): "multiple entry".*
 
 ---
 
@@ -231,70 +330,76 @@ To claim this compensation, you must contact SkyNova Air's customer support with
 
 These rows were automatically graded. Spot-check them to verify that automated key-fact substring grading and escalation rules operated reliably.
 
-### Spot-Check: [V1] q-037 (human_fallback_stale)
+### Spot-Check: [V1] q-033 (hybrid)
 
-- **Question:** "How much does it cost to apply for a visa to visit Britannica as an Indian passport holder?"
-- **Expected Outcome:** `OKF_ONLY`
-- **Expected Answer:** "Britannica visa fee is USD 115 (non-refundable)"
-- **Key Facts:** `USD 115`
-- **System Outcome:** `ANSWERED` 
-- **System Answer:** "The application fee for a Standard Visitor Visa to Britannica is USD 115 (non-refundable) [OKF:visa-country-d-britannica.md]."
-- **Automated Grade:** `PASS (Correct)`
-
----
-
-### Spot-Check: [V1] q-026 (hybrid)
-
-- **Question:** "ArcticJet flight AJ-512 was delayed by nearly 7 hours on 22 May 2026. What compensation am I entitled to?"
+- **Question:** "What compensation does VistaAir owe me if my VA-703 flight was delayed nearly 3 hours due to weather on 5 April 2026?"
 - **Expected Outcome:** `HYBRID`
-- **Expected Answer:** "Flight AJ-512 on 22 May 2026 was delayed by 6 hours and 50 minutes due to an APU technical fault, which is within ArcticJet's operational responsibility. Under ArcticJet's delay compensation policy, delays of more than 6 hours caused by airline fault entitle passengers to USD 200 cash compensation. You may submit a claim within 90 days."
-- **Key Facts:** `USD 200 cash`, `6 hours and 50 minutes`, `airline fault`
+- **Expected Answer:** "Flight VA-703 on 5 April 2026 was delayed 2 hours and 50 minutes due to severe thunderstorm activity and an air traffic control ground stop at Delhi. This is classified as extraordinary circumstances beyond VistaAir's control. Because the delay did not reach 3 hours and was caused by weather outside the airline's control, no financial compensation is payable under VistaAir's delay compensation policy."
+- **Key Facts:** `extraordinary circumstances`, `no financial compensation`, `2 hours and 50 minutes`
 - **System Outcome:** `ANSWERED` 
 - **System Answer:** "Based on the evidence provided, here is the breakdown of your compensation entitlement:
 
-1.  **Flight Details:** Flight AJ-512 on 2026-05-22 was delayed by **6 hours and 50 minutes** [RAG:notice-0002].
-2.  **Cause of Delay:** The delay was caused by a technical fault in the aircraft's auxiliary power unit (APU), which is a technical issue within ArcticJet's control [RAG:notice-0002].
-3.  **Applicable Policy:** According to the ArcticJet delay compensation policy, for a delay of **more than 6 hours** caused by an **airline fault**, the entitlement is **USD 200 cash compensation** [OKF:delay-compensation.md].
-4.  **Additional Entitlements:**
-    *   Since the delay was more than 5 hours, you are also entitled to **hotel accommodation and meals provided** [OKF:delay-compensation.md].
-    *   Since the delay was over 3 hours, you are entitled to **meal and refreshments at the airport** [OKF:delay-compensation.md].
-    *   Since the delay was over 5 hours, you have the **option to cancel with a full refund** [OKF:delay-compensation.md].
+1.  **Cause of Delay:** The delay was caused by severe thunderstorm activity and air traffic control ground stops, which are classified as **extraordinary circumstances** outside VistaAir's operational control [RAG:notice-0007].
+2.  **Financial Compensation:** According to the policy, delays caused by extraordinary circumstances **do not qualify for financial compensation** (such as cash or travel vouchers) [OKF:delay-compensation.md].
+3.  **Care and Assistance:**
+    *   **Meals:** You are entitled to **meal and refreshments at the airport** because the delay was over 3 hours [OKF:delay-compensation.md].
+    *   **Hotel Accommodation:** You are **not** entitled to hotel accommodation and meals, as this entitlement for "Any cause" requires a delay of **more than 4 hours** [OKF:delay-compensation.md]. Your delay was "nearly 3 hours" (specifically 2 hours and 50 minutes according to the notice), which is less than 4 hours.
+    *   **Cancellation/Refund:** You are **not** entitled to the option to cancel with a full refund, as this requires a delay of **more than 5 hours** [OKF:delay-compensation.md].
 
 **Conclusion:**
-You are entitled to **USD 200 cash compensation**, **hotel accommodation and meals**, and the **option to cancel with a full refund**.
+VistaAir owes you **no financial compensation** (cash or vouchers). You are only entitled to **meals and refreshments at the airport**.
 
-[RAG:notice-0002] [OKF:delay-compensation.md]"
+Citations: [RAG:notice-0007], [OKF:delay-compensation.md]"
 - **Automated Grade:** `PASS (Correct)`
 
 ---
 
-### Spot-Check: [V2] q-074 (human_fallback_conflict)
+### Spot-Check: [V2] q-023 (rag_only)
 
-- **Question:** "How long does an ArcticJet refund take after an airline-initiated cancellation?"
+- **Question:** "Has ArcticJet changed the departure time of its Mumbai to London flight?"
+- **Expected Outcome:** `RAG_ONLY`
+- **Expected Answer:** "Yes. From 15 September 2026, ArcticJet adjusted the AJ-411 Mumbai–London Heathrow schedule. The departure time from Mumbai shifted from 02:30 to 05:00 local time to accommodate new slot allocations at London Heathrow. Affected passengers received updated e-tickets by email."
+- **Key Facts:** `05:00`, `02:30`, `15 September 2026`
+- **System Outcome:** `ANSWERED` 
+- **System Answer:** "Yes, ArcticJet has changed the departure time of its Mumbai to London flight. Specifically, the departure time for flight AJ-411 from Mumbai will shift from 02:30 to 05:00 local time starting from 15 September 2026 [RAG:notice-0020]."
+- **Automated Grade:** `PASS (Correct)`
+
+---
+
+### Spot-Check: [V2] q-079 (human_fallback_conflict)
+
+- **Question:** "What general refund timeline applies across all airlines for a standard passenger cancellation?"
 - **Expected Outcome:** `ESCALATE`
 - **Expected Answer:** null (expected escalation)
 - **Key Facts:** []
 - **System Outcome:** `ANSWERED` 
-- **System Answer:** "The refund is processed within 7 business days. [OKF:cancellation-arcticjet-economy.md]"
+- **System Answer:** "The general refund timeline that applies across all airlines for a standard passenger cancellation is **21 business days** from the cancellation request. This applies to credit/debit card payments, bank transfers, and cash payments (issued by cheque).
+
+[OKF:refund-policy-general.md]"
 - **Automated Grade:** `FAIL (Wrong / Misrouted)`
 
 ---
 
-### Spot-Check: [V2] q-061 (human_fallback_ambiguous)
+### Spot-Check: [V1] q-056 (human_fallback_no_evidence)
 
-- **Question:** "Can I bring my pet snake on board?"
+- **Question:** "Were there any incidents involving ArcticJet flights at Singapore Changi airport this year?"
 - **Expected Outcome:** `ESCALATE`
 - **Expected Answer:** null (expected escalation)
 - **Key Facts:** []
 - **System Outcome:** `ANSWERED` 
-- **System Answer:** "No, you cannot bring a pet snake on board under standard passenger procedures. The policy explicitly states that exotic, unusual, or non-standard animals, including reptiles, are not covered and cannot be transported. Passengers wishing to travel with such animals must contact the airline's special cargo and live animal team directly, as approval is not guaranteed. [OKF:pets-policy.md]"
+- **System Answer:** "Based on the evidence provided, there were two incidents involving ArcticJet flights at Singapore Changi airport in 2025:
+
+1.  **Flight Delay:** Flight AJ-613 on 2025-12-11 arrived at Singapore Changi 4 hours and 5 minutes late due to a software fault in the aircraft's flight management system [RAG:notice-0008].
+2.  **Lost Property:** On 2025-10-22, a passenger reported a laptop and two external hard drives missing from a checked bag after the Mumbai–Singapore flight. The bag arrived with a broken lock, and ArcticJet compensated the passenger USD 350 [RAG:notice-0015].
+
+[RAG:notice-0008] [RAG:notice-0015]"
 - **Automated Grade:** `FAIL (Wrong / Misrouted)`
 
 ---
 
-### Spot-Check: [V1] q-050 (human_fallback_no_evidence)
+### Spot-Check: [V2] q-055 (human_fallback_no_evidence)
 
-- **Question:** "Has there been any baggage incident on the VistaAir Mumbai to New York route in the past week?"
+- **Question:** "Has there been a recent ArcticJet announcement about new routes to South America?"
 - **Expected Outcome:** `ESCALATE`
 - **Expected Answer:** null (expected escalation)
 - **Key Facts:** []

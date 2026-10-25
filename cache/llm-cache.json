@@ -978,5 +978,1465 @@
       "total": 456
     },
     "createdAt": "2026-10-24T14:03:33.115Z"
+  },
+  "f43e8b5af08c85724c989387723cdfc2a4aabdffdf7320b39a0780f08e1aef72": {
+    "text": "The cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure is USD 120. [OKF:cancellation-arcticjet-economy.md]",
+    "latencyMs": 297,
+    "tokens": {
+      "prompt": 1205,
+      "completion": 41,
+      "total": 1246
+    },
+    "createdAt": "2026-10-24T18:57:02.646Z"
+  },
+  "76dc56d9d7ab5fc37dd6556b14a8d7125bcb200e97747ae72658ba1e5d3bdde5": {
+    "text": "OKF_ONLY",
+    "latencyMs": 176,
+    "tokens": {
+      "prompt": 210,
+      "completion": 4,
+      "total": 214
+    },
+    "createdAt": "2026-10-24T18:57:12.534Z"
+  },
+  "635e4cade82ab65c609bfcd533ca5222609e961ae900472205f097f40d886fb6": {
+    "text": "The cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure is USD 120. [OKF:cancellation-arcticjet-economy.md]",
+    "latencyMs": 231,
+    "tokens": {
+      "prompt": 405,
+      "completion": 41,
+      "total": 446
+    },
+    "createdAt": "2026-10-24T18:57:22.596Z"
+  },
+  "ad99eb27f51cb03adc757eeac1fae3cb7defa4b062bc81874bfbc51a84870ca6": {
+    "text": "It costs USD 0 to cancel a VistaAir Business Sapphire ticket more than 48 hours before departure, as the ticket is fully refundable with no cancellation fee. [OKF:cancellation-vistaair-business.md]",
+    "latencyMs": 492,
+    "tokens": {
+      "prompt": 1023,
+      "completion": 46,
+      "total": 1069
+    },
+    "createdAt": "2026-10-24T18:57:32.871Z"
+  },
+  "6e1de9bcef57ca785199c27887d6d5afd98a15c5790749a54deae89c42611f5b": {
+    "text": "OKF_ONLY",
+    "latencyMs": 138,
+    "tokens": {
+      "prompt": 208,
+      "completion": 4,
+      "total": 212
+    },
+    "createdAt": "2026-10-24T18:57:42.529Z"
+  },
+  "71dd90f085637a9b95c6897d808daee529ddb1f1eb7bc1ef76fced8fb7590766": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 185,
+    "tokens": {
+      "prompt": 458,
+      "completion": 4,
+      "total": 462
+    },
+    "createdAt": "2026-10-24T18:57:52.579Z"
+  },
+  "db63fd683dbf01053f0b9347e5fac09062effe3d811af3c61be2bab43284f308": {
+    "text": "SkyNova Economy Flex passengers are allowed 1 checked bag with a maximum weight of 25 kg. Bags exceeding 25 kg are subject to an overweight fee of USD 8 per kg. [OKF:baggage-skynova-economy.md]",
+    "latencyMs": 323,
+    "tokens": {
+      "prompt": 1254,
+      "completion": 54,
+      "total": 1308
+    },
+    "createdAt": "2026-10-24T18:58:02.713Z"
+  },
+  "c1477c553d5a6f0cd84e3643b68dcbdf324dc6975932f603ffcb9d13bab1d1da": {
+    "text": "OKF_ONLY",
+    "latencyMs": 152,
+    "tokens": {
+      "prompt": 199,
+      "completion": 4,
+      "total": 203
+    },
+    "createdAt": "2026-10-24T18:58:12.545Z"
+  },
+  "9c9d8a635b019fb58113c42839e77bcc4f47777c6e03d378a6f4c831df7ffeda": {
+    "text": "SkyNova Economy Flex passengers are allowed 1 checked bag with a maximum weight of 25 kg. Bags exceeding 25 kg are subject to an overweight fee of USD 8 per kg. [OKF:baggage-skynova-economy.md]",
+    "latencyMs": 253,
+    "tokens": {
+      "prompt": 517,
+      "completion": 54,
+      "total": 571
+    },
+    "createdAt": "2026-10-24T18:58:22.654Z"
+  },
+  "6f2bb40584c98ae83b717ebb563c2489b6cf3c7aa1e4450f85bf1643aae6d7b3": {
+    "text": "Indian passport holders can obtain a **Visa on Arrival (VoA)** when entering Emiria. This visa allows for a maximum stay of 14 days per visit and costs USD 35, payable at the immigration counter upon arrival [OKF:visa-country-b-emiria.md].\n\n[OKF:visa-country-b-emiria.md]",
+    "latencyMs": 483,
+    "tokens": {
+      "prompt": 1015,
+      "completion": 72,
+      "total": 1087
+    },
+    "createdAt": "2026-10-24T18:58:32.894Z"
+  },
+  "82901f5d8423e69a59d69ac5a06bb701301b5df3ac3a8971af291cd224606f62": {
+    "text": "OKF_ONLY",
+    "latencyMs": 143,
+    "tokens": {
+      "prompt": 198,
+      "completion": 4,
+      "total": 202
+    },
+    "createdAt": "2026-10-24T18:58:42.563Z"
+  },
+  "ba4c0b0777ac9c740e9a892b23f6986496a6721b1dd5b036990f0e4704b769e4": {
+    "text": "Indian passport holders can obtain a **Visa on Arrival (VoA)** when entering Emiria. This visa allows for a maximum stay of 14 days per visit and requires a fee of USD 35, payable in local currency or USD cash at the immigration counter. [OKF:visa-country-b-emiria.md]",
+    "latencyMs": 273,
+    "tokens": {
+      "prompt": 442,
+      "completion": 68,
+      "total": 510
+    },
+    "createdAt": "2026-10-24T18:58:52.706Z"
+  },
+  "5eb77023b688d6fe272b4d81b3f6350d10b81e80543e6470717080fc0698d34e": {
+    "text": "To earn SkyNova Miles on an Economy Flex ticket, you must complete a qualifying SkyNova Air flight. Miles are calculated based on the base fare only, at a rate of **8 miles per USD spent on the base fare**. Taxes, fees, and ancillary charges (such as baggage or seat selection fees) do not earn miles. Miles are credited to your account after the flight is completed.\n\n[OKF:loyalty-skynova.md]",
+    "latencyMs": 416,
+    "tokens": {
+      "prompt": 1382,
+      "completion": 93,
+      "total": 1475
+    },
+    "createdAt": "2026-10-24T18:59:02.849Z"
+  },
+  "cc70dc99839b21e4b510ae6735e1f27d7c8313751a42651382053c0eac1c2ccd": {
+    "text": "OKF_ONLY",
+    "latencyMs": 140,
+    "tokens": {
+      "prompt": 199,
+      "completion": 4,
+      "total": 203
+    },
+    "createdAt": "2026-10-24T18:59:12.575Z"
+  },
+  "2e7b6b4140464530c0fd186a0b14498a182b99f91bfcb264651d76c982088a7a": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 173,
+    "tokens": {
+      "prompt": 517,
+      "completion": 4,
+      "total": 521
+    },
+    "createdAt": "2026-10-24T18:59:22.615Z"
+  },
+  "48a7f767e6de42703d6ce686258268c7402480d5e70458becd4ef8b03c4f3df6": {
+    "text": "VistaAir Business Sapphire passengers are allowed **2 cabin bags**, with each bag having a maximum weight of **8 kg** (totaling 16 kg) and maximum dimensions of **55 × 40 × 23 cm**. Additionally, **1 personal item** is allowed with no weight restriction.\n\n[OKF:baggage-vistaair-business.md]",
+    "latencyMs": 344,
+    "tokens": {
+      "prompt": 1069,
+      "completion": 78,
+      "total": 1147
+    },
+    "createdAt": "2026-10-24T18:59:32.798Z"
+  },
+  "2e776d8c5370782ac6b63e4478bde9c0274e1951ae7f81335db2b2d44488f971": {
+    "text": "OKF_ONLY",
+    "latencyMs": 144,
+    "tokens": {
+      "prompt": 198,
+      "completion": 4,
+      "total": 202
+    },
+    "createdAt": "2026-10-24T18:59:42.605Z"
+  },
+  "c0cf193e23b3437038c360d1038d26f9b872a1084d1eff16f40aac113549c5e3": {
+    "text": "Business Sapphire passengers are allowed 2 cabin bags, each with a maximum weight of 8 kg (totaling 16 kg) and maximum dimensions of 55 × 40 × 23 cm per bag. Additionally, 1 personal item is allowed with no weight restriction. [OKF:baggage-vistaair-business.md]",
+    "latencyMs": 303,
+    "tokens": {
+      "prompt": 448,
+      "completion": 72,
+      "total": 520
+    },
+    "createdAt": "2026-10-24T18:59:52.773Z"
+  },
+  "92e0a047670ce6a103f081587ae2a9d228725122d1bd7154a8d90716b4275f5d": {
+    "text": "The passport must be valid for at least 6 months beyond the intended departure date from Nipponara. [OKF:visa-country-c-nipponara.md]",
+    "latencyMs": 289,
+    "tokens": {
+      "prompt": 1185,
+      "completion": 36,
+      "total": 1221
+    },
+    "createdAt": "2026-10-24T19:00:02.746Z"
+  },
+  "57e535fa5646139f0ca7bbf7450b6f35aa6389ad58feb91e684b11a843bec666": {
+    "text": "OKF_ONLY",
+    "latencyMs": 147,
+    "tokens": {
+      "prompt": 212,
+      "completion": 4,
+      "total": 216
+    },
+    "createdAt": "2026-10-24T19:00:12.610Z"
+  },
+  "a525451361acb8c6ad1541b9bc707ecf1513b4ff5b34461c23188a036972c17a": {
+    "text": "The passport must be valid for at least 6 months beyond the intended departure date from Nipponara. [OKF:visa-country-c-nipponara.md]",
+    "latencyMs": 223,
+    "tokens": {
+      "prompt": 544,
+      "completion": 36,
+      "total": 580
+    },
+    "createdAt": "2026-10-24T19:00:22.699Z"
+  },
+  "022504608c8f2250709807a4768179cc8159b906840c898cc30349c20e2b7d4c": {
+    "text": "The minimum number of SkyNova Miles required to get a discount on a booking is 500 miles. [OKF:loyalty-skynova.md]",
+    "latencyMs": 285,
+    "tokens": {
+      "prompt": 1387,
+      "completion": 34,
+      "total": 1421
+    },
+    "createdAt": "2026-10-24T19:00:32.774Z"
+  },
+  "f3d242555f26dba037497324f92df01e366da4a47bedcbf501c2f46d0b8a9442": {
+    "text": "OKF_ONLY",
+    "latencyMs": 138,
+    "tokens": {
+      "prompt": 204,
+      "completion": 4,
+      "total": 208
+    },
+    "createdAt": "2026-10-24T19:00:42.636Z"
+  },
+  "ab5fadc69bf489bceb9d45558a58e23529c998b8ff4e9d656d5de95b60a95eae": {
+    "text": "The minimum number of SkyNova Miles required to get a discount on a booking is 500 miles. [OKF:loyalty-skynova.md]",
+    "latencyMs": 238,
+    "tokens": {
+      "prompt": 588,
+      "completion": 34,
+      "total": 622
+    },
+    "createdAt": "2026-10-24T19:00:52.736Z"
+  },
+  "d8da96d9961f9edb0d919722e5bb72634132f1d8c5afd5c4ee6f6cc297ea4aca": {
+    "text": "On 28 February 2026, three passengers on flight SN-202 (Delhi–Bangkok) reported missing checked baggage upon arrival at Bangkok Suvarnabhumi. The investigation determined that the bags were mistakenly loaded onto flight SN-101 (Delhi–Dubai) due to a baggage tag misread at the Delhi handling facility. The bags were retrieved from Dubai and forwarded to Bangkok on the next available SkyNova Air service, arriving 28 hours after the passengers [RAG:notice-0011].",
+    "latencyMs": 434,
+    "tokens": {
+      "prompt": 463,
+      "completion": 116,
+      "total": 579
+    },
+    "createdAt": "2026-10-24T19:01:02.933Z"
+  },
+  "24e37fa402866fe517d8214fa642683ce6fe0fcb58e5a76390c5939b6c66d8e4": {
+    "text": "RAG_ONLY",
+    "latencyMs": 143,
+    "tokens": {
+      "prompt": 208,
+      "completion": 4,
+      "total": 212
+    },
+    "createdAt": "2026-10-24T19:01:12.652Z"
+  },
+  "e6889e47067d5e4d7f1e9b977a08f4c4609fa93dfbeb7a04e633c12499adebd8": {
+    "text": "Flight VA-801 on 2026-07-08 was delayed by 3 hours and 15 minutes due to a late inbound aircraft (VA-802) from London Heathrow. The inbound aircraft experienced air traffic control holding delays over European airspace, which are classified as extraordinary circumstances beyond VistaAir's control. [RAG:notice-0003]",
+    "latencyMs": 540,
+    "tokens": {
+      "prompt": 418,
+      "completion": 84,
+      "total": 502
+    },
+    "createdAt": "2026-10-24T19:01:23.058Z"
+  },
+  "4bd086d39ae5c346cd27c2c94d04c0707d9ecbe6a2e4f2ffbfed6cf3d8e85307": {
+    "text": "RAG_ONLY",
+    "latencyMs": 147,
+    "tokens": {
+      "prompt": 205,
+      "completion": 4,
+      "total": 209
+    },
+    "createdAt": "2026-10-24T19:01:32.679Z"
+  },
+  "4fc2f3d8b3ab83b33ada440a55131baed9309daf2a1852675b638c4f429435bf": {
+    "text": "Based on the evidence provided, there is no record of a technical issue for an ArcticJet flight from Mumbai to Singapore in December 2025.\n\nThe evidence mentions:\n1.  Flight AJ-613 on **2025-12-11** had a technical issue (FMS software fault), but the destination was **Singapore Changi** and the origin is not explicitly stated as Mumbai in this specific notice (though it is the same flight number as the October incident). However, the question asks about a flight *from* Mumbai *to* Singapore in December 2025. Notice [RAG:notice-0008] confirms a delay for AJ-613 on 2025-12-11 arriving in Singapore, but does not explicitly confirm the origin was Mumbai in that specific instance, nor does it link the December flight to the Mumbai origin mentioned in the October incident.\n2.  Flight AJ-613 on **2025-10-22** was a Mumbai–Singapore flight, but this was in October, not December.\n3.  Flight AJ-512 on **2026-05-22** had a technical issue, but this was in 2026 and to Tokyo.\n\nWhile [RAG:notice-0008] confirms a technical issue for flight AJ-613 arriving in Singapore in December 2025, it does not explicitly state that the origin was Mumbai. The only evidence linking AJ-613 to a Mumbai origin is from October 2025 [RAG:notice-0015]. Without explicit confirmation that the December 2025 flight originated in Mumbai, the evidence is insufficient to definitively answer \"yes\" to the specific route constraint. However, typically flight numbers maintain routes. Let's look closer.",
+    "latencyMs": 993,
+    "tokens": {
+      "prompt": 455,
+      "completion": 400,
+      "total": 855
+    },
+    "createdAt": "2026-10-24T19:01:43.533Z"
+  },
+  "800ec7363c98b3a75614a1210228aac2087e8060c595515002ac5c83fc68b363": {
+    "text": "RAG_ONLY",
+    "latencyMs": 153,
+    "tokens": {
+      "prompt": 207,
+      "completion": 4,
+      "total": 211
+    },
+    "createdAt": "2026-10-24T19:01:52.694Z"
+  },
+  "37bdf51e9aa5ce04cb568e1c52e549140a6a5522d1cda5cebff68cbf0d6fc364": {
+    "text": "Yes, VistaAir has changed terminals at Delhi airport. Due to runway resurfacing works at Terminal 3, flights VA-801 and VA-703 are operating from Terminal 2 between 10 June 2026 and 31 July 2026. Normal terminal operations are scheduled to resume on 1 August 2026. [RAG:notice-0021]",
+    "latencyMs": 336,
+    "tokens": {
+      "prompt": 426,
+      "completion": 91,
+      "total": 517
+    },
+    "createdAt": "2026-10-24T19:02:02.876Z"
+  },
+  "a44f4361c7fe9e6a9d3e8d94da526d6af7338d4a2f8ec95bc741226253d00da0": {
+    "text": "RAG_ONLY",
+    "latencyMs": 139,
+    "tokens": {
+      "prompt": 196,
+      "completion": 4,
+      "total": 200
+    },
+    "createdAt": "2026-10-24T19:02:12.683Z"
+  },
+  "4519e5361131742ad475047561b9f036cbb78dae3f6cc19dfe4f2797c65fc3e2": {
+    "text": "Yes, a theft was reported from checked baggage on a VistaAir Delhi to Tokyo flight. Specifically, on flight VA-703 on 2026-03-19, a passenger's camera equipment worth approximately USD 2,400 was reported stolen from checked baggage on the Delhi–Tokyo route [RAG:notice-0013].\n\n[RAG:notice-0013]",
+    "latencyMs": 419,
+    "tokens": {
+      "prompt": 451,
+      "completion": 90,
+      "total": 541
+    },
+    "createdAt": "2026-10-24T19:02:22.973Z"
+  },
+  "c91fdc495c86ea8f04754dc62f715065a3c985831010a9a769104a2a3775c7c4": {
+    "text": "RAG_ONLY",
+    "latencyMs": 152,
+    "tokens": {
+      "prompt": 203,
+      "completion": 4,
+      "total": 207
+    },
+    "createdAt": "2026-10-24T19:02:32.714Z"
+  },
+  "09f028def7319328942488ba82b0f8a39b8646b86bae39b8fb5bc3892a3f2cd3": {
+    "text": "The 8-hour delay on SkyNova flight SN-101 in June 2026 was caused by an unscheduled engine maintenance requirement. Specifically, the captain noticed an oil leak from the left engine during the pre-flight walk-around, which necessitated a full engine inspection and seal replacement. Additionally, a substitute aircraft was not available at Delhi. [RAG:notice-0009]",
+    "latencyMs": 327,
+    "tokens": {
+      "prompt": 432,
+      "completion": 84,
+      "total": 516
+    },
+    "createdAt": "2026-10-24T19:02:42.893Z"
+  },
+  "58c64582ff936614e035669932e4e452cc3b84950ba3326dd6812d3e42f5ae63": {
+    "text": "RAG_ONLY",
+    "latencyMs": 132,
+    "tokens": {
+      "prompt": 210,
+      "completion": 4,
+      "total": 214
+    },
+    "createdAt": "2026-10-24T19:02:52.701Z"
+  },
+  "4daa45a098fd632a36ff18ea5313bf00aa8286712abc5334e7abcdf5a52ff5bb": {
+    "text": "Yes, ArcticJet has changed the departure time of its Mumbai to London flight. Specifically, the departure time for flight AJ-411 from Mumbai will shift from 02:30 to 05:00 local time starting from 15 September 2026 [RAG:notice-0020].",
+    "latencyMs": 302,
+    "tokens": {
+      "prompt": 472,
+      "completion": 71,
+      "total": 543
+    },
+    "createdAt": "2026-10-24T19:03:02.866Z"
+  },
+  "de45b8c7a2ee9cf473e593474f18970fcdbf3fceb2d8b0ea73e451c35f0ab19e": {
+    "text": "RAG_ONLY",
+    "latencyMs": 153,
+    "tokens": {
+      "prompt": 200,
+      "completion": 4,
+      "total": 204
+    },
+    "createdAt": "2026-10-24T19:03:12.726Z"
+  },
+  "88f12f61c486ba59a51e5d9619f1f6100cc31d543957e9c109d6402419929424": {
+    "text": "Yes, SkyNova's Mumbai to Dubai flight was delayed due to baggage handling problems. On 2026-05-10, flight SN-303 (Mumbai–Dubai) experienced an 85-minute departure delay because a baggage handling conveyor belt at Terminal 2 in Mumbai suffered a mechanical failure, which delayed the loading of approximately 40 bags [RAG:notice-0014].\n\n[RAG:notice-0014]",
+    "latencyMs": 361,
+    "tokens": {
+      "prompt": 458,
+      "completion": 101,
+      "total": 559
+    },
+    "createdAt": "2026-10-24T19:03:22.949Z"
+  },
+  "0b9dbe35c79f7c6463e2c02595610dda77fc6ae95c1513565b7f7eb3a6a59183": {
+    "text": "RAG_ONLY",
+    "latencyMs": 144,
+    "tokens": {
+      "prompt": 202,
+      "completion": 4,
+      "total": 206
+    },
+    "createdAt": "2026-10-24T19:03:32.737Z"
+  },
+  "ffe4ad327954116e82b9be478933d2cc80b7c34c28b439ffaa6ba579bc145db7": {
+    "text": "Yes, you can claim compensation.\n\nAccording to the incident report, Flight SN-202 on 2025-11-03 was delayed by 5 hours and 10 minutes due to a technical fault, which is explicitly stated to be the airline's operational responsibility [RAG:notice-0004].\n\nUnder the SkyNova Air delay compensation policy, a delay of \"More than 4 hours, up to 6 hours\" caused by an \"Airline fault\" entitles the passenger to a **USD 100 meal voucher + USD 50 travel credit voucher** [OKF:delay-compensation.md]. Additionally, because the delay was over 5 hours, you also have the **option to cancel with a full refund** [OKF:delay-compensation.md].\n\nTo claim this, you must contact SkyNova Air customer support within 90 days of the flight, providing your booking reference, flight number, and date of travel [OKF:delay-compensation.md].\n\n[RAG:notice-0004] [OKF:delay-compensation.md]",
+    "latencyMs": 721,
+    "tokens": {
+      "prompt": 1014,
+      "completion": 234,
+      "total": 1248
+    },
+    "createdAt": "2026-10-24T19:03:43.327Z"
+  },
+  "d09be59c0d0e7a149803430ac2fd94e3a285cc6befab967535b711ac8c7233c6": {
+    "text": "HYBRID",
+    "latencyMs": 143,
+    "tokens": {
+      "prompt": 221,
+      "completion": 4,
+      "total": 225
+    },
+    "createdAt": "2026-10-24T19:03:52.759Z"
+  },
+  "331cf218a097ec902b771ee3c365d4647114ca8e1acbaa09b2b2f36171c4823e": {
+    "text": "Yes, you can claim compensation.\n\nAccording to the flight notice, Flight SN-202 on 2025-11-03 was delayed by 5 hours and 10 minutes due to a technical fault, which is considered an operational issue within SkyNova Air's control [RAG:notice-0004]. Under SkyNova Air's delay compensation policy, a delay of more than 4 hours up to 6 hours caused by an airline fault entitles the passenger to a USD 100 meal voucher and a USD 50 travel credit voucher [OKF:delay-compensation.md]. Additionally, because the delay exceeded 5 hours, you are also entitled to the option to cancel with a full refund [OKF:delay-compensation.md].\n\nTo claim, you must contact SkyNova Air's customer support within 90 days of the delayed flight, providing your booking reference, flight number, and date of travel [OKF:delay-compensation.md].",
+    "latencyMs": 826,
+    "tokens": {
+      "prompt": 1116,
+      "completion": 207,
+      "total": 1323
+    },
+    "createdAt": "2026-10-24T19:04:03.434Z"
+  },
+  "4cb99df3e020094f18fdaf557d53195110d104e3715f3312a99a431a8687a6c6": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 144,
+    "tokens": {
+      "prompt": 484,
+      "completion": 4,
+      "total": 488
+    },
+    "createdAt": "2026-10-24T19:04:12.764Z"
+  },
+  "1c9925ddba259acf5ddfda8d8777abde2b5f991bb4483b87f6213bfc241dc2a0": {
+    "text": "HYBRID",
+    "latencyMs": 140,
+    "tokens": {
+      "prompt": 218,
+      "completion": 4,
+      "total": 222
+    },
+    "createdAt": "2026-10-24T19:04:22.770Z"
+  },
+  "f2fc39a67c42298bb70d0c3bf76dbe0e39d2956fd188e0afba580e28f9eebea4": {
+    "text": "Based on the evidence provided, the flight in question is **ArcticJet AJ-613** on **2025-12-11**, which arrived **4 hours and 5 minutes late** due to a **software fault** (a technical issue within the airline's control) [RAG:notice-0008].\n\nAccording to the ArcticJet delay compensation policy:\n*   For a delay of **3 hours or more, up to 6 hours** caused by an **airline fault**, the entitlement is a **USD 75 travel voucher** [OKF:delay-compensation.md].\n*   Additionally, for **any delay over 3 hours** (regardless of cause), the passenger is entitled to **meal and refreshments at the airport** [OKF:delay-compensation.md].\n\nTherefore, the available compensation is a **USD 75 travel voucher** and **meal and refreshments at the airport**.\n\n[OKF:delay-compensation.md] [RAG:notice-0008]",
+    "latencyMs": 629,
+    "tokens": {
+      "prompt": 1161,
+      "completion": 222,
+      "total": 1383
+    },
+    "createdAt": "2026-10-24T19:04:33.261Z"
+  },
+  "ad4ea73826de5e76c4806702b6bea06a3093216830791f2b38de08a093a861e7": {
+    "text": "Yes, the delay is classified as an operational issue within VistaAir's vendor management responsibility, which implies it is the airline's fault. However, the provided evidence does not specify what compensation or benefits you are entitled to receive.\n\n[OKF:notice-0010]",
+    "latencyMs": 264,
+    "tokens": {
+      "prompt": 429,
+      "completion": 58,
+      "total": 487
+    },
+    "createdAt": "2026-10-24T19:04:42.897Z"
+  },
+  "28fdbb31f925f55ee8e94045ad473e7760d9749d6023a6bb4fee2d044d750461": {
+    "text": "HYBRID",
+    "latencyMs": 162,
+    "tokens": {
+      "prompt": 231,
+      "completion": 4,
+      "total": 235
+    },
+    "createdAt": "2026-10-24T19:04:52.802Z"
+  },
+  "2b2d7b4783be7ed6a2d462d4f415c40f5766b30f26f7903c5b870b0eeed4e1f0": {
+    "text": "Based on the evidence provided, the delay for flight VA-902 on 2026-08-23 is classified as an **operational issue within VistaAir's vendor management responsibility** [RAG:notice-0010]. Therefore, it is considered the airline's fault (or at least within their operational control/responsibility), unlike delays caused by extraordinary circumstances such as weather or air traffic control [RAG:notice-0003, RAG:notice-0007].\n\nHowever, the provided evidence **does not contain information** regarding specific compensation, refunds, or benefits (\"What do I get?\") for passengers affected by this specific delay. The evidence only confirms the cause and classification of the delay.\n\nINSUFFICIENT",
+    "latencyMs": 503,
+    "tokens": {
+      "prompt": 756,
+      "completion": 161,
+      "total": 917
+    },
+    "createdAt": "2026-10-24T19:05:03.141Z"
+  },
+  "8d7ee4619a9ca960c9d1458b745b5644102fcbb28f6b82e431cd836f6ad7133b": {
+    "text": "Based on the evidence provided, you are **not** entitled to financial compensation for the delay, but you are entitled to care and assistance.\n\nHere is the breakdown:\n\n1.  **Cause of Delay:** The delay was caused by a bird strike, which is described as an event \"outside ArcticJet's control\" [RAG:notice-0005]. Although the airline accepted \"partial liability\" for the extended inspection time, the primary cause (bird strike) falls under extraordinary circumstances.\n2.  **Compensation Policy:** According to the ArcticJet delay compensation policy, financial compensation (such as the USD 200 cash compensation for delays over 6 hours) is payable **only** when the delay is caused by factors within the airline's control [OKF:delay-compensation.md]. Delays caused by extraordinary circumstances beyond airline control do not qualify for financial compensation [OKF:delay-compensation.md].\n3.  **Entitlements for Any Cause:** Since the delay was 7.5 hours (more than 5 hours), you are entitled to:\n    *   Hotel accommodation and meals provided [OKF:delay-compensation.md].\n    *   The option to cancel with a full refund [OKF:delay-compensation.md].\n    *   Meal and refreshments at the airport (for delays over 3 hours) [OKF:delay-compensation.md].\n\n**Conclusion:** You are not entitled to cash compensation or travel vouchers because the root cause (bird strike) was outside the airline's control, but you are entitled to hotel accommodation, meals, and the option to cancel for a full refund.\n\nCitations: [RAG:notice-0005], [OKF:delay-compensation.md]",
+    "latencyMs": 892,
+    "tokens": {
+      "prompt": 1048,
+      "completion": 364,
+      "total": 1412
+    },
+    "createdAt": "2026-10-24T19:05:13.545Z"
+  },
+  "ebdcf2f88767b9041305535bbe5c6870e439020b3f03008b3fac10da082f1667": {
+    "text": "HYBRID",
+    "latencyMs": 131,
+    "tokens": {
+      "prompt": 222,
+      "completion": 4,
+      "total": 226
+    },
+    "createdAt": "2026-10-24T19:05:22.795Z"
+  },
+  "09ec318682a6fc061e8bddae89c439e9346220fb5d7c3140edff594ace729d05": {
+    "text": "Based on the evidence provided, you are **not entitled to financial compensation** (cash or vouchers) for the delay, but you are entitled to **hotel accommodation and meals** and have the **option to cancel with a full refund**.\n\nHere is the breakdown:\n\n1.  **Cause of Delay:** The delay was caused by a bird strike, which is an event outside the airline's control. Although ArcticJet accepted \"partial liability\" for the extended inspection time, the primary cause (bird strike) falls under \"extraordinary circumstances beyond airline control\" as defined in the policy. The policy states that delays caused by such circumstances \"do not qualify for financial compensation\" [OKF:delay-compensation.md].\n2.  **Delay Duration:** The flight was delayed by 7 hours and 30 minutes [RAG:notice-0005].\n3.  **Entitlements for \"Any Cause\" Delays:**\n    *   **Hotel Accommodation and Meals:** ArcticJet's policy states that for any delay of **more than 5 hours** (regardless of cause), passengers are entitled to hotel accommodation and meals provided [OKF:delay-compensation.md]. Since 7.5 hours is more than 5 hours, you are entitled to this.\n    *   **Cancellation Option:** For any delay of **more than 5 hours** (regardless of cause), passengers have the option to cancel with a full refund [OKF:delay-compensation.md].\n4.  **Financial Compensation:** Financial compensation (USD 200 cash) is only payable for delays of more than 6 hours **caused by airline fault** [OKF:delay-compensation.md]. Since the root cause was a bird strike (outside control), this specific financial compensation does not apply, despite the airline's acceptance of partial liability for the inspection duration. The policy explicitly excludes financial compensation for extraordinary circumstances.\n\n**Conclusion:** You",
+    "latencyMs": 1163,
+    "tokens": {
+      "prompt": 1154,
+      "completion": 400,
+      "total": 1554
+    },
+    "createdAt": "2026-10-24T19:05:33.840Z"
+  },
+  "f90c079358cba3633ff53d9c62bdf569d14899c055637ea4d316ac7a44d81257": {
+    "text": "Based on the evidence provided, here is the breakdown of your compensation entitlement:\n\n1.  **Cause of Delay:** The delay was caused by severe thunderstorm activity and air traffic control ground stops, which are classified as **extraordinary circumstances** outside VistaAir's operational control [RAG:notice-0007].\n2.  **Financial Compensation:** According to the policy, delays caused by extraordinary circumstances **do not qualify for financial compensation** (such as cash or travel vouchers) [OKF:delay-compensation.md].\n3.  **Care and Assistance:**\n    *   **Meals:** You are entitled to **meal and refreshments at the airport** because the delay was over 3 hours [OKF:delay-compensation.md].\n    *   **Hotel Accommodation:** You are **not** entitled to hotel accommodation and meals, as this entitlement for \"Any cause\" requires a delay of **more than 4 hours** [OKF:delay-compensation.md]. Your delay was \"nearly 3 hours\" (specifically 2 hours and 50 minutes according to the notice), which is less than 4 hours.\n    *   **Cancellation/Refund:** You are **not** entitled to the option to cancel with a full refund, as this requires a delay of **more than 5 hours** [OKF:delay-compensation.md].\n\n**Conclusion:**\nVistaAir owes you **no financial compensation** (cash or vouchers). You are only entitled to **meals and refreshments at the airport**.\n\nCitations: [RAG:notice-0007], [OKF:delay-compensation.md]",
+    "latencyMs": 970,
+    "tokens": {
+      "prompt": 1001,
+      "completion": 347,
+      "total": 1348
+    },
+    "createdAt": "2026-10-24T19:05:43.655Z"
+  },
+  "461449f5c7a1df4a3abddb82fc92063b292d88fbc4349003d0fdff2f9bb12ea0": {
+    "text": "HYBRID",
+    "latencyMs": 146,
+    "tokens": {
+      "prompt": 220,
+      "completion": 4,
+      "total": 224
+    },
+    "createdAt": "2026-10-24T19:05:52.838Z"
+  },
+  "2c5793476ccd04c4dea38a649edacb708aa2eeed0dade71f0a05b85aa79a6d5f": {
+    "text": "Based on the evidence provided, VistaAir does not owe you financial compensation for this delay.\n\nThe delay for flight VA-703 on 2026-04-05 was caused by severe thunderstorm activity and air traffic control ground stops, which are classified as **extraordinary circumstances** beyond the airline's control [RAG:notice-0007]. According to the delay compensation policy, delays caused by extraordinary circumstances (such as severe weather and air traffic control restrictions) **do not qualify for financial compensation** [OKF:delay-compensation.md].\n\nHowever, because the delay was nearly 3 hours (specifically 2 hours and 50 minutes), you are entitled to **care and assistance**, though the specific threshold for \"Meal and refreshments at the airport\" for VistaAir is listed as \"Any delay over 3 hours\" [OKF:delay-compensation.md]. Since the delay was 2 hours and 50 minutes, it does not strictly meet the \"over 3 hours\" threshold for the automatic meal/refreshment entitlement listed in the table, but the policy states that \"care and assistance must still be provided\" for extraordinary circumstances [OKF:delay-compensation.md].\n\n**Summary:**\n*   **Financial Compensation:** None (due to extraordinary circumstances) [OKF:delay-compensation.md], [RAG:notice-0007].\n*   **Care/Assistance:** Must be provided, but specific meal/refreshment entitlements in the table apply to delays *over* 3 hours [OKF:delay-compensation.md].\n\n[OKF:delay-compensation.md] [RAG:notice-0007]",
+    "latencyMs": 880,
+    "tokens": {
+      "prompt": 1095,
+      "completion": 355,
+      "total": 1450
+    },
+    "createdAt": "2026-10-24T19:06:03.558Z"
+  },
+  "f7f91f05d29961dd332bc79c73fddde9ce1a25561706e0d91dbd26c572ffec0b": {
+    "text": "Based on the evidence provided, the delay for flight SN-101 on June 17, 2026, was 8 hours and 20 minutes [RAG:notice-0009]. According to the SkyNova Air delay compensation policy, for any delay over 5 hours (regardless of the cause), passengers have the \"Option to cancel with full refund\" [OKF:delay-compensation.md]. Therefore, yes, you can choose to cancel and receive a full refund instead of compensation.\n\n[OKF:delay-compensation.md] [RAG:notice-0009]",
+    "latencyMs": 428,
+    "tokens": {
+      "prompt": 1020,
+      "completion": 131,
+      "total": 1151
+    },
+    "createdAt": "2026-10-24T19:06:13.112Z"
+  },
+  "fc2ce72c0b0fa212eaacb4ea056c1a6551ee1ecf6c443d3033867f76af36f079": {
+    "text": "HYBRID",
+    "latencyMs": 146,
+    "tokens": {
+      "prompt": 220,
+      "completion": 4,
+      "total": 224
+    },
+    "createdAt": "2026-10-24T19:06:22.843Z"
+  },
+  "c6002d97325d8c63ae3badc962cfb7441ddcf4fd9fad3248d26d69c146c1713f": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 191,
+    "tokens": {
+      "prompt": 846,
+      "completion": 4,
+      "total": 850
+    },
+    "createdAt": "2026-10-24T19:06:32.899Z"
+  },
+  "47816c5c5a29e08b0fc9178a0ff9564821f368389b4f4679bddce13f0386cd5d": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 161,
+    "tokens": {
+      "prompt": 455,
+      "completion": 4,
+      "total": 459
+    },
+    "createdAt": "2026-10-24T19:06:42.874Z"
+  },
+  "b19730a9d6febb0ed47049ba68d85c4275aff4f1022df7400dab1e585a467cb8": {
+    "text": "HYBRID",
+    "latencyMs": 138,
+    "tokens": {
+      "prompt": 220,
+      "completion": 4,
+      "total": 224
+    },
+    "createdAt": "2026-10-24T19:06:52.862Z"
+  },
+  "ce314d637ec17d6136958290999d9bf6b3a9d6286e823466e31331409e851a59": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 205,
+    "tokens": {
+      "prompt": 850,
+      "completion": 4,
+      "total": 854
+    },
+    "createdAt": "2026-10-24T19:07:02.925Z"
+  },
+  "4700c2575fc9747a89d71afb811c19db0031d9298d1acbf33d05cc5244d40144": {
+    "text": "Based on the evidence provided, for the incident on flight AJ-613 in October 2025, ArcticJet's liability claims team agreed to compensate the passenger **USD 350** under the **lost articles policy**. The full replacement value of USD 980 was not covered because the items (electronics) were declared without special handling.\n\n[RAG:notice-0015]",
+    "latencyMs": 316,
+    "tokens": {
+      "prompt": 479,
+      "completion": 86,
+      "total": 565
+    },
+    "createdAt": "2026-10-24T19:07:13.039Z"
+  },
+  "0fc8907ad65acc661b0a321c1cd13adf0710962e063c54f85d6355b2960976e2": {
+    "text": "HYBRID",
+    "latencyMs": 151,
+    "tokens": {
+      "prompt": 216,
+      "completion": 4,
+      "total": 220
+    },
+    "createdAt": "2026-10-24T19:07:22.885Z"
+  },
+  "f21673ee7015d26ead244cca0c31e48b1a1d94a9c628193a4f297a3d6bb35699": {
+    "text": "Based on the provided evidence, the specific incident on flight AJ-613 in October 2025 involved missing items (a laptop and two external hard drives) from a checked bag with a broken lock. ArcticJet's liability claims team assessed the claim and agreed to compensate the passenger **USD 350** under the **lost articles policy**. The evidence notes that the full replacement value of USD 980 was not covered because the items were electronics declared without special handling.\n\nThe general baggage policy document [OKF:baggage-arcticjet-all.md] does not contain specific details regarding liability limits or coverage for theft/lost articles, only weight and size allowances. Therefore, the answer relies on the specific incident report.\n\nCitations: [RAG:notice-0015]",
+    "latencyMs": 493,
+    "tokens": {
+      "prompt": 895,
+      "completion": 167,
+      "total": 1062
+    },
+    "createdAt": "2026-10-24T19:07:33.241Z"
+  },
+  "40784de6d523b997671e8a65cb4c02f27fee60a4c1a122d98c6d1cf3001b69cf": {
+    "text": "The processing time for a Britannica Standard Visitor Visa is 15 to 20 business days. Priority processing, which takes 8 business days, is available for an additional fee. [OKF:visa-country-d-britannica.md]",
+    "latencyMs": 433,
+    "tokens": {
+      "prompt": 1172,
+      "completion": 52,
+      "total": 1224
+    },
+    "createdAt": "2026-10-24T19:07:43.188Z"
+  },
+  "6f9392232bff6fc713b6a5ce9f30babc746e65457c53aa7ed238b7f9ee3dc8f9": {
+    "text": "OKF_ONLY",
+    "latencyMs": 128,
+    "tokens": {
+      "prompt": 199,
+      "completion": 4,
+      "total": 203
+    },
+    "createdAt": "2026-10-24T19:07:52.883Z"
+  },
+  "bdfa3c021ed6debd09c7f14e4bc02c5bb3b2633f768b71628b537587e3b8c8f1": {
+    "text": "The processing time for a Britannica Standard Visitor Visa is 15 to 20 business days. Priority processing, which takes 8 business days, is available for an additional fee. [OKF:visa-country-d-britannica.md]",
+    "latencyMs": 270,
+    "tokens": {
+      "prompt": 442,
+      "completion": 52,
+      "total": 494
+    },
+    "createdAt": "2026-10-24T19:08:03.013Z"
+  },
+  "8cb8b0911e3d757ce0e230aa3cbf204b3b59d8f2826a98791f841c3b80f2cc76": {
+    "text": "Yes, priority processing is available for the Britannica visa. It takes 8 business days and requires an additional fee. [OKF:visa-country-d-britannica.md]",
+    "latencyMs": 279,
+    "tokens": {
+      "prompt": 1169,
+      "completion": 38,
+      "total": 1207
+    },
+    "createdAt": "2026-10-24T19:08:13.035Z"
+  },
+  "eaa8659877cbdbe20f26593e5869f0484d5ab26ea93b2a82f5f662e377092c7e": {
+    "text": "ESCALATE",
+    "latencyMs": 154,
+    "tokens": {
+      "prompt": 196,
+      "completion": 4,
+      "total": 200
+    },
+    "createdAt": "2026-10-24T19:08:22.922Z"
+  },
+  "9c70c1911d65fe2101d9e920afb65769754439918ea24f08794fd18936a18e99": {
+    "text": "To request a refund for a flight cancelled by the airline, you must submit the refund request through the airline's official website or customer support line. If your ticket was booked through a third-party agent, the request must be forwarded by that agent to the airline.\n\n[OKF:refund-policy-general.md]",
+    "latencyMs": 322,
+    "tokens": {
+      "prompt": 1119,
+      "completion": 63,
+      "total": 1182
+    },
+    "createdAt": "2026-10-24T19:08:33.101Z"
+  },
+  "daee2054449ede25c18e35ad7a689a2f230babd56ccda59f0923f5b4ad2273b3": {
+    "text": "HYBRID",
+    "latencyMs": 154,
+    "tokens": {
+      "prompt": 202,
+      "completion": 4,
+      "total": 206
+    },
+    "createdAt": "2026-10-24T19:08:42.939Z"
+  },
+  "d31021a1bd521afda39cb0bd9d0aff97c0d287a69839003f3effd7e2f31dfad7": {
+    "text": "To request a refund for a flight cancelled by the airline, you must submit the request through the airline's official website or customer support line. If your booking was made through a third-party agent, the request must be forwarded by that agent to the airline. The refund to your original payment method will be processed within 10 business days.\n\n[OKF:refund-policy-general.md]",
+    "latencyMs": 328,
+    "tokens": {
+      "prompt": 773,
+      "completion": 79,
+      "total": 852
+    },
+    "createdAt": "2026-10-24T19:08:53.128Z"
+  },
+  "6dcda915424f7680d57da6007617de29447424f2793d32e80bb63043d8f70316": {
+    "text": "Yes, Britannica allows multiple-entry Standard Visitor Visas. The visa is valid for up to 6 months and permits multiple entries. [OKF:visa-country-d-britannica.md]",
+    "latencyMs": 298,
+    "tokens": {
+      "prompt": 1014,
+      "completion": 41,
+      "total": 1055
+    },
+    "createdAt": "2026-10-24T19:09:03.092Z"
+  },
+  "74010b99bde02aae4c426f4cdcfb0f7165509203157ce9047dfed003b9b019bf": {
+    "text": "OKF_ONLY",
+    "latencyMs": 129,
+    "tokens": {
+      "prompt": 197,
+      "completion": 4,
+      "total": 201
+    },
+    "createdAt": "2026-10-24T19:09:12.930Z"
+  },
+  "3ab336b16d46751e837073531024343de4b93a9fe75fa10f9771099b1bf663fd": {
+    "text": "Yes, Britannica allows multiple-entry Standard Visitor Visas. The visa is valid for up to 6 months and permits multiple entries [OKF:visa-country-d-britannica.md].",
+    "latencyMs": 239,
+    "tokens": {
+      "prompt": 440,
+      "completion": 40,
+      "total": 480
+    },
+    "createdAt": "2026-10-24T19:09:23.049Z"
+  },
+  "f889d0d2cbec1c91e90c9ee6a4d670ecfb98d379db7183ef619bae4af123a459": {
+    "text": "Britannica requires bank statements for the last 6 months for a visa application. [OKF:visa-country-d-britannica.md]",
+    "latencyMs": 264,
+    "tokens": {
+      "prompt": 1172,
+      "completion": 31,
+      "total": 1203
+    },
+    "createdAt": "2026-10-24T19:09:33.087Z"
+  },
+  "b44763aa45b10d840ad6a82a824f0fbf57fb7d415aa474c7a6b56291fa514495": {
+    "text": "OKF_ONLY",
+    "latencyMs": 173,
+    "tokens": {
+      "prompt": 199,
+      "completion": 4,
+      "total": 203
+    },
+    "createdAt": "2026-10-24T19:09:43.003Z"
+  },
+  "c8c6b75cfcdc00df7258aa737d13cc8584aa1f54febfeb1458f49820bd9f728f": {
+    "text": "Britannica requires bank statements for the last 6 months for a visa application. [OKF:visa-country-d-britannica.md]",
+    "latencyMs": 225,
+    "tokens": {
+      "prompt": 442,
+      "completion": 31,
+      "total": 473
+    },
+    "createdAt": "2026-10-24T19:09:53.069Z"
+  },
+  "8d7fe27b4dbe46b7e06b981c1ef85144f7da2a453577ce5f78c205f3a268d27b": {
+    "text": "No, a refund to a credit card does not take longer than a bank transfer refund. According to the general refund processing policy, both credit/debit card payments and bank transfer payments are processed within **21 business days** [OKF:refund-policy-general.md].\n\n[OKF:refund-policy-general.md]",
+    "latencyMs": 328,
+    "tokens": {
+      "prompt": 1118,
+      "completion": 65,
+      "total": 1183
+    },
+    "createdAt": "2026-10-24T19:10:03.177Z"
+  },
+  "f980c349cc154ae84e201dbab6b6f81fb52608054290862a40128e8f7238db42": {
+    "text": "OKF_ONLY",
+    "latencyMs": 149,
+    "tokens": {
+      "prompt": 201,
+      "completion": 4,
+      "total": 205
+    },
+    "createdAt": "2026-10-24T19:10:13.005Z"
+  },
+  "7b41aeee7a87fca2c8363ba6ce78340028a60c6a0e16a8170a4ebbfc9d5aaa4a": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 145,
+    "tokens": {
+      "prompt": 396,
+      "completion": 4,
+      "total": 400
+    },
+    "createdAt": "2026-10-24T19:10:23.018Z"
+  },
+  "d53c70dd7fcceb4dd2c084ef48b1296bc8b0ed4abb2415b3bdedaa25e0399dea": {
+    "text": "Yes, the Standard Visitor Visa for Britannica has a validity period of up to 6 months and allows multiple entries. You can stay for up to 6 months per visit. [OKF:visa-country-d-britannica.md]",
+    "latencyMs": 294,
+    "tokens": {
+      "prompt": 1025,
+      "completion": 50,
+      "total": 1075
+    },
+    "createdAt": "2026-10-24T19:10:33.172Z"
+  },
+  "19eb6078c236f5070b98e98791cdbacaf57cef0d6a840c768801b5ab516daf7d": {
+    "text": "OKF_ONLY",
+    "latencyMs": 385,
+    "tokens": {
+      "prompt": 208,
+      "completion": 4,
+      "total": 212
+    },
+    "createdAt": "2026-10-24T19:10:43.271Z"
+  },
+  "36a98bcd540ddd79609a2f5cecb2e56cf0b63355a6380d38601b6b5aefeac5e4": {
+    "text": "Yes, the Standard Visitor Visa has a validity period of up to 6 months and allows a maximum stay of up to 6 months per visit. [OKF:visa-country-d-britannica.md]",
+    "latencyMs": 354,
+    "tokens": {
+      "prompt": 451,
+      "completion": 44,
+      "total": 495
+    },
+    "createdAt": "2026-10-24T19:10:53.254Z"
+  },
+  "e2491eadb98b3243df651fe70b3a969c18625efca17791f8a36b4977c6d6406e": {
+    "text": "If you paid by cash at the airport, your refund will be issued by cheque and mailed to the address on file within 21 business days. [RAG:refund-policy-general.md]",
+    "latencyMs": 291,
+    "tokens": {
+      "prompt": 1128,
+      "completion": 40,
+      "total": 1168
+    },
+    "createdAt": "2026-10-24T19:11:03.194Z"
+  },
+  "d7fee1681ab593252592cc1dfc38fca3a6c70143caa248ec569a728d03caf1e6": {
+    "text": "OKF_ONLY",
+    "latencyMs": 216,
+    "tokens": {
+      "prompt": 204,
+      "completion": 4,
+      "total": 208
+    },
+    "createdAt": "2026-10-24T19:33:06.386Z"
+  },
+  "0d5f0c39d8e962fe82b4f3c32bc13ef22fda7d59858feb510715b42272b34cfe": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 689,
+    "tokens": {
+      "prompt": 399,
+      "completion": 4,
+      "total": 403
+    },
+    "createdAt": "2026-10-24T19:33:07.092Z"
+  },
+  "dbc26812c875c6d61664b9097e04573d08b81d4cadd48b20a4f8670a017e1101": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 717,
+    "tokens": {
+      "prompt": 486,
+      "completion": 4,
+      "total": 490
+    },
+    "createdAt": "2026-10-24T20:06:11.689Z"
+  },
+  "6b015fed910e972df551490a362dfda6aa925608b1bd5df9ce0c6f21e063b097": {
+    "text": "RAG_ONLY",
+    "latencyMs": 576,
+    "tokens": {
+      "prompt": 200,
+      "completion": 4,
+      "total": 204
+    },
+    "createdAt": "2026-10-25T08:08:43.053Z"
+  },
+  "76bcdafb23b6bb917fe51e6175d405afe709fdd3c3cf60e061c94e90bd85e0cf": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 487,
+    "tokens": {
+      "prompt": 419,
+      "completion": 4,
+      "total": 423
+    },
+    "createdAt": "2026-10-25T08:08:50.881Z"
+  },
+  "044e4c98db0856a13ed36087f9a4ffcde2706b295f6b8648fcc4b245965eea5a": {
+    "text": "RAG_ONLY",
+    "latencyMs": 392,
+    "tokens": {
+      "prompt": 206,
+      "completion": 4,
+      "total": 210
+    },
+    "createdAt": "2026-10-25T08:09:00.799Z"
+  },
+  "a7215fcee3a54e1c031eb61e683249b217e68c0f490f564d1be32f949679f48b": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 161,
+    "tokens": {
+      "prompt": 427,
+      "completion": 4,
+      "total": 431
+    },
+    "createdAt": "2026-10-25T08:09:10.571Z"
+  },
+  "7261ee696c8104e7bae786dc44732914469b4128e700d879be906f370b54df81": {
+    "text": "RAG_ONLY",
+    "latencyMs": 136,
+    "tokens": {
+      "prompt": 201,
+      "completion": 4,
+      "total": 205
+    },
+    "createdAt": "2026-10-25T08:09:20.547Z"
+  },
+  "8c9ee31c51a4f1b66e8cdc731f63ce2b3490bee3f6d2755dddd31da8b2587e65": {
+    "text": "Based on the evidence provided, there were two incidents involving ArcticJet flights at Singapore Changi airport in 2025:\n\n1.  **Flight Delay:** Flight AJ-613 on 2025-12-11 arrived at Singapore Changi 4 hours and 5 minutes late due to a software fault in the aircraft's flight management system [RAG:notice-0008].\n2.  **Lost Property:** On 2025-10-22, a passenger reported a laptop and two external hard drives missing from a checked bag after the Mumbai–Singapore flight. The bag arrived with a broken lock, and ArcticJet compensated the passenger USD 350 [RAG:notice-0015].\n\n[RAG:notice-0008] [RAG:notice-0015]",
+    "latencyMs": 553,
+    "tokens": {
+      "prompt": 416,
+      "completion": 184,
+      "total": 600
+    },
+    "createdAt": "2026-10-25T08:09:30.972Z"
+  },
+  "13b9ba99622bb95e91187efa85005e2b5f01c83a3819e72ba047d68cd8d93e73": {
+    "text": "RAG_ONLY",
+    "latencyMs": 191,
+    "tokens": {
+      "prompt": 202,
+      "completion": 4,
+      "total": 206
+    },
+    "createdAt": "2026-10-25T08:09:40.617Z"
+  },
+  "d01bc5df8581d292cd66b1fd356ee7b5081e89152769693b31961d925502177d": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 194,
+    "tokens": {
+      "prompt": 799,
+      "completion": 4,
+      "total": 803
+    },
+    "createdAt": "2026-10-25T08:09:50.628Z"
+  },
+  "5a9d1bca8fde55c23594a7bcb0f721790a8a6afa5413d235d42789d04ae1a1d7": {
+    "text": "ESCALATE",
+    "latencyMs": 142,
+    "tokens": {
+      "prompt": 202,
+      "completion": 4,
+      "total": 206
+    },
+    "createdAt": "2026-10-25T08:10:00.582Z"
+  },
+  "bd9453b3cb47286d2ce9679716c80be8aa86870cfd1349ad2f698dc13f9a0507": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 158,
+    "tokens": {
+      "prompt": 488,
+      "completion": 4,
+      "total": 492
+    },
+    "createdAt": "2026-10-25T08:10:10.599Z"
+  },
+  "0e988af0a814ac4ffc2f794c6e004eec8e929c2cecb51bf6989dfa397eb1e276": {
+    "text": "RAG_ONLY",
+    "latencyMs": 136,
+    "tokens": {
+      "prompt": 202,
+      "completion": 4,
+      "total": 206
+    },
+    "createdAt": "2026-10-25T08:10:20.581Z"
+  },
+  "57eb7c85106f34b9b70f7d220d6dfa7e673f263364de67e3f4443067a46c5421": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 363,
+    "tokens": {
+      "prompt": 439,
+      "completion": 4,
+      "total": 443
+    },
+    "createdAt": "2026-10-25T08:10:30.815Z"
+  },
+  "c50125194f3a63bd2a062ab7c3ee45b3ad9f5122e3d291ed567748eca845a393": {
+    "text": "ESCALATE",
+    "latencyMs": 140,
+    "tokens": {
+      "prompt": 205,
+      "completion": 4,
+      "total": 209
+    },
+    "createdAt": "2026-10-25T08:10:40.601Z"
+  },
+  "a991a11aaa55f6b05c52a49fcc4501de7bbeade9ffa2090a6710b6b1da144fb6": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 204,
+    "tokens": {
+      "prompt": 783,
+      "completion": 4,
+      "total": 787
+    },
+    "createdAt": "2026-10-25T08:10:50.666Z"
+  },
+  "2cb26e3ede2084030d801f1990fddd14a236ea104daf6e22d31c8ce6549afbf3": {
+    "text": "OKF_ONLY",
+    "latencyMs": 140,
+    "tokens": {
+      "prompt": 196,
+      "completion": 4,
+      "total": 200
+    },
+    "createdAt": "2026-10-25T08:11:00.604Z"
+  },
+  "0705dfd5b1001a261dcf67c43c714e03e022b9e9cf4802e4608681ae8275bdfe": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 161,
+    "tokens": {
+      "prompt": 446,
+      "completion": 4,
+      "total": 450
+    },
+    "createdAt": "2026-10-25T08:11:10.626Z"
+  },
+  "5d2ec5348b7c54a80d77f07eb8095208ba87442b0bf5586c7dc587ed3c83e84a": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 178,
+    "tokens": {
+      "prompt": 743,
+      "completion": 4,
+      "total": 747
+    },
+    "createdAt": "2026-10-25T08:11:20.644Z"
+  },
+  "cc583738793a13a0f4367603fc3b36561f169072087479b390d20dda6deecec6": {
+    "text": "ESCALATE",
+    "latencyMs": 156,
+    "tokens": {
+      "prompt": 201,
+      "completion": 4,
+      "total": 205
+    },
+    "createdAt": "2026-10-25T08:11:30.622Z"
+  },
+  "3aa2d9c4ebaff6febd87b5384551ee04a848600fc07aa6e9b0fb47807f6918f8": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 224,
+    "tokens": {
+      "prompt": 1497,
+      "completion": 4,
+      "total": 1501
+    },
+    "createdAt": "2026-10-25T08:11:40.692Z"
+  },
+  "d398b9cb52bdb6bddceb715c55a8f7c5c456c158b67816fc45e3e9672580baa6": {
+    "text": "OKF_ONLY",
+    "latencyMs": 143,
+    "tokens": {
+      "prompt": 195,
+      "completion": 4,
+      "total": 199
+    },
+    "createdAt": "2026-10-25T08:11:50.611Z"
+  },
+  "6146f85c571af00fabaf5ae0353919f2e9379d6c8568b388bd55e99ab76e8610": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 201,
+    "tokens": {
+      "prompt": 931,
+      "completion": 4,
+      "total": 935
+    },
+    "createdAt": "2026-10-25T08:12:00.670Z"
+  },
+  "2b02c42af6a070973eed470b0977ce3a624ba4fa5a9fea6c28fbcb00ac131c82": {
+    "text": "ESCALATE",
+    "latencyMs": 146,
+    "tokens": {
+      "prompt": 197,
+      "completion": 4,
+      "total": 201
+    },
+    "createdAt": "2026-10-25T08:12:10.615Z"
+  },
+  "1d974a3b893891ea29e65cf82806025f22ac75caa3657d0b1aad0a34ec1e17fd": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 215,
+    "tokens": {
+      "prompt": 1036,
+      "completion": 4,
+      "total": 1040
+    },
+    "createdAt": "2026-10-25T08:12:20.685Z"
+  },
+  "1319512dec3416f2d0078067850d93f177765c94ca5b2f580386cc9fd96a194e": {
+    "text": "HYBRID",
+    "latencyMs": 162,
+    "tokens": {
+      "prompt": 199,
+      "completion": 4,
+      "total": 203
+    },
+    "createdAt": "2026-10-25T08:12:30.632Z"
+  },
+  "34b0133078e8513709a42f9791fa0bdb87089055a1fb353748425a6269ec3285": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 178,
+    "tokens": {
+      "prompt": 474,
+      "completion": 4,
+      "total": 478
+    },
+    "createdAt": "2026-10-25T08:12:40.649Z"
+  },
+  "804505eb1b1f897854cedbdfd79bef01191b5e5c71aaa0f70b0f0e85e15ec3cb": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 221,
+    "tokens": {
+      "prompt": 1183,
+      "completion": 4,
+      "total": 1187
+    },
+    "createdAt": "2026-10-25T08:12:50.694Z"
+  },
+  "07d59a0944a6acb0874b8b91f99b973052b1d4e820a68515ce3f5a577a726e04": {
+    "text": "ESCALATE",
+    "latencyMs": 158,
+    "tokens": {
+      "prompt": 195,
+      "completion": 4,
+      "total": 199
+    },
+    "createdAt": "2026-10-25T08:13:00.631Z"
+  },
+  "2e213907de7ef3f47fd14e24546d2926a65f4b3d3ab610a1d556c042c57279df": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 153,
+    "tokens": {
+      "prompt": 420,
+      "completion": 4,
+      "total": 424
+    },
+    "createdAt": "2026-10-25T08:13:10.626Z"
+  },
+  "be0cdd66e986ccfd16d35b580fb66fa0cf05882c94236fe5f516f91f022b5e01": {
+    "text": "ESCALATE",
+    "latencyMs": 163,
+    "tokens": {
+      "prompt": 194,
+      "completion": 4,
+      "total": 198
+    },
+    "createdAt": "2026-10-25T08:13:20.637Z"
+  },
+  "121900bb8e0330c67da1d57cfcfb2df77c3125540879b5375153d6ab429f9fd4": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 195,
+    "tokens": {
+      "prompt": 877,
+      "completion": 4,
+      "total": 881
+    },
+    "createdAt": "2026-10-25T08:13:30.670Z"
+  },
+  "9220dcbdf8515b77395ce4391d180937bf53f8816ebacaad43c471462dffa4b3": {
+    "text": "OKF_ONLY",
+    "latencyMs": 164,
+    "tokens": {
+      "prompt": 196,
+      "completion": 4,
+      "total": 200
+    },
+    "createdAt": "2026-10-25T08:13:40.640Z"
+  },
+  "493901c8f86d699b8693cff10462ea8aeb3ebd2852b2358dcef73ad45d6fa173": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 186,
+    "tokens": {
+      "prompt": 535,
+      "completion": 4,
+      "total": 539
+    },
+    "createdAt": "2026-10-25T08:13:50.662Z"
+  },
+  "097f4c9770dadddef952291e2aa6f15120218b6d902b79dc53756163e994aaf9": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 189,
+    "tokens": {
+      "prompt": 889,
+      "completion": 4,
+      "total": 893
+    },
+    "createdAt": "2026-10-25T08:14:00.666Z"
+  },
+  "3ee76badefe125e0a632a8576c877f61a26885e46cfc47db2523b25a36ad822d": {
+    "text": "ESCALATE",
+    "latencyMs": 143,
+    "tokens": {
+      "prompt": 208,
+      "completion": 4,
+      "total": 212
+    },
+    "createdAt": "2026-10-25T08:14:10.620Z"
+  },
+  "b4a585b7cc11bab5c44d17f25da92be5274c5eca274e96eb836ecc52c6a129d2": {
+    "text": "If SkyNova Air cancels your flight, you are entitled to a full refund, which is processed within **7 business days**.\n\n[RAG:OKF:cancellation-skynova-economy.md]",
+    "latencyMs": 555,
+    "tokens": {
+      "prompt": 1521,
+      "completion": 42,
+      "total": 1563
+    },
+    "createdAt": "2026-10-25T08:14:21.034Z"
+  },
+  "48e9c492630b9a938df528b49b0cf932ef44f0fdc03faa70044cc574213da321": {
+    "text": "OKF_ONLY",
+    "latencyMs": 993,
+    "tokens": {
+      "prompt": 204,
+      "completion": 4,
+      "total": 208
+    },
+    "createdAt": "2026-10-25T08:14:31.484Z"
+  },
+  "8567732ae16c7a9f36cc43019d104aed091967c24d18abb3d6521859ecd1ac2f": {
+    "text": "If SkyNova Air cancels your flight, you are entitled to a full refund of the total amount paid with no cancellation fee. The refund is processed within 7 business days. [OKF:cancellation-skynova-economy.md]",
+    "latencyMs": 301,
+    "tokens": {
+      "prompt": 531,
+      "completion": 49,
+      "total": 580
+    },
+    "createdAt": "2026-10-25T08:14:40.804Z"
+  },
+  "00514443984143a008c5e06d9a5bef4a014211aa9accea673eb75414877d66dd": {
+    "text": "The refund timeline for VistaAir when the airline cancels the flight depends on the fare class:\n\n*   **Economy Class:** The full refund is processed within **7 business days** [OKF:cancellation-vistaair-economy.md].\n*   **Business Sapphire Class:** The full refund is processed within **7 business days** [OKF:cancellation-vistaair-business.md].\n\nNote: A general policy document states that airline-initiated cancellation refunds are processed within **10 business days** [OKF:refund-policy-general.md]. However, the specific VistaAir fare documents explicitly state a 7-business-day timeline for both Economy and Business Sapphire classes. Since the specific fare documents provide more detailed and class-specific information for VistaAir, the 7-business-day timeline is the applicable one for these classes.\n\n[OKF:cancellation-vistaair-economy.md]\n[OKF:cancellation-vistaair-business.md]\n[OKF:refund-policy-general.md]",
+    "latencyMs": 579,
+    "tokens": {
+      "prompt": 1003,
+      "completion": 202,
+      "total": 1205
+    },
+    "createdAt": "2026-10-25T08:14:51.087Z"
+  },
+  "046859a848753ce8b993c4c60b4a9bbf041fd45e848ed8c6d45a8848ba8fbb9d": {
+    "text": "HYBRID",
+    "latencyMs": 142,
+    "tokens": {
+      "prompt": 202,
+      "completion": 4,
+      "total": 206
+    },
+    "createdAt": "2026-10-25T08:15:00.656Z"
+  },
+  "c6eb5c17b233edabb4f0b9eef9b07f34ec5edf49df837d459d1b63bd47c96da2": {
+    "text": "If VistaAir cancels the flight, the refund is processed within 7 business days. [OKF:cancellation-vistaair-business.md]",
+    "latencyMs": 248,
+    "tokens": {
+      "prompt": 688,
+      "completion": 30,
+      "total": 718
+    },
+    "createdAt": "2026-10-25T08:15:10.766Z"
+  },
+  "743009e25b8fdbc967c9d5dead0c44debfb007db561a04c651485f9372f64055": {
+    "text": "The general refund timeline that applies across all airlines (SkyNova Air, ArcticJet, and VistaAir) for a standard passenger cancellation is **21 business days** for the refund to appear on the original payment method [OKF:refund-policy-general.md].\n\n[OKF:refund-policy-general.md]",
+    "latencyMs": 329,
+    "tokens": {
+      "prompt": 985,
+      "completion": 63,
+      "total": 1048
+    },
+    "createdAt": "2026-10-25T08:15:20.858Z"
+  },
+  "d7146f17faf781f87d44d93632574deb5b126061de77ec79c6659570b4c931ee": {
+    "text": "OKF_ONLY",
+    "latencyMs": 144,
+    "tokens": {
+      "prompt": 200,
+      "completion": 4,
+      "total": 204
+    },
+    "createdAt": "2026-10-25T08:15:30.675Z"
+  },
+  "d109d446356659a14ed40cd1d1269a5320c6dfbbb3bbd294336453d4e3da3be6": {
+    "text": "The general refund timeline that applies across all airlines for a standard passenger cancellation is **21 business days** from the cancellation request. This applies to credit/debit card payments, bank transfers, and cash payments (issued by cheque).\n\n[OKF:refund-policy-general.md]",
+    "latencyMs": 255,
+    "tokens": {
+      "prompt": 436,
+      "completion": 57,
+      "total": 493
+    },
+    "createdAt": "2026-10-25T08:15:40.797Z"
+  },
+  "5ba005026473575cc5575a5403484afa592fc993d4cd7511ed56a7f9cf6872da": {
+    "text": "The refund processing time depends on whether the cancellation was initiated by the passenger or the airline:\n\n*   **Passenger-initiated cancellation:** The remaining balance is refunded to the original payment method within **14 business days** [OKF:cancellation-arcticjet-economy.md].\n*   **Airline-initiated cancellation:** The full refund is processed within **7 business days** [OKF:cancellation-arcticjet-economy.md].\n\nNote: While a general policy document states a standard timeline of 21 business days for all airlines [OKF:refund-policy-general.md], the specific ArcticJet policy explicitly states 14 business days for passenger cancellations and 7 business days for airline cancellations [OKF:cancellation-arcticjet-economy.md]. Specific airline policies typically override general guidelines.",
+    "latencyMs": 505,
+    "tokens": {
+      "prompt": 988,
+      "completion": 166,
+      "total": 1154
+    },
+    "createdAt": "2026-10-25T08:15:51.059Z"
+  },
+  "85d98aaf6c0b501e48b17ea6947a9496b4e4dfb4d6cf223452450a0b1b19453e": {
+    "text": "OKF_ONLY",
+    "latencyMs": 166,
+    "tokens": {
+      "prompt": 203,
+      "completion": 4,
+      "total": 207
+    },
+    "createdAt": "2026-10-25T08:16:00.720Z"
+  },
+  "1927c4033b21b94dd64be60dd177470839385bf0544ff7958ecafd64e48b545e": {
+    "text": "The refund is processed within 14 business days for most cancellations, or within 7 business days if the flight was cancelled by the airline. [OKF:cancellation-arcticjet-economy.md]",
+    "latencyMs": 224,
+    "tokens": {
+      "prompt": 398,
+      "completion": 43,
+      "total": 441
+    },
+    "createdAt": "2026-10-25T08:16:10.786Z"
+  },
+  "d859c0784cbd659936b0f288e60eddb7b1c14228569ca2b11c56968f61e7dac5": {
+    "text": "Based on the evidence provided, there is no mention of a \"faster refund option\" for VistaAir Business Sapphire tickets. The policy specifies a standard refund timeline of **14 business days** for passenger-initiated cancellations [OKF:cancellation-vistaair-business.md]. While the general policy for all airlines lists a standard timeline of 21 business days [OKF:refund-policy-general.md], the specific VistaAir Business Sapphire document overrides this with its own 14-day timeline, but does not offer an alternative faster option.\n\n[OKF:cancellation-vistaair-business.md]",
+    "latencyMs": 440,
+    "tokens": {
+      "prompt": 1003,
+      "completion": 122,
+      "total": 1125
+    },
+    "createdAt": "2026-10-25T08:16:21.003Z"
+  },
+  "505f8d4654361cb5ca0deb000c51d501d1d5ca06f375cebbce1479db1a4dc14f": {
+    "text": "OKF_ONLY",
+    "latencyMs": 139,
+    "tokens": {
+      "prompt": 202,
+      "completion": 4,
+      "total": 206
+    },
+    "createdAt": "2026-10-25T08:16:30.711Z"
+  },
+  "5dcbb92f8d20be205494c57014d92f2456eaa416ddfaab9ec70bdcf3ea96adb9": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 181,
+    "tokens": {
+      "prompt": 413,
+      "completion": 4,
+      "total": 417
+    },
+    "createdAt": "2026-10-25T08:16:40.755Z"
+  },
+  "f2175bde73b297746b16c60cfbd759ec95221d2b04a052f5cdf81c7b2f94291a": {
+    "text": "No, refunds to credit cards and bank accounts are not handled differently in terms of processing timelines. According to the general refund policy, both credit/debit card payments and bank transfer payments are processed to the original payment method within **21 business days** of the cancellation request.\n\n[OKF:refund-policy-general.md]",
+    "latencyMs": 328,
+    "tokens": {
+      "prompt": 1116,
+      "completion": 66,
+      "total": 1182
+    },
+    "createdAt": "2026-10-25T08:16:50.917Z"
+  },
+  "a94e9dbfab19dd26aa082eb67815a69f6083f2f6a5a6dc3885e35b541be58dd9": {
+    "text": "OKF_ONLY",
+    "latencyMs": 153,
+    "tokens": {
+      "prompt": 199,
+      "completion": 4,
+      "total": 203
+    },
+    "createdAt": "2026-10-25T08:17:00.755Z"
+  },
+  "c5ee9de4decb91c9168adb1a539328826ce0a47ce7c211a3d8bbc57149956a3a": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 151,
+    "tokens": {
+      "prompt": 394,
+      "completion": 4,
+      "total": 398
+    },
+    "createdAt": "2026-10-25T08:17:10.762Z"
+  },
+  "9ffd9c786948393321bd13cce90b08af3bd5ab9eeb79c7ccdad2a16056ec47ca": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 201,
+    "tokens": {
+      "prompt": 988,
+      "completion": 4,
+      "total": 992
+    },
+    "createdAt": "2026-10-25T08:17:20.822Z"
+  },
+  "4a3ea29aa62142b945a5036184ec036f3fef4bd7d492f2a0661869fcded7c1aa": {
+    "text": "OKF_ONLY",
+    "latencyMs": 147,
+    "tokens": {
+      "prompt": 203,
+      "completion": 4,
+      "total": 207
+    },
+    "createdAt": "2026-10-25T08:17:30.781Z"
+  },
+  "122e97b0ac0b8d4d0acbe8341cc68cc656b69a82dba6e89e2839e6d05e780d35": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 158,
+    "tokens": {
+      "prompt": 414,
+      "completion": 4,
+      "total": 418
+    },
+    "createdAt": "2026-10-25T08:17:40.801Z"
+  },
+  "d18c2e306cdeea2a516b2968dc183c56d6ed8a250dbb8f0ee060922cb67c5e44": {
+    "text": "Based on the evidence provided, the refund process and timeline depend on the specific fare type (Economy Saver or Economy Flex) and the timing of the cancellation.\n\n**Refund Process for Cash Payments:**\nAccording to the general policy, cash payments at the airport are refunded by **cheque**, which is mailed to the address on file [OKF:refund-policy-general.md].\n\n**Timelines:**\nThe specific timeline depends on the fare rules:\n\n1.  **If you hold an Economy Saver fare:**\n    *   **More than 72 hours before departure:** The remaining balance (after a USD 45 fee) is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].\n    *   **Between 24 and 72 hours before departure:** The remaining balance (after a USD 90 fee) is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].\n    *   **Within 24 hours of departure:** The base fare and fuel surcharge are forfeited. Only airport taxes and statutory fees are refunded within **14 business days** [OKF:cancellation-skynova-economy.md].\n\n2.  **If you hold an Economy Flex fare:**\n    *   **More than 24 hours before departure:** The remaining balance (after a USD 30 fee) is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].\n    *   **Within 24 hours of departure:** The remaining balance (after a USD 60 fee) is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].\n\n**Note on General Policy vs. Specific Fare Policy:**\nWhile the general policy states that standard refunds are processed within 21 business days [OKF:refund-policy-general.md], the",
+    "latencyMs": 1020,
+    "tokens": {
+      "prompt": 1237,
+      "completion": 400,
+      "total": 1637
+    },
+    "createdAt": "2026-10-25T08:17:51.673Z"
+  },
+  "129cae213b4b3f493ef01dbecd49596e79706aae7d14eac231fa88a9401bf0cc": {
+    "text": "OKF_ONLY",
+    "latencyMs": 166,
+    "tokens": {
+      "prompt": 213,
+      "completion": 4,
+      "total": 217
+    },
+    "createdAt": "2026-10-25T08:18:00.828Z"
+  },
+  "9c758ff98c976fc61cfd9b636b15e4ce2202818ed2cadc99510763292815c668": {
+    "text": "INSUFFICIENT",
+    "latencyMs": 478,
+    "tokens": {
+      "prompt": 540,
+      "completion": 4,
+      "total": 544
+    },
+    "createdAt": "2026-10-25T08:18:11.155Z"
   }
 }

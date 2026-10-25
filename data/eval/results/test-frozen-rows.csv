@@ -1,0 +1,279 @@
+runId,systemName,questionId,category,split,expectedOutcome,llmClassification,outcome,escalationReason,correct,autoCorrect,wrongAnswer,needsManualReview,unnecessaryEscalation,routingCorrect,sourceRetrieved,classifyMs,retrievalMs,llmMs,latencyMs,tokens,citations,retrievedIds,answer
+test-frozen,V1,q-005,okf_only,test,OKF_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,939,297,1236,1246,[OKF:cancellation-arcticjet-economy.md],cancellation-arcticjet-economy.md no-show-policy.md baggage-arcticjet-all.md,The cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure is USD 120. [OKF:cancellation-arcticjet-economy.md]
+test-frozen,V2,q-005,okf_only,test,OKF_ONLY,OKF_ONLY,ANSWERED,,false,false,true,true,false,true,true,176,5,231,412,660,[OKF:cancellation-arcticjet-economy.md],cancellation-arcticjet-economy.md,The cancellation fee for an ArcticJet economy ticket cancelled between 12 and 48 hours before departure is USD 120. [OKF:cancellation-arcticjet-economy.md]
+test-frozen,V1,q-006,okf_only,test,OKF_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,968,492,1460,1069,[OKF:cancellation-vistaair-business.md],cancellation-vistaair-business.md cancellation-vistaair-economy.md baggage-vistaair-business.md,"It costs USD 0 to cancel a VistaAir Business Sapphire ticket more than 48 hours before departure, as the ticket is fully refundable with no cancellation fee. [OKF:cancellation-vistaair-business.md]"
+test-frozen,V2,q-006,okf_only,test,OKF_ONLY,OKF_ONLY,ESCALATED,INSUFFICIENT,false,false,false,false,true,true,false,138,0,185,323,674,,baggage-vistaair-business.md,
+test-frozen,V1,q-007,okf_only,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,922,323,1245,1308,[OKF:baggage-skynova-economy.md],baggage-skynova-economy.md baggage-vistaair-economy.md cancellation-skynova-economy.md,SkyNova Economy Flex passengers are allowed 1 checked bag with a maximum weight of 25 kg. Bags exceeding 25 kg are subject to an overweight fee of USD 8 per kg. [OKF:baggage-skynova-economy.md]
+test-frozen,V2,q-007,okf_only,test,OKF_ONLY,OKF_ONLY,ANSWERED,,true,true,false,false,false,true,true,152,0,253,405,774,[OKF:baggage-skynova-economy.md],baggage-skynova-economy.md,SkyNova Economy Flex passengers are allowed 1 checked bag with a maximum weight of 25 kg. Bags exceeding 25 kg are subject to an overweight fee of USD 8 per kg. [OKF:baggage-skynova-economy.md]
+test-frozen,V1,q-008,okf_only,test,OKF_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,932,483,1415,1087,[OKF:visa-country-b-emiria.md],visa-country-b-emiria.md visa-country-d-britannica.md visa-country-a-thaloria.md,"Indian passport holders can obtain a **Visa on Arrival (VoA)** when entering Emiria. This visa allows for a maximum stay of 14 days per visit and costs USD 35, payable at the immigration counter upon arrival [OKF:visa-country-b-emiria.md].
+
+[OKF:visa-country-b-emiria.md]"
+test-frozen,V2,q-008,okf_only,test,OKF_ONLY,OKF_ONLY,ANSWERED,,false,false,true,true,false,true,true,143,0,273,416,712,[OKF:visa-country-b-emiria.md],visa-country-b-emiria.md,"Indian passport holders can obtain a **Visa on Arrival (VoA)** when entering Emiria. This visa allows for a maximum stay of 14 days per visit and requires a fee of USD 35, payable in local currency or USD cash at the immigration counter. [OKF:visa-country-b-emiria.md]"
+test-frozen,V1,q-009,okf_only,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,1037,416,1453,1475,[OKF:loyalty-skynova.md],loyalty-skynova.md baggage-skynova-economy.md cancellation-skynova-economy.md,"To earn SkyNova Miles on an Economy Flex ticket, you must complete a qualifying SkyNova Air flight. Miles are calculated based on the base fare only, at a rate of **8 miles per USD spent on the base fare**. Taxes, fees, and ancillary charges (such as baggage or seat selection fees) do not earn miles. Miles are credited to your account after the flight is completed.
+
+[OKF:loyalty-skynova.md]"
+test-frozen,V2,q-009,okf_only,test,OKF_ONLY,OKF_ONLY,ESCALATED,INSUFFICIENT,false,false,false,false,true,true,false,140,0,173,313,724,,baggage-skynova-economy.md,
+test-frozen,V1,q-010,okf_only,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,919,344,1263,1147,[OKF:baggage-vistaair-business.md],baggage-vistaair-business.md baggage-vistaair-economy.md cancellation-vistaair-business.md,"VistaAir Business Sapphire passengers are allowed **2 cabin bags**, with each bag having a maximum weight of **8 kg** (totaling 16 kg) and maximum dimensions of **55 × 40 × 23 cm**. Additionally, **1 personal item** is allowed with no weight restriction.
+
+[OKF:baggage-vistaair-business.md]"
+test-frozen,V2,q-010,okf_only,test,OKF_ONLY,OKF_ONLY,ANSWERED,,true,true,false,false,false,true,true,144,0,303,447,722,[OKF:baggage-vistaair-business.md],baggage-vistaair-business.md,"Business Sapphire passengers are allowed 2 cabin bags, each with a maximum weight of 8 kg (totaling 16 kg) and maximum dimensions of 55 × 40 × 23 cm per bag. Additionally, 1 personal item is allowed with no weight restriction. [OKF:baggage-vistaair-business.md]"
+test-frozen,V1,q-011,okf_only,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,551,289,840,1221,[OKF:visa-country-c-nipponara.md],visa-country-c-nipponara.md visa-country-b-emiria.md visa-country-d-britannica.md,The passport must be valid for at least 6 months beyond the intended departure date from Nipponara. [OKF:visa-country-c-nipponara.md]
+test-frozen,V2,q-011,okf_only,test,OKF_ONLY,OKF_ONLY,ANSWERED,,true,true,false,false,false,true,true,147,0,223,370,796,[OKF:visa-country-c-nipponara.md],visa-country-c-nipponara.md,The passport must be valid for at least 6 months beyond the intended departure date from Nipponara. [OKF:visa-country-c-nipponara.md]
+test-frozen,V1,q-012,okf_only,test,OKF_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,571,285,856,1421,[OKF:loyalty-skynova.md],loyalty-skynova.md baggage-skynova-economy.md cancellation-skynova-economy.md,The minimum number of SkyNova Miles required to get a discount on a booking is 500 miles. [OKF:loyalty-skynova.md]
+test-frozen,V2,q-012,okf_only,test,OKF_ONLY,OKF_ONLY,ANSWERED,,false,false,true,true,false,true,true,138,0,238,376,830,[OKF:loyalty-skynova.md],loyalty-skynova.md,The minimum number of SkyNova Miles required to get a discount on a booking is 500 miles. [OKF:loyalty-skynova.md]
+test-frozen,V1,q-017,rag_only,test,RAG_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,924,434,1358,579,[RAG:notice-0011],notice-0011 notice-0016 notice-0004,"On 28 February 2026, three passengers on flight SN-202 (Delhi–Bangkok) reported missing checked baggage upon arrival at Bangkok Suvarnabhumi. The investigation determined that the bags were mistakenly loaded onto flight SN-101 (Delhi–Dubai) due to a baggage tag misread at the Delhi handling facility. The bags were retrieved from Dubai and forwarded to Bangkok on the next available SkyNova Air service, arriving 28 hours after the passengers [RAG:notice-0011]."
+test-frozen,V2,q-017,rag_only,test,RAG_ONLY,RAG_ONLY,ANSWERED,,true,true,false,false,false,true,true,143,24,434,601,791,[RAG:notice-0011],notice-0011 notice-0016 notice-0004,"On 28 February 2026, three passengers on flight SN-202 (Delhi–Bangkok) reported missing checked baggage upon arrival at Bangkok Suvarnabhumi. The investigation determined that the bags were mistakenly loaded onto flight SN-101 (Delhi–Dubai) due to a baggage tag misread at the Delhi handling facility. The bags were retrieved from Dubai and forwarded to Bangkok on the next available SkyNova Air service, arriving 28 hours after the passengers [RAG:notice-0011]."
+test-frozen,V1,q-018,rag_only,test,RAG_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,546,540,1086,502,[RAG:notice-0003],notice-0003 notice-0017 notice-0010,"Flight VA-801 on 2026-07-08 was delayed by 3 hours and 15 minutes due to a late inbound aircraft (VA-802) from London Heathrow. The inbound aircraft experienced air traffic control holding delays over European airspace, which are classified as extraordinary circumstances beyond VistaAir's control. [RAG:notice-0003]"
+test-frozen,V2,q-018,rag_only,test,RAG_ONLY,RAG_ONLY,ANSWERED,,true,true,false,false,false,true,true,147,17,540,704,711,[RAG:notice-0003],notice-0003 notice-0017 notice-0010,"Flight VA-801 on 2026-07-08 was delayed by 3 hours and 15 minutes due to a late inbound aircraft (VA-802) from London Heathrow. The inbound aircraft experienced air traffic control holding delays over European airspace, which are classified as extraordinary circumstances beyond VistaAir's control. [RAG:notice-0003]"
+test-frozen,V1,q-019,rag_only,test,RAG_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,898,993,1891,855,[RAG:notice-0008] [RAG:notice-0015],notice-0008 notice-0015 notice-0002,"Based on the evidence provided, there is no record of a technical issue for an ArcticJet flight from Mumbai to Singapore in December 2025.
+
+The evidence mentions:
+1.  Flight AJ-613 on **2025-12-11** had a technical issue (FMS software fault), but the destination was **Singapore Changi** and the origin is not explicitly stated as Mumbai in this specific notice (though it is the same flight number as the October incident). However, the question asks about a flight *from* Mumbai *to* Singapore in December 2025. Notice [RAG:notice-0008] confirms a delay for AJ-613 on 2025-12-11 arriving in Singapore, but does not explicitly confirm the origin was Mumbai in that specific instance, nor does it link the December flight to the Mumbai origin mentioned in the October incident.
+2.  Flight AJ-613 on **2025-10-22** was a Mumbai–Singapore flight, but this was in October, not December.
+3.  Flight AJ-512 on **2026-05-22** had a technical issue, but this was in 2026 and to Tokyo.
+
+While [RAG:notice-0008] confirms a technical issue for flight AJ-613 arriving in Singapore in December 2025, it does not explicitly state that the origin was Mumbai. The only evidence linking AJ-613 to a Mumbai origin is from October 2025 [RAG:notice-0015]. Without explicit confirmation that the December 2025 flight originated in Mumbai, the evidence is insufficient to definitively answer ""yes"" to the specific route constraint. However, typically flight numbers maintain routes. Let's look closer."
+test-frozen,V2,q-019,rag_only,test,RAG_ONLY,RAG_ONLY,ANSWERED,,false,false,true,true,false,true,true,153,13,993,1159,1066,[RAG:notice-0008] [RAG:notice-0015],notice-0008 notice-0015 notice-0002,"Based on the evidence provided, there is no record of a technical issue for an ArcticJet flight from Mumbai to Singapore in December 2025.
+
+The evidence mentions:
+1.  Flight AJ-613 on **2025-12-11** had a technical issue (FMS software fault), but the destination was **Singapore Changi** and the origin is not explicitly stated as Mumbai in this specific notice (though it is the same flight number as the October incident). However, the question asks about a flight *from* Mumbai *to* Singapore in December 2025. Notice [RAG:notice-0008] confirms a delay for AJ-613 on 2025-12-11 arriving in Singapore, but does not explicitly confirm the origin was Mumbai in that specific instance, nor does it link the December flight to the Mumbai origin mentioned in the October incident.
+2.  Flight AJ-613 on **2025-10-22** was a Mumbai–Singapore flight, but this was in October, not December.
+3.  Flight AJ-512 on **2026-05-22** had a technical issue, but this was in 2026 and to Tokyo.
+
+While [RAG:notice-0008] confirms a technical issue for flight AJ-613 arriving in Singapore in December 2025, it does not explicitly state that the origin was Mumbai. The only evidence linking AJ-613 to a Mumbai origin is from October 2025 [RAG:notice-0015]. Without explicit confirmation that the December 2025 flight originated in Mumbai, the evidence is insufficient to definitively answer ""yes"" to the specific route constraint. However, typically flight numbers maintain routes. Let's look closer."
+test-frozen,V1,q-020,rag_only,test,RAG_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,884,336,1220,517,[RAG:notice-0021],notice-0021 notice-0003 notice-0007,"Yes, VistaAir has changed terminals at Delhi airport. Due to runway resurfacing works at Terminal 3, flights VA-801 and VA-703 are operating from Terminal 2 between 10 June 2026 and 31 July 2026. Normal terminal operations are scheduled to resume on 1 August 2026. [RAG:notice-0021]"
+test-frozen,V2,q-020,rag_only,test,RAG_ONLY,RAG_ONLY,ANSWERED,,true,true,false,false,false,true,true,139,15,336,490,717,[RAG:notice-0021],notice-0021 notice-0003 notice-0007,"Yes, VistaAir has changed terminals at Delhi airport. Due to runway resurfacing works at Terminal 3, flights VA-801 and VA-703 are operating from Terminal 2 between 10 June 2026 and 31 July 2026. Normal terminal operations are scheduled to resume on 1 August 2026. [RAG:notice-0021]"
+test-frozen,V1,q-021,rag_only,test,RAG_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,948,419,1367,541,[RAG:notice-0013],notice-0013 notice-0015 notice-0017,"Yes, a theft was reported from checked baggage on a VistaAir Delhi to Tokyo flight. Specifically, on flight VA-703 on 2026-03-19, a passenger's camera equipment worth approximately USD 2,400 was reported stolen from checked baggage on the Delhi–Tokyo route [RAG:notice-0013].
+
+[RAG:notice-0013]"
+test-frozen,V2,q-021,rag_only,test,RAG_ONLY,RAG_ONLY,ANSWERED,,false,false,true,true,false,true,true,152,14,419,585,748,[RAG:notice-0013],notice-0013 notice-0015 notice-0017,"Yes, a theft was reported from checked baggage on a VistaAir Delhi to Tokyo flight. Specifically, on flight VA-703 on 2026-03-19, a passenger's camera equipment worth approximately USD 2,400 was reported stolen from checked baggage on the Delhi–Tokyo route [RAG:notice-0013].
+
+[RAG:notice-0013]"
+test-frozen,V1,q-022,rag_only,test,RAG_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,577,327,904,516,[RAG:notice-0009],notice-0009 notice-0001 notice-0006,"The 8-hour delay on SkyNova flight SN-101 in June 2026 was caused by an unscheduled engine maintenance requirement. Specifically, the captain noticed an oil leak from the left engine during the pre-flight walk-around, which necessitated a full engine inspection and seal replacement. Additionally, a substitute aircraft was not available at Delhi. [RAG:notice-0009]"
+test-frozen,V2,q-022,rag_only,test,RAG_ONLY,RAG_ONLY,ANSWERED,,false,false,true,true,false,true,true,132,20,327,479,730,[RAG:notice-0009],notice-0009 notice-0001 notice-0006,"The 8-hour delay on SkyNova flight SN-101 in June 2026 was caused by an unscheduled engine maintenance requirement. Specifically, the captain noticed an oil leak from the left engine during the pre-flight walk-around, which necessitated a full engine inspection and seal replacement. Additionally, a substitute aircraft was not available at Delhi. [RAG:notice-0009]"
+test-frozen,V1,q-023,rag_only,test,RAG_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,903,302,1205,543,[RAG:notice-0020],notice-0020 notice-0005 notice-0002,"Yes, ArcticJet has changed the departure time of its Mumbai to London flight. Specifically, the departure time for flight AJ-411 from Mumbai will shift from 02:30 to 05:00 local time starting from 15 September 2026 [RAG:notice-0020]."
+test-frozen,V2,q-023,rag_only,test,RAG_ONLY,RAG_ONLY,ANSWERED,,true,true,false,false,false,true,true,153,15,302,470,747,[RAG:notice-0020],notice-0020 notice-0005 notice-0002,"Yes, ArcticJet has changed the departure time of its Mumbai to London flight. Specifically, the departure time for flight AJ-411 from Mumbai will shift from 02:30 to 05:00 local time starting from 15 September 2026 [RAG:notice-0020]."
+test-frozen,V1,q-024,rag_only,test,RAG_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,533,361,894,559,[RAG:notice-0014],notice-0014 notice-0011 notice-0001,"Yes, SkyNova's Mumbai to Dubai flight was delayed due to baggage handling problems. On 2026-05-10, flight SN-303 (Mumbai–Dubai) experienced an 85-minute departure delay because a baggage handling conveyor belt at Terminal 2 in Mumbai suffered a mechanical failure, which delayed the loading of approximately 40 bags [RAG:notice-0014].
+
+[RAG:notice-0014]"
+test-frozen,V2,q-024,rag_only,test,RAG_ONLY,RAG_ONLY,ANSWERED,,false,false,true,true,false,true,true,144,13,361,518,765,[RAG:notice-0014],notice-0014 notice-0011 notice-0001,"Yes, SkyNova's Mumbai to Dubai flight was delayed due to baggage handling problems. On 2026-05-10, flight SN-303 (Mumbai–Dubai) experienced an 85-minute departure delay because a baggage handling conveyor belt at Terminal 2 in Mumbai suffered a mechanical failure, which delayed the loading of approximately 40 bags [RAG:notice-0014].
+
+[RAG:notice-0014]"
+test-frozen,V1,q-029,hybrid,test,HYBRID,,ANSWERED,,true,true,false,false,false,,true,0,982,721,1703,1248,[RAG:notice-0004] [OKF:delay-compensation.md],notice-0004 delay-compensation.md notice-0001,"Yes, you can claim compensation.
+
+According to the incident report, Flight SN-202 on 2025-11-03 was delayed by 5 hours and 10 minutes due to a technical fault, which is explicitly stated to be the airline's operational responsibility [RAG:notice-0004].
+
+Under the SkyNova Air delay compensation policy, a delay of ""More than 4 hours, up to 6 hours"" caused by an ""Airline fault"" entitles the passenger to a **USD 100 meal voucher + USD 50 travel credit voucher** [OKF:delay-compensation.md]. Additionally, because the delay was over 5 hours, you also have the **option to cancel with a full refund** [OKF:delay-compensation.md].
+
+To claim this, you must contact SkyNova Air customer support within 90 days of the flight, providing your booking reference, flight number, and date of travel [OKF:delay-compensation.md].
+
+[RAG:notice-0004] [OKF:delay-compensation.md]"
+test-frozen,V2,q-029,hybrid,test,HYBRID,HYBRID,ANSWERED,,true,true,false,false,false,true,true,143,15,826,984,1548,[RAG:notice-0004] [OKF:delay-compensation.md],delay-compensation.md notice-0004 notice-0001 notice-0009,"Yes, you can claim compensation.
+
+According to the flight notice, Flight SN-202 on 2025-11-03 was delayed by 5 hours and 10 minutes due to a technical fault, which is considered an operational issue within SkyNova Air's control [RAG:notice-0004]. Under SkyNova Air's delay compensation policy, a delay of more than 4 hours up to 6 hours caused by an airline fault entitles the passenger to a USD 100 meal voucher and a USD 50 travel credit voucher [OKF:delay-compensation.md]. Additionally, because the delay exceeded 5 hours, you are also entitled to the option to cancel with a full refund [OKF:delay-compensation.md].
+
+To claim, you must contact SkyNova Air's customer support within 90 days of the delayed flight, providing your booking reference, flight number, and date of travel [OKF:delay-compensation.md]."
+test-frozen,V1,q-030,hybrid,test,HYBRID,,ESCALATED,INSUFFICIENT,false,false,false,false,true,,true,0,580,144,724,488,,notice-0008 notice-0015 notice-0005,
+test-frozen,V2,q-030,hybrid,test,HYBRID,HYBRID,ANSWERED,,true,true,false,false,false,true,true,140,12,629,781,1605,[RAG:notice-0008] [OKF:delay-compensation.md],delay-compensation.md notice-0008 notice-0015 notice-0005,"Based on the evidence provided, the flight in question is **ArcticJet AJ-613** on **2025-12-11**, which arrived **4 hours and 5 minutes late** due to a **software fault** (a technical issue within the airline's control) [RAG:notice-0008].
+
+According to the ArcticJet delay compensation policy:
+*   For a delay of **3 hours or more, up to 6 hours** caused by an **airline fault**, the entitlement is a **USD 75 travel voucher** [OKF:delay-compensation.md].
+*   Additionally, for **any delay over 3 hours** (regardless of cause), the passenger is entitled to **meal and refreshments at the airport** [OKF:delay-compensation.md].
+
+Therefore, the available compensation is a **USD 75 travel voucher** and **meal and refreshments at the airport**.
+
+[OKF:delay-compensation.md] [RAG:notice-0008]"
+test-frozen,V1,q-031,hybrid,test,HYBRID,,ANSWERED,,false,false,true,true,false,,true,0,902,264,1166,487,,notice-0010 notice-0003 notice-0007,"Yes, the delay is classified as an operational issue within VistaAir's vendor management responsibility, which implies it is the airline's fault. However, the provided evidence does not specify what compensation or benefits you are entitled to receive.
+
+[OKF:notice-0010]"
+test-frozen,V2,q-031,hybrid,test,HYBRID,HYBRID,ANSWERED,,false,false,true,true,false,true,true,162,16,503,681,1152,[RAG:notice-0010],baggage-vistaair-business.md notice-0010 notice-0003 notice-0007,"Based on the evidence provided, the delay for flight VA-902 on 2026-08-23 is classified as an **operational issue within VistaAir's vendor management responsibility** [RAG:notice-0010]. Therefore, it is considered the airline's fault (or at least within their operational control/responsibility), unlike delays caused by extraordinary circumstances such as weather or air traffic control [RAG:notice-0003, RAG:notice-0007].
+
+However, the provided evidence **does not contain information** regarding specific compensation, refunds, or benefits (""What do I get?"") for passengers affected by this specific delay. The evidence only confirms the cause and classification of the delay.
+
+INSUFFICIENT"
+test-frozen,V1,q-032,hybrid,test,HYBRID,,ANSWERED,,false,false,true,true,false,,true,0,1048,892,1940,1412,[RAG:notice-0005] [OKF:delay-compensation.md],notice-0005 delay-compensation.md notice-0002,"Based on the evidence provided, you are **not** entitled to financial compensation for the delay, but you are entitled to care and assistance.
+
+Here is the breakdown:
+
+1.  **Cause of Delay:** The delay was caused by a bird strike, which is described as an event ""outside ArcticJet's control"" [RAG:notice-0005]. Although the airline accepted ""partial liability"" for the extended inspection time, the primary cause (bird strike) falls under extraordinary circumstances.
+2.  **Compensation Policy:** According to the ArcticJet delay compensation policy, financial compensation (such as the USD 200 cash compensation for delays over 6 hours) is payable **only** when the delay is caused by factors within the airline's control [OKF:delay-compensation.md]. Delays caused by extraordinary circumstances beyond airline control do not qualify for financial compensation [OKF:delay-compensation.md].
+3.  **Entitlements for Any Cause:** Since the delay was 7.5 hours (more than 5 hours), you are entitled to:
+    *   Hotel accommodation and meals provided [OKF:delay-compensation.md].
+    *   The option to cancel with a full refund [OKF:delay-compensation.md].
+    *   Meal and refreshments at the airport (for delays over 3 hours) [OKF:delay-compensation.md].
+
+**Conclusion:** You are not entitled to cash compensation or travel vouchers because the root cause (bird strike) was outside the airline's control, but you are entitled to hotel accommodation, meals, and the option to cancel for a full refund.
+
+Citations: [RAG:notice-0005], [OKF:delay-compensation.md]"
+test-frozen,V2,q-032,hybrid,test,HYBRID,HYBRID,ANSWERED,,true,true,false,false,false,true,true,131,15,1163,1309,1780,[OKF:delay-compensation.md] [RAG:notice-0005],delay-compensation.md notice-0005 notice-0002 notice-0008,"Based on the evidence provided, you are **not entitled to financial compensation** (cash or vouchers) for the delay, but you are entitled to **hotel accommodation and meals** and have the **option to cancel with a full refund**.
+
+Here is the breakdown:
+
+1.  **Cause of Delay:** The delay was caused by a bird strike, which is an event outside the airline's control. Although ArcticJet accepted ""partial liability"" for the extended inspection time, the primary cause (bird strike) falls under ""extraordinary circumstances beyond airline control"" as defined in the policy. The policy states that delays caused by such circumstances ""do not qualify for financial compensation"" [OKF:delay-compensation.md].
+2.  **Delay Duration:** The flight was delayed by 7 hours and 30 minutes [RAG:notice-0005].
+3.  **Entitlements for ""Any Cause"" Delays:**
+    *   **Hotel Accommodation and Meals:** ArcticJet's policy states that for any delay of **more than 5 hours** (regardless of cause), passengers are entitled to hotel accommodation and meals provided [OKF:delay-compensation.md]. Since 7.5 hours is more than 5 hours, you are entitled to this.
+    *   **Cancellation Option:** For any delay of **more than 5 hours** (regardless of cause), passengers have the option to cancel with a full refund [OKF:delay-compensation.md].
+4.  **Financial Compensation:** Financial compensation (USD 200 cash) is only payable for delays of more than 6 hours **caused by airline fault** [OKF:delay-compensation.md]. Since the root cause was a bird strike (outside control), this specific financial compensation does not apply, despite the airline's acceptance of partial liability for the inspection duration. The policy explicitly excludes financial compensation for extraordinary circumstances.
+
+**Conclusion:** You"
+test-frozen,V1,q-033,hybrid,test,HYBRID,,ANSWERED,,true,true,false,false,false,,true,0,912,970,1882,1348,[RAG:notice-0007] [OKF:delay-compensation.md],notice-0007 notice-0003 delay-compensation.md,"Based on the evidence provided, here is the breakdown of your compensation entitlement:
+
+1.  **Cause of Delay:** The delay was caused by severe thunderstorm activity and air traffic control ground stops, which are classified as **extraordinary circumstances** outside VistaAir's operational control [RAG:notice-0007].
+2.  **Financial Compensation:** According to the policy, delays caused by extraordinary circumstances **do not qualify for financial compensation** (such as cash or travel vouchers) [OKF:delay-compensation.md].
+3.  **Care and Assistance:**
+    *   **Meals:** You are entitled to **meal and refreshments at the airport** because the delay was over 3 hours [OKF:delay-compensation.md].
+    *   **Hotel Accommodation:** You are **not** entitled to hotel accommodation and meals, as this entitlement for ""Any cause"" requires a delay of **more than 4 hours** [OKF:delay-compensation.md]. Your delay was ""nearly 3 hours"" (specifically 2 hours and 50 minutes according to the notice), which is less than 4 hours.
+    *   **Cancellation/Refund:** You are **not** entitled to the option to cancel with a full refund, as this requires a delay of **more than 5 hours** [OKF:delay-compensation.md].
+
+**Conclusion:**
+VistaAir owes you **no financial compensation** (cash or vouchers). You are only entitled to **meals and refreshments at the airport**.
+
+Citations: [RAG:notice-0007], [OKF:delay-compensation.md]"
+test-frozen,V2,q-033,hybrid,test,HYBRID,HYBRID,ANSWERED,,false,false,true,true,false,true,true,146,14,880,1040,1674,[RAG:notice-0007] [OKF:delay-compensation.md],delay-compensation.md notice-0007 notice-0003 notice-0010,"Based on the evidence provided, VistaAir does not owe you financial compensation for this delay.
+
+The delay for flight VA-703 on 2026-04-05 was caused by severe thunderstorm activity and air traffic control ground stops, which are classified as **extraordinary circumstances** beyond the airline's control [RAG:notice-0007]. According to the delay compensation policy, delays caused by extraordinary circumstances (such as severe weather and air traffic control restrictions) **do not qualify for financial compensation** [OKF:delay-compensation.md].
+
+However, because the delay was nearly 3 hours (specifically 2 hours and 50 minutes), you are entitled to **care and assistance**, though the specific threshold for ""Meal and refreshments at the airport"" for VistaAir is listed as ""Any delay over 3 hours"" [OKF:delay-compensation.md]. Since the delay was 2 hours and 50 minutes, it does not strictly meet the ""over 3 hours"" threshold for the automatic meal/refreshment entitlement listed in the table, but the policy states that ""care and assistance must still be provided"" for extraordinary circumstances [OKF:delay-compensation.md].
+
+**Summary:**
+*   **Financial Compensation:** None (due to extraordinary circumstances) [OKF:delay-compensation.md], [RAG:notice-0007].
+*   **Care/Assistance:** Must be provided, but specific meal/refreshment entitlements in the table apply to delays *over* 3 hours [OKF:delay-compensation.md].
+
+[OKF:delay-compensation.md] [RAG:notice-0007]"
+test-frozen,V1,q-034,hybrid,test,HYBRID,,ANSWERED,,false,false,true,true,false,,true,0,947,428,1375,1151,[RAG:notice-0009] [OKF:delay-compensation.md],notice-0001 delay-compensation.md notice-0009,"Based on the evidence provided, the delay for flight SN-101 on June 17, 2026, was 8 hours and 20 minutes [RAG:notice-0009]. According to the SkyNova Air delay compensation policy, for any delay over 5 hours (regardless of the cause), passengers have the ""Option to cancel with full refund"" [OKF:delay-compensation.md]. Therefore, yes, you can choose to cancel and receive a full refund instead of compensation.
+
+[OKF:delay-compensation.md] [RAG:notice-0009]"
+test-frozen,V2,q-034,hybrid,test,HYBRID,HYBRID,ESCALATED,INSUFFICIENT,false,false,false,false,true,true,true,146,14,191,351,1074,,cancellation-skynova-economy.md notice-0001 notice-0009 notice-0006,
+test-frozen,V1,q-035,hybrid,test,HYBRID,,ESCALATED,INSUFFICIENT,false,false,false,false,true,,true,0,933,161,1094,459,,notice-0014 notice-0006 notice-0001,
+test-frozen,V2,q-035,hybrid,test,HYBRID,HYBRID,ESCALATED,INSUFFICIENT,false,false,false,false,true,true,true,138,14,205,357,1078,,baggage-skynova-economy.md notice-0014 notice-0006 notice-0001,
+test-frozen,V1,q-036,hybrid,test,HYBRID,,ANSWERED,,true,true,false,false,false,,true,0,1004,316,1320,565,[RAG:notice-0015],notice-0015 notice-0018 notice-0012,"Based on the evidence provided, for the incident on flight AJ-613 in October 2025, ArcticJet's liability claims team agreed to compensate the passenger **USD 350** under the **lost articles policy**. The full replacement value of USD 980 was not covered because the items (electronics) were declared without special handling.
+
+[RAG:notice-0015]"
+test-frozen,V2,q-036,hybrid,test,HYBRID,HYBRID,ANSWERED,,true,true,false,false,false,true,true,151,13,493,657,1282,[OKF:baggage-arcticjet-all.md] [RAG:notice-0015],baggage-arcticjet-all.md notice-0015 notice-0018 notice-0012,"Based on the provided evidence, the specific incident on flight AJ-613 in October 2025 involved missing items (a laptop and two external hard drives) from a checked bag with a broken lock. ArcticJet's liability claims team assessed the claim and agreed to compensate the passenger **USD 350** under the **lost articles policy**. The evidence notes that the full replacement value of USD 980 was not covered because the items were electronics declared without special handling.
+
+The general baggage policy document [OKF:baggage-arcticjet-all.md] does not contain specific details regarding liability limits or coverage for theft/lost articles, only weight and size allowances. Therefore, the answer relies on the specific incident report.
+
+Citations: [RAG:notice-0015]"
+test-frozen,V1,q-041,human_fallback_stale,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,539,433,972,1224,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md visa-country-c-nipponara.md visa-country-b-emiria.md,"The processing time for a Britannica Standard Visitor Visa is 15 to 20 business days. Priority processing, which takes 8 business days, is available for an additional fee. [OKF:visa-country-d-britannica.md]"
+test-frozen,V2,q-041,human_fallback_stale,test,OKF_ONLY,OKF_ONLY,ANSWERED,,true,true,false,false,false,true,true,128,0,270,398,697,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md,"The processing time for a Britannica Standard Visitor Visa is 15 to 20 business days. Priority processing, which takes 8 business days, is available for an additional fee. [OKF:visa-country-d-britannica.md]"
+test-frozen,V1,q-042,human_fallback_stale,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,550,279,829,1207,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md visa-country-c-nipponara.md visa-country-b-emiria.md,"Yes, priority processing is available for the Britannica visa. It takes 8 business days and requires an additional fee. [OKF:visa-country-d-britannica.md]"
+test-frozen,V2,q-042,human_fallback_stale,test,OKF_ONLY,ESCALATE,ESCALATED,CLASSIFIER_ESCALATE,false,false,false,false,true,false,false,154,0,0,154,200,,,
+test-frozen,V1,q-043,human_fallback_stale,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,573,322,895,1182,[OKF:refund-policy-general.md],refund-policy-general.md cancellation-vistaair-economy.md cancellation-skynova-economy.md,"To request a refund for a flight cancelled by the airline, you must submit the refund request through the airline's official website or customer support line. If your ticket was booked through a third-party agent, the request must be forwarded by that agent to the airline.
+
+[OKF:refund-policy-general.md]"
+test-frozen,V2,q-043,human_fallback_stale,test,OKF_ONLY,HYBRID,ANSWERED,,true,true,false,false,false,false,true,154,14,328,496,1058,[OKF:refund-policy-general.md],refund-policy-general.md notice-0019 notice-0005 notice-0004,"To request a refund for a flight cancelled by the airline, you must submit the request through the airline's official website or customer support line. If your booking was made through a third-party agent, the request must be forwarded by that agent to the airline. The refund to your original payment method will be processed within 10 business days.
+
+[OKF:refund-policy-general.md]"
+test-frozen,V1,q-044,human_fallback_stale,test,OKF_ONLY,,ANSWERED,,false,false,true,true,false,,true,0,589,298,887,1055,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md visa-country-b-emiria.md visa-country-a-thaloria.md,"Yes, Britannica allows multiple-entry Standard Visitor Visas. The visa is valid for up to 6 months and permits multiple entries. [OKF:visa-country-d-britannica.md]"
+test-frozen,V2,q-044,human_fallback_stale,test,OKF_ONLY,OKF_ONLY,ANSWERED,,false,false,true,true,false,true,true,129,1,239,369,681,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md,"Yes, Britannica allows multiple-entry Standard Visitor Visas. The visa is valid for up to 6 months and permits multiple entries [OKF:visa-country-d-britannica.md]."
+test-frozen,V1,q-045,human_fallback_stale,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,568,264,832,1203,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md visa-country-c-nipponara.md visa-country-b-emiria.md,Britannica requires bank statements for the last 6 months for a visa application. [OKF:visa-country-d-britannica.md]
+test-frozen,V2,q-045,human_fallback_stale,test,OKF_ONLY,OKF_ONLY,ANSWERED,,true,true,false,false,false,true,true,173,0,225,398,676,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md,Britannica requires bank statements for the last 6 months for a visa application. [OKF:visa-country-d-britannica.md]
+test-frozen,V1,q-046,human_fallback_stale,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,583,328,911,1183,[OKF:refund-policy-general.md],refund-policy-general.md cancellation-vistaair-economy.md cancellation-skynova-economy.md,"No, a refund to a credit card does not take longer than a bank transfer refund. According to the general refund processing policy, both credit/debit card payments and bank transfer payments are processed within **21 business days** [OKF:refund-policy-general.md].
+
+[OKF:refund-policy-general.md]"
+test-frozen,V2,q-046,human_fallback_stale,test,OKF_ONLY,OKF_ONLY,ESCALATED,INSUFFICIENT,false,false,false,false,true,true,false,149,0,145,294,605,,cancellation-arcticjet-economy.md,
+test-frozen,V1,q-047,human_fallback_stale,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,919,294,1213,1075,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md visa-country-b-emiria.md visa-country-a-thaloria.md,"Yes, the Standard Visitor Visa for Britannica has a validity period of up to 6 months and allows multiple entries. You can stay for up to 6 months per visit. [OKF:visa-country-d-britannica.md]"
+test-frozen,V2,q-047,human_fallback_stale,test,OKF_ONLY,OKF_ONLY,ANSWERED,,true,true,false,false,false,true,true,385,0,354,739,707,[OKF:visa-country-d-britannica.md],visa-country-d-britannica.md,"Yes, the Standard Visitor Visa has a validity period of up to 6 months and allows a maximum stay of up to 6 months per visit. [OKF:visa-country-d-britannica.md]"
+test-frozen,V1,q-048,human_fallback_stale,test,OKF_ONLY,,ANSWERED,,true,true,false,false,false,,true,0,947,291,1238,1168,,cancellation-arcticjet-economy.md refund-policy-general.md baggage-arcticjet-all.md,"If you paid by cash at the airport, your refund will be issued by cheque and mailed to the address on file within 21 business days. [RAG:refund-policy-general.md]"
+test-frozen,V2,q-048,human_fallback_stale,test,OKF_ONLY,OKF_ONLY,ESCALATED,INSUFFICIENT,false,false,false,false,true,true,false,216,0,689,905,611,,cancellation-arcticjet-economy.md,
+test-frozen,V1,q-053,human_fallback_no_evidence,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,1983867,717,1984584,490,,notice-0020 notice-0005 notice-0012,
+test-frozen,V2,q-053,human_fallback_no_evidence,test,ESCALATE,RAG_ONLY,ESCALATED,INSUFFICIENT,true,true,false,false,false,false,,576,35,717,1328,694,,notice-0020 notice-0005 notice-0012,
+test-frozen,V1,q-054,human_fallback_no_evidence,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,1448,487,1935,423,,notice-0003 notice-0010 notice-0017,
+test-frozen,V2,q-054,human_fallback_no_evidence,test,ESCALATE,RAG_ONLY,ESCALATED,INSUFFICIENT,true,true,false,false,false,false,,392,15,487,894,633,,notice-0003 notice-0010 notice-0017,
+test-frozen,V1,q-055,human_fallback_no_evidence,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,1212,161,1373,431,,notice-0030 notice-0023 notice-0020,
+test-frozen,V2,q-055,human_fallback_no_evidence,test,ESCALATE,RAG_ONLY,ESCALATED,INSUFFICIENT,true,true,false,false,false,false,,136,16,161,313,636,,notice-0030 notice-0023 notice-0020,
+test-frozen,V1,q-056,human_fallback_no_evidence,test,ESCALATE,,ANSWERED,,false,false,true,false,false,,,0,936,553,1489,600,[RAG:notice-0008] [RAG:notice-0015],notice-0008 notice-0015 notice-0030,"Based on the evidence provided, there were two incidents involving ArcticJet flights at Singapore Changi airport in 2025:
+
+1.  **Flight Delay:** Flight AJ-613 on 2025-12-11 arrived at Singapore Changi 4 hours and 5 minutes late due to a software fault in the aircraft's flight management system [RAG:notice-0008].
+2.  **Lost Property:** On 2025-10-22, a passenger reported a laptop and two external hard drives missing from a checked bag after the Mumbai–Singapore flight. The bag arrived with a broken lock, and ArcticJet compensated the passenger USD 350 [RAG:notice-0015].
+
+[RAG:notice-0008] [RAG:notice-0015]"
+test-frozen,V2,q-056,human_fallback_no_evidence,test,ESCALATE,RAG_ONLY,ANSWERED,,false,false,true,false,false,false,,191,15,553,759,806,[RAG:notice-0008] [RAG:notice-0015],notice-0008 notice-0015 notice-0030,"Based on the evidence provided, there were two incidents involving ArcticJet flights at Singapore Changi airport in 2025:
+
+1.  **Flight Delay:** Flight AJ-613 on 2025-12-11 arrived at Singapore Changi 4 hours and 5 minutes late due to a software fault in the aircraft's flight management system [RAG:notice-0008].
+2.  **Lost Property:** On 2025-10-22, a passenger reported a laptop and two external hard drives missing from a checked bag after the Mumbai–Singapore flight. The bag arrived with a broken lock, and ArcticJet compensated the passenger USD 350 [RAG:notice-0015].
+
+[RAG:notice-0008] [RAG:notice-0015]"
+test-frozen,V1,q-057,human_fallback_no_evidence,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,621,194,815,803,,loyalty-skynova.md notice-0026 notice-0025,
+test-frozen,V2,q-057,human_fallback_no_evidence,test,ESCALATE,ESCALATE,ESCALATED,CLASSIFIER_ESCALATE,true,true,false,false,false,true,,142,0,0,142,206,,,
+test-frozen,V1,q-058,human_fallback_no_evidence,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,589,158,747,492,,notice-0020 notice-0005 notice-0012,
+test-frozen,V2,q-058,human_fallback_no_evidence,test,ESCALATE,RAG_ONLY,ESCALATED,INSUFFICIENT,true,true,false,false,false,false,,136,18,158,312,698,,notice-0020 notice-0005 notice-0012,
+test-frozen,V1,q-059,human_fallback_no_evidence,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,616,363,979,443,,notice-0026 notice-0025 notice-0001,
+test-frozen,V2,q-059,human_fallback_no_evidence,test,ESCALATE,ESCALATE,ESCALATED,CLASSIFIER_ESCALATE,true,true,false,false,false,true,,140,0,0,140,209,,,
+test-frozen,V1,q-060,human_fallback_no_evidence,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,666,204,870,787,,notice-0028 notice-0024 loyalty-skynova.md,
+test-frozen,V2,q-060,human_fallback_no_evidence,test,ESCALATE,OKF_ONLY,ESCALATED,INSUFFICIENT,true,true,false,false,false,false,,140,0,161,301,650,,baggage-vistaair-business.md,
+test-frozen,V1,q-065,human_fallback_ambiguous,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,959,178,1137,747,,visa-country-c-nipponara.md notice-0023 notice-0026,
+test-frozen,V2,q-065,human_fallback_ambiguous,test,ESCALATE,ESCALATE,ESCALATED,CLASSIFIER_ESCALATE,true,true,false,false,false,true,,156,0,0,156,205,,,
+test-frozen,V1,q-066,human_fallback_ambiguous,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,618,224,842,1501,,pets-policy.md baggage-vistaair-economy.md baggage-arcticjet-all.md,
+test-frozen,V2,q-066,human_fallback_ambiguous,test,ESCALATE,OKF_ONLY,ESCALATED,NO_OKF_MATCH,true,true,false,false,false,false,,143,0,0,143,199,,,
+test-frozen,V1,q-067,human_fallback_ambiguous,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,628,201,829,935,,pets-policy.md notice-0003 notice-0028,
+test-frozen,V2,q-067,human_fallback_ambiguous,test,ESCALATE,ESCALATE,ESCALATED,CLASSIFIER_ESCALATE,true,true,false,false,false,true,,146,0,0,146,201,,,
+test-frozen,V1,q-068,human_fallback_ambiguous,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,627,215,842,1040,,delay-compensation.md notice-0015 notice-0005,
+test-frozen,V2,q-068,human_fallback_ambiguous,test,ESCALATE,HYBRID,ESCALATED,INSUFFICIENT,true,true,false,false,false,false,,162,19,178,359,681,,notice-0015 notice-0005 notice-0014,
+test-frozen,V1,q-069,human_fallback_ambiguous,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,974,221,1195,1187,,no-show-policy.md cancellation-vistaair-economy.md cancellation-skynova-economy.md,
+test-frozen,V2,q-069,human_fallback_ambiguous,test,ESCALATE,ESCALATE,ESCALATED,CLASSIFIER_ESCALATE,true,true,false,false,false,true,,158,0,0,158,199,,,
+test-frozen,V1,q-070,human_fallback_ambiguous,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,995,153,1148,424,,notice-0003 notice-0007 notice-0005,
+test-frozen,V2,q-070,human_fallback_ambiguous,test,ESCALATE,ESCALATE,ESCALATED,CLASSIFIER_ESCALATE,true,true,false,false,false,true,,163,0,0,163,198,,,
+test-frozen,V1,q-071,human_fallback_ambiguous,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,975,195,1170,881,,baggage-arcticjet-all.md cancellation-arcticjet-economy.md notice-0030,
+test-frozen,V2,q-071,human_fallback_ambiguous,test,ESCALATE,OKF_ONLY,ESCALATED,INSUFFICIENT,true,true,false,false,false,false,,164,0,186,350,739,,baggage-arcticjet-all.md,
+test-frozen,V1,q-072,human_fallback_ambiguous,test,ESCALATE,,ESCALATED,INSUFFICIENT,true,true,false,false,false,,,0,713,189,902,893,,cancellation-arcticjet-economy.md notice-0030 baggage-arcticjet-all.md,
+test-frozen,V2,q-072,human_fallback_ambiguous,test,ESCALATE,ESCALATE,ESCALATED,CLASSIFIER_ESCALATE,true,true,false,false,false,true,,143,0,0,143,212,,,
+test-frozen,V1,q-077,human_fallback_conflict,test,ESCALATE,,ANSWERED,,false,false,true,false,false,,,0,632,555,1187,1563,,refund-policy-general.md cancellation-skynova-economy.md delay-compensation.md,"If SkyNova Air cancels your flight, you are entitled to a full refund, which is processed within **7 business days**.
+
+[RAG:OKF:cancellation-skynova-economy.md]"
+test-frozen,V2,q-077,human_fallback_conflict,test,ESCALATE,OKF_ONLY,ANSWERED,,false,false,true,false,false,false,,993,0,301,1294,788,[OKF:cancellation-skynova-economy.md],cancellation-skynova-economy.md,"If SkyNova Air cancels your flight, you are entitled to a full refund of the total amount paid with no cancellation fee. The refund is processed within 7 business days. [OKF:cancellation-skynova-economy.md]"
+test-frozen,V1,q-078,human_fallback_conflict,test,ESCALATE,,ANSWERED,,false,false,true,false,false,,,0,991,579,1570,1205,[OKF:cancellation-vistaair-economy.md] [OKF:cancellation-vistaair-business.md] [OKF:refund-policy-general.md],cancellation-vistaair-economy.md refund-policy-general.md cancellation-vistaair-business.md,"The refund timeline for VistaAir when the airline cancels the flight depends on the fare class:
+
+*   **Economy Class:** The full refund is processed within **7 business days** [OKF:cancellation-vistaair-economy.md].
+*   **Business Sapphire Class:** The full refund is processed within **7 business days** [OKF:cancellation-vistaair-business.md].
+
+Note: A general policy document states that airline-initiated cancellation refunds are processed within **10 business days** [OKF:refund-policy-general.md]. However, the specific VistaAir fare documents explicitly state a 7-business-day timeline for both Economy and Business Sapphire classes. Since the specific fare documents provide more detailed and class-specific information for VistaAir, the 7-business-day timeline is the applicable one for these classes.
+
+[OKF:cancellation-vistaair-economy.md]
+[OKF:cancellation-vistaair-business.md]
+[OKF:refund-policy-general.md]"
+test-frozen,V2,q-078,human_fallback_conflict,test,ESCALATE,HYBRID,ANSWERED,,false,false,true,false,false,false,,142,25,248,415,924,[OKF:cancellation-vistaair-business.md],cancellation-vistaair-business.md notice-0010 notice-0028 notice-0003,"If VistaAir cancels the flight, the refund is processed within 7 business days. [OKF:cancellation-vistaair-business.md]"
+test-frozen,V1,q-079,human_fallback_conflict,test,ESCALATE,,ANSWERED,,false,false,true,false,false,,,0,936,329,1265,1048,[OKF:refund-policy-general.md],refund-policy-general.md cancellation-vistaair-economy.md cancellation-arcticjet-economy.md,"The general refund timeline that applies across all airlines (SkyNova Air, ArcticJet, and VistaAir) for a standard passenger cancellation is **21 business days** for the refund to appear on the original payment method [OKF:refund-policy-general.md].
+
+[OKF:refund-policy-general.md]"
+test-frozen,V2,q-079,human_fallback_conflict,test,ESCALATE,OKF_ONLY,ANSWERED,,false,false,true,false,false,false,,144,0,255,399,697,[OKF:refund-policy-general.md],refund-policy-general.md,"The general refund timeline that applies across all airlines for a standard passenger cancellation is **21 business days** from the cancellation request. This applies to credit/debit card payments, bank transfers, and cash payments (issued by cheque).
+
+[OKF:refund-policy-general.md]"
+test-frozen,V1,q-080,human_fallback_conflict,test,ESCALATE,,ANSWERED,,false,false,true,false,false,,,0,635,505,1140,1154,[OKF:cancellation-arcticjet-economy.md] [OKF:refund-policy-general.md],cancellation-arcticjet-economy.md refund-policy-general.md cancellation-vistaair-economy.md,"The refund processing time depends on whether the cancellation was initiated by the passenger or the airline:
+
+*   **Passenger-initiated cancellation:** The remaining balance is refunded to the original payment method within **14 business days** [OKF:cancellation-arcticjet-economy.md].
+*   **Airline-initiated cancellation:** The full refund is processed within **7 business days** [OKF:cancellation-arcticjet-economy.md].
+
+Note: While a general policy document states a standard timeline of 21 business days for all airlines [OKF:refund-policy-general.md], the specific ArcticJet policy explicitly states 14 business days for passenger cancellations and 7 business days for airline cancellations [OKF:cancellation-arcticjet-economy.md]. Specific airline policies typically override general guidelines."
+test-frozen,V2,q-080,human_fallback_conflict,test,ESCALATE,OKF_ONLY,ANSWERED,,false,false,true,false,false,false,,166,0,224,390,648,[OKF:cancellation-arcticjet-economy.md],cancellation-arcticjet-economy.md,"The refund is processed within 14 business days for most cancellations, or within 7 business days if the flight was cancelled by the airline. [OKF:cancellation-arcticjet-economy.md]"
+test-frozen,V1,q-081,human_fallback_conflict,test,ESCALATE,,ANSWERED,,false,false,true,false,false,,,0,979,440,1419,1125,[OKF:cancellation-vistaair-business.md] [OKF:refund-policy-general.md],cancellation-vistaair-business.md cancellation-vistaair-economy.md refund-policy-general.md,"Based on the evidence provided, there is no mention of a ""faster refund option"" for VistaAir Business Sapphire tickets. The policy specifies a standard refund timeline of **14 business days** for passenger-initiated cancellations [OKF:cancellation-vistaair-business.md]. While the general policy for all airlines lists a standard timeline of 21 business days [OKF:refund-policy-general.md], the specific VistaAir Business Sapphire document overrides this with its own 14-day timeline, but does not offer an alternative faster option.
+
+[OKF:cancellation-vistaair-business.md]"
+test-frozen,V2,q-081,human_fallback_conflict,test,ESCALATE,OKF_ONLY,ESCALATED,INSUFFICIENT,false,false,false,false,false,false,,139,0,181,320,623,,cancellation-vistaair-business.md,
+test-frozen,V1,q-082,human_fallback_conflict,test,ESCALATE,,ANSWERED,,false,false,true,false,false,,,0,939,328,1267,1182,[OKF:refund-policy-general.md],refund-policy-general.md cancellation-vistaair-economy.md cancellation-skynova-economy.md,"No, refunds to credit cards and bank accounts are not handled differently in terms of processing timelines. According to the general refund policy, both credit/debit card payments and bank transfer payments are processed to the original payment method within **21 business days** of the cancellation request.
+
+[OKF:refund-policy-general.md]"
+test-frozen,V2,q-082,human_fallback_conflict,test,ESCALATE,OKF_ONLY,ESCALATED,INSUFFICIENT,false,false,false,false,false,false,,153,0,151,304,601,,cancellation-arcticjet-economy.md,
+test-frozen,V1,q-083,human_fallback_conflict,test,ESCALATE,,ESCALATED,INSUFFICIENT,false,false,false,false,false,,,0,657,201,858,992,,refund-policy-general.md cancellation-vistaair-economy.md cancellation-arcticjet-economy.md,
+test-frozen,V2,q-083,human_fallback_conflict,test,ESCALATE,OKF_ONLY,ESCALATED,INSUFFICIENT,false,false,false,false,false,false,,147,0,158,305,625,,cancellation-vistaair-business.md,
+test-frozen,V1,q-084,human_fallback_conflict,test,ESCALATE,,ANSWERED,,false,false,true,false,false,,,0,605,1020,1625,1637,[OKF:refund-policy-general.md] [OKF:cancellation-skynova-economy.md],refund-policy-general.md cancellation-skynova-economy.md no-show-policy.md,"Based on the evidence provided, the refund process and timeline depend on the specific fare type (Economy Saver or Economy Flex) and the timing of the cancellation.
+
+**Refund Process for Cash Payments:**
+According to the general policy, cash payments at the airport are refunded by **cheque**, which is mailed to the address on file [OKF:refund-policy-general.md].
+
+**Timelines:**
+The specific timeline depends on the fare rules:
+
+1.  **If you hold an Economy Saver fare:**
+    *   **More than 72 hours before departure:** The remaining balance (after a USD 45 fee) is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].
+    *   **Between 24 and 72 hours before departure:** The remaining balance (after a USD 90 fee) is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].
+    *   **Within 24 hours of departure:** The base fare and fuel surcharge are forfeited. Only airport taxes and statutory fees are refunded within **14 business days** [OKF:cancellation-skynova-economy.md].
+
+2.  **If you hold an Economy Flex fare:**
+    *   **More than 24 hours before departure:** The remaining balance (after a USD 30 fee) is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].
+    *   **Within 24 hours of departure:** The remaining balance (after a USD 60 fee) is refunded within **14 business days** [OKF:cancellation-skynova-economy.md].
+
+**Note on General Policy vs. Specific Fare Policy:**
+While the general policy states that standard refunds are processed within 21 business days [OKF:refund-policy-general.md], the"
+test-frozen,V2,q-084,human_fallback_conflict,test,ESCALATE,OKF_ONLY,ESCALATED,INSUFFICIENT,false,false,false,false,false,false,,166,0,478,644,761,,cancellation-skynova-economy.md,

@@ -324,6 +324,7 @@ async function main() {
 
   console.log('\nAll timing repetitions finished! Generating timing report...');
   await writeTimingReport(expCol, timingIds);
+  process.exit(0);
 }
 
 main().catch(err => {
