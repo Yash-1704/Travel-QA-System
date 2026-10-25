@@ -1,0 +1,298 @@
+[
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-001",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14 business days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-001",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14 business days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-002",
+    "correct": false,
+    "note": "Missing required key fact(s): \"64 kg\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-003",
+    "correct": false,
+    "note": "Missing required key fact(s): \"6 months\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-003",
+    "correct": false,
+    "note": "Missing required key fact(s): \"6 months\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-014",
+    "correct": false,
+    "note": "Missing required key fact(s): \"6 hours and 50 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-014",
+    "correct": false,
+    "note": "Missing required key fact(s): \"6 hours and 50 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-016",
+    "correct": false,
+    "note": "Missing required key fact(s): \"suspended\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-016",
+    "correct": false,
+    "note": "Missing required key fact(s): \"suspended\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-025",
+    "correct": false,
+    "note": "Missing required key fact(s): \"90 days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-025",
+    "correct": false,
+    "note": "Missing required key fact(s): \"90 days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-027",
+    "correct": false,
+    "note": "Missing required key fact(s): \"not payable\", \"Meal and refreshments\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-027",
+    "correct": false,
+    "note": "Missing required key fact(s): \"not payable\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V1",
+    "questionId": "q-028",
+    "correct": false,
+    "note": "Missing required key fact(s): \"airline fault\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "dev-1",
+    "systemName": "V2",
+    "questionId": "q-038",
+    "correct": false,
+    "note": "Missing required key fact(s): \"10 business days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-005",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14 business days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-005",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14 business days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-006",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14 business days\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-008",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14-day\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-008",
+    "correct": false,
+    "note": "Missing required key fact(s): \"14-day\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-012",
+    "correct": false,
+    "note": "Missing required key fact(s): \"500 SkyNova Miles\", \"USD 5\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-012",
+    "correct": false,
+    "note": "Missing required key fact(s): \"500 SkyNova Miles\", \"USD 5\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-019",
+    "correct": false,
+    "note": "Missing required key fact(s): \"flight management system\", \"4 hours and 5 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-019",
+    "correct": false,
+    "note": "Missing required key fact(s): \"flight management system\", \"4 hours and 5 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-021",
+    "correct": false,
+    "note": "Missing required key fact(s): \"forced opening\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-021",
+    "correct": false,
+    "note": "Missing required key fact(s): \"forced opening\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-022",
+    "correct": false,
+    "note": "Missing required key fact(s): \"8 hours and 20 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-022",
+    "correct": false,
+    "note": "Missing required key fact(s): \"8 hours and 20 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-024",
+    "correct": false,
+    "note": "Missing required key fact(s): \"conveyor belt failure\", \"Seven bags missed\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-024",
+    "correct": false,
+    "note": "Missing required key fact(s): \"conveyor belt failure\", \"Seven bags missed\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-031",
+    "correct": false,
+    "note": "Missing required key fact(s): \"USD 100 travel voucher\", \"3 hours and 30 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-031",
+    "correct": false,
+    "note": "Missing required key fact(s): \"USD 100 travel voucher\", \"3 hours and 30 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-032",
+    "correct": false,
+    "note": "Missing required key fact(s): \"7 hours and 30 minutes\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-033",
+    "correct": false,
+    "note": "Missing required key fact(s): \"no financial compensation\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-034",
+    "correct": false,
+    "note": "Missing required key fact(s): \"USD 150 cash\", \"cancel the flight\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V1",
+    "questionId": "q-044",
+    "correct": false,
+    "note": "Missing required key fact(s): \"multiple entry\".",
+    "source": "agent-proposed"
+  },
+  {
+    "runId": "test-frozen",
+    "systemName": "V2",
+    "questionId": "q-044",
+    "correct": false,
+    "note": "Missing required key fact(s): \"multiple entry\".",
+    "source": "agent-proposed"
+  }
+]

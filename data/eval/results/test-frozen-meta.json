@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-24T18:57:01.315Z",
+  "runId": "test-frozen",
+  "split": "test",
+  "GROQ_MODEL": "qwen/qwen3.8-27b",
+  "GEMINI_EMBED_MODEL": "gemini-embedding-001",
+  "RAG_SIM_FLOOR": 0.3,
+  "gitCommitHash": "ee41f37997be108dfdc348b3d0348cfd3b5bc9e8",
+  "promptHashes": {
+    "classifySha256": "c194271cf4dac4d5bd2cc70845e385d3ff040d8de589a8959ae24b184765806f",
+    "answerSha256": "7f902295ed715704c2b9e86db67ba36d2a858200f19878bbac37278b84b8e319"
+  },
+  "counts": {
+    "okfFiles": 18,
+    "notices": 30,
+    "questionsTotal": 84,
+    "splitQuestions": 56
+  }
+}
