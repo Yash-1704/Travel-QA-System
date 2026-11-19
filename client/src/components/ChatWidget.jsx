@@ -8,6 +8,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import botIcon from '../assets/bot-icon.png';
 
 export default function ChatWidget() {
   const location = useLocation();
@@ -210,7 +211,11 @@ export default function ChatWidget() {
           onClick={() => setIsOpen(true)}
           className="flex items-center gap-2.5 bg-sky-600 hover:bg-sky-500 text-white px-4 py-3 rounded-full shadow-lg shadow-sky-600/30 hover:scale-105 transition-all font-semibold text-sm group"
         >
-          <span className="text-lg">💬</span>
+          <img
+            src={botIcon}
+            alt="Travel Assistant Icon"
+            className="w-6 h-6 rounded-full object-cover shadow-sm ring-1 ring-white/30"
+          />
           <span>Ask Travel Assistant</span>
         </button>
       )}

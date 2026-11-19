@@ -11,6 +11,7 @@ import React from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext.jsx';
 import { AGENCY_NAME } from '../config.js';
+import logoImg from '../assets/logo-white.png';
 
 export default function NavBar() {
   const { user, logout } = useAuth();
@@ -25,9 +26,9 @@ export default function NavBar() {
     <nav className="bg-slate-900 border-b border-slate-800 text-white sticky top-0 z-40 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center font-bold text-white shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
-            ✈
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center p-1 font-bold text-white shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform overflow-hidden">
+            <img src={logoImg} alt="Reminisce Logo" className="w-full h-full object-contain" />
           </div>
           <span className="font-bold text-lg tracking-tight text-slate-100 group-hover:text-sky-400 transition-colors">
             {AGENCY_NAME}
@@ -40,7 +41,7 @@ export default function NavBar() {
           <NavLink
             to="/flights"
             className={({ isActive }) =>
-              `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+              `px-2 sm:px-3 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
                 isActive ? 'text-sky-400 bg-slate-800' : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
               }`
             }
@@ -92,7 +93,7 @@ export default function NavBar() {
           <NavLink
             to="/lab/chat"
             className={({ isActive }) =>
-              `px-2.5 py-1.5 rounded-md text-xs font-semibold tracking-wide border transition-all ${
+              `hidden sm:inline-flex px-2.5 py-1.5 rounded-md text-xs font-semibold tracking-wide border transition-all ${
                 isActive
                   ? 'bg-sky-500/10 border-sky-500 text-sky-400'
                   : 'border-slate-700 text-slate-400 hover:text-slate-200 hover:border-slate-600'
@@ -120,16 +121,16 @@ export default function NavBar() {
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <Link
                 to="/login"
-                className="px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+                className="px-2.5 sm:px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
               >
                 Log In
               </Link>
               <Link
                 to="/register"
-                className="px-3 py-1.5 rounded-md text-sm font-medium text-white bg-sky-600 hover:bg-sky-500 rounded-md shadow-sm transition-colors"
+                className="px-2.5 sm:px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium text-white bg-sky-600 hover:bg-sky-500 shadow-sm transition-colors"
               >
                 Sign Up
               </Link>

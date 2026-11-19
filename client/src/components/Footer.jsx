@@ -15,9 +15,9 @@ export default function Footer() {
           <span className="font-semibold text-amber-400">⚠️ Research Demo Notice: </span>
           {DEMO_DATA_NOTICE}
         </p>
-        <div className="flex items-center gap-4 text-slate-400">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-slate-400">
           <span>Travel QA Research Platform</span>
-          <span>•</span>
+          <span className="hidden sm:inline">•</span>
           <span>V1 vs. V2 Evaluation Engine</span>
         </div>
       </div>
